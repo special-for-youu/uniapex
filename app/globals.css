@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        /* 
+      Theme: Emerald + Slate (App Store for Education)
+      Light Mode 
+    */
+        --background: 210 40% 96.1%;
+        /* #F1F5F9 (Slate-100) - Default Dashboard/Auth Bg */
+        --foreground: 222 47.4% 11.2%;
+        /* #0F172A (Slate-900) - Main Text */
+
+        --card: 0 0% 100%;
+        /* #FFFFFF - White Cards */
+        --card-foreground: 222 47.4% 11.2%;
+        /* #0F172A */
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 222 47.4% 11.2%;
+
+        --primary: 158 82% 42%;
+        /* #10B981 (Emerald-500) - Action/Success */
+        --primary-foreground: 0 0% 100%;
+
+        --secondary: 217 91% 60%;
+        /* #3B82F6 (Blue-500) - Info/Links */
+        --secondary-foreground: 0 0% 100%;
+
+        --muted: 210 40% 96.1%;
+        /* #F1F5F9 */
+        --muted-foreground: 215 16% 47%;
+        /* #64748B (Slate-500) */
+
+        --accent: 210 40% 96.1%;
+        /* #F1F5F9 */
+        --accent-foreground: 222 47.4% 11.2%;
+
+        --destructive: 0 84% 60%;
+        /* #EF4444 (Red-500) - Danger */
+        --destructive-foreground: 0 0% 100%;
+
+        --border: 214.3 31.8% 91.4%;
+        /* #E2E8F0 (Slate-200) */
+        --input: 214.3 31.8% 91.4%;
+        --ring: 158 82% 42%;
+        /* Emerald ring */
+
+        --radius: 0.75rem;
+        /* Rounded-xl */
+
+        /* Custom Variables for specific pages */
+        --landing-bg: 0 0% 100%;
+        /* #FFFFFF */
+        --sidebar-bg: 0 0% 100%;
+        /* #FFFFFF */
+        --universities-bg: 210 40% 98%;
+        /* #F8FAFC (Slate-50) */
+
+        /* Legacy/Compatibility */
+        --main-bg: hsl(210, 40%, 96.1%);
+        --main-container-bg: hsl(0, 0%, 100%);
+        --text-color: hsl(222, 47.4%, 11.2%);
+        --item-hover: hsl(210, 40%, 96.1%);
+    }
+
+    .dark {
+        /* 
+      Theme: Emerald + Slate (App Store for Education)
+      Dark Mode 
+    */
+        --background: 222 47.4% 11.2%;
+        /* #0F172A (Slate-900) - Default Dashboard/Auth Bg */
+        --foreground: 210 40% 98%;
+        /* #F8FAFC (Slate-50) - Main Text */
+
+        --card: 215 27.9% 16.9%;
+        /* #1E293B (Slate-800) - Dark Cards */
+        --card-foreground: 210 40% 98%;
+
+        --popover: 215 27.9% 16.9%;
+        --popover-foreground: 210 40% 98%;
+
+        --primary: 151 55% 41.5%;
+        /* #34D399 (Emerald-400) - Brighter for Dark Mode */
+        --primary-foreground: 222 47.4% 11.2%;
+
+        --secondary: 217 91% 60%;
+        /* #3B82F6 */
+        --secondary-foreground: 0 0% 100%;
+
+        --muted: 215 27.9% 16.9%;
+        --muted-foreground: 215 20.2% 65.1%;
+        /* #94A3B8 (Slate-400) */
+
+        --accent: 215 27.9% 16.9%;
+        --accent-foreground: 210 40% 98%;
+
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 215 27.9% 16.9%;
+        /* #1E293B */
+        --input: 215 27.9% 16.9%;
+        --ring: 151 55% 41.5%;
+
+        /* Custom Variables for specific pages */
+        --landing-bg: 222 47.4% 5%;
+        /* #020617 (Slate-950) - Deep Space */
+        --sidebar-bg: 215 27.9% 16.9%;
+        /* #1E293B */
+        --universities-bg: 222 47.4% 5%;
+        /* #020617 */
+
+        /* Legacy/Compatibility */
+        --main-bg: hsl(222, 47.4% 11.2%);
+        --main-container-bg: hsl(215, 27.9% 16.9%);
+        --text-color: hsl(210, 40% 98%);
+        --item-hover: hsl(215, 27.9% 16.9%);
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+}

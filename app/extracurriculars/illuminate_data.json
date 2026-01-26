@@ -1,0 +1,66 @@
+[
+  {
+    "id": "illuminate-0",
+    "title": "The American Computer Science League",
+    "description": "",
+    "category": "Other",
+    "organization": "Illuminate",
+    "location": "Various",
+    "start_date": "",
+    "end_date": "",
+    "application_deadline": "",
+    "website_url": "https://www.acsl.org/",
+    "tags": [
+      "",
+      "The American Computer Science League"
+    ]
+  },
+  {
+    "id": "illuminate-1",
+    "title": "CyberPatriot",
+    "description": "",
+    "category": "Other",
+    "organization": "Illuminate",
+    "location": "Various",
+    "start_date": "",
+    "end_date": "",
+    "application_deadline": "",
+    "website_url": "https://www.uscyberpatriot.org/",
+    "tags": [
+      "",
+      "CyberPatriot"
+    ]
+  },
+  {
+    "id": "illuminate-2",
+    "title": "First Robotics Competition",
+    "description": "",
+    "category": "Competition",
+    "organization": "Illuminate",
+    "location": "Various",
+    "start_date": "",
+    "end_date": "",
+    "application_deadline": "",
+    "website_url": "https://www.firstinspires.org/robotics/frc",
+    "tags": [
+      "",
+      "First Robotics Competition"
+    ]
+  },
+  {
+    "id": "illuminate-3",
+    "title": "VEX Robotics",
+    "description": "",
+    "category": "Other",
+    "organization": "Illuminate",
+    "location": "Various",
+    "start_date": "",
+    "end_date": "",
+    "application_deadline": "",
+    "website_url": "https://www.vexrobotics.com/",
+    "tags": [
+      "",
+      "VEX Robotics"
+    ]
+  }
+]

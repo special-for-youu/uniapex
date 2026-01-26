@@ -1,0 +1,1001 @@
+id,name,acceptance_rate,min_ielts,min_gpa,min_sat,application_deadline,enrollment_size,international_students_percent
+czech-technical-university,"Czech Technical University",50.00,6.0,,,"March 31",11540,20.00
+jaen-university,"Jaen university",50.00,,5.00,,"July 4",11464,10.00
+university-of-boston,"University of Boston",14.10,7.0,,,"January 4",18343,19.00
+academy-of-arts-architecture-and-design-in-prague,"Academy of Arts, Architecture and Design in Prague",12.00,6.5,3.40,1250,"Early March",450,18.00
+swps-university-of-social-sciences-and-humanities,"SWPS University of Social Sciences and Humanities",60.00,6.0,2.70,,"August 31",7500,15.00
+university-of-lynchburg,"University of Lynchburg",73.00,6.0,3.00,1000,Rolling,2000,3.00
+mcmurry-university,"McMurry University",63.00,6.0,2.50,900,Rolling,969,3.00
+american-collegiate-live,"American Collegiate Live",90.00,6.0,2.50,1050,"Fall Term",4000,30.00
+agnes-scott-college,"Agnes Scott College",69.00,6.5,3.50,1250,Mid-November,980,11.00
+constructor-university,"Constructor University",30.00,6.5,3.00,1200,"May 1",1600,80.00
+alaska-bible-college,"Alaska Bible College",100.00,6.5,3.40,1250,"Rolling, apply by Mid-May for Fall scholarships",26,10.00
+the-university-of-arizona,"The University of Arizona",87.00,6.5,3.00,1120,Rolling,36723,10.00
+sejong-university,"Sejong University",13.00,5.5,3.00,1100,"November 30",12000,10.00
+albertus-magnus-college,"Albertus Magnus College",87.00,6.5,3.40,1250,"Early February",550,7.00
+ca-foscari-university-of-venice,"Ca' Foscari University of Venice",,,,,,,
+singapore-university-of-design-and-technology,"Singapore University of Design and Technology",13.00,6.5,3.50,1350,"March 19",2500,40.00
+lim-college,"LIM College",,,,,,,
+northwestern-university-in-qatar,"Northwestern University in Qatar",,,,,,,
+czech-university-of-life-sciences-prague,"Czech University of Life Sciences  Prague",,,,,,,
+alma-college,"Alma College",72.00,6.5,3.60,1280,"December 1",1450,6.00
+nottingham-trent-university,"Nottingham Trent University",,,,,,,
+vilnius-gediminas-technical-university,"Vilnius Gediminas Technical University",,,,,,,
+hong-kong-metropolitan-university,"Hong Kong Metropolitan University",,,,,,,
+university-of-hartford,"University of Hartford",,,,,,,
+amda-college-performing-arts,"AMDA College of the Performing Arts",65.00,5.5,2.50,1050,February,1489,3.00
+missouri-university-of-science-and-technology,"Missouri University of Science and Technology",81.00,6.0,3.00,1190,"August 1",6300,14.00
+american-college-thessaloniki,"American College of Thessaloniki",80.00,6.0,2.50,1000,August,400,60.00
+berlin-technical-university,"Berlin Technical University",35.00,6.0,3.00,,"August 31",20000,28.00
+hanover-college,"Hanover College",74.00,6.0,3.00,1040,Rolling,1144,3.00
+lingnan-university,"Lingnan University",35.00,6.0,3.00,1100,"May 31",3500,20.00
+de-montfort-university-dubai,"De Montfort University Dubai",65.00,6.0,2.50,,Rolling,800,85.00
+american-collegiate-dc,"American Collegiate DC",75.00,5.5,2.50,1050,July,300,100.00
+palm-beach-atlantic-university,"Palm Beach Atlantic University",65.00,6.0,3.00,1040,Rolling,3080,2.00
+abu-dhabi-university,"Abu Dhabi University",75.00,6.5,3.40,1250,June,6500,45.00
+kings-college-london,"King's College London",13.00,6.5,3.30,1300,"January 29",19500,45.00
+academy-of-performing-arts-in-prague,"Academy of Performing Arts in Prague",15.00,6.5,3.50,1250,"Early March",1700,22.00
+arizona-state-university-tempe-campus,"Arizona State University (Tempe Campus)",89.80,6.0,3.00,1120,Rolling,59455,15.00
+warsaw-university,"Warsaw University",15.00,6.5,3.00,1200,"July 15",37500,12.00
+university-of-dubuque,"University of Dubuque",75.00,6.0,2.50,,Rolling,1800,5.00
+eureka-college,"Eureka College",72.00,6.0,2.50,900,Rolling,534,2.00
+air-force-academy,"Air Force Academy",12.00,7.5,3.90,1500,January,4000,0.90
+xiamen-university,"Xiamen University",25.00,6.0,3.00,1100,"April 30",20000,5.00
+amherst-college,"Amherst College",9.00,7.0,3.70,1430,"January 7",1855,13.00
+albright-college,"Albright College",68.00,6.5,3.50,1250,"Early March",1300,4.00
+alverno-college,"Alverno College",92.00,6.5,3.40,1250,"Early March",650,2.00
+the-university-of-newcastle,"The University of Newcastle",,,,,,,
+mykolas-romeris-university,"Mykolas Romeris University",,,,,,,
+texas-am-corpus-christi-university,"Texas A&M Corpus Christi University",,,,,,,
+university-of-victoria,"University of Victoria",,,,,,,
+colgate-university,"Colgate University",,,,,,,
+carleton-university,"Carleton University",22.00,6.5,3.00,,"April 1",27000,17.00
+the-university-of-hong-kong,"The University of Hong Kong",20.00,6.5,3.50,1300,"January 2",18000,40.00
+shenandoah-university,"Shenandoah University",72.00,6.0,2.50,,Rolling,2838,2.00
+university-of-toronto,"University of Toronto",43.00,6.5,3.00,1200,"January 15",67000,25.00
+woosong-university,"Woosong University",60.00,5.5,2.50,,Rolling,2500,20.00
+university-of-chemistry-and-technology,"University of Chemistry and Technology",45.00,6.0,2.70,,"March 31",3500,12.00
+moravian-university,"Moravian University",74.00,6.5,3.00,1100,"March 1",2300,5.00
+tartu-university,"Tartu University",20.00,6.0,3.00,,"April 15",11000,15.00
+naba-milan,"NABA Milan",60.00,5.0,2.50,,Rolling,1800,70.00
+hamad-bin-khalifa-university-hbku,"Hamad Bin Khalifa University (HBKU)",18.00,6.0,3.00,1200,"February 1",600,65.00
+university-of-the-pacific,"University of the Pacific",70.30,6.5,3.00,1100,"January 15",3600,9.00
+qatar-university,"Qatar University",20.00,5.5,2.50,980,"May 26",14000,15.00
+manchester-metropolitan-university,"Manchester Metropolitan University",55.00,6.0,2.70,,"January 29",28000,16.00
+iesa,IESA,30.00,6.5,3.30,1200,"May 15",400,15.00
+hong-kong-baptist-university,"Hong Kong Baptist University",,,,,,,
+harvard-university,"Harvard University",,,,,,,
+concordia-university-chicago,"Concordia University Chicago",,,,,,,
+university-of-simon-fraser-fraser-international-college,"University of Simon Fraser (Fraser International College)",,,,,,,
+saint-leo-university,"Saint Leo University",,,,,,,
+university-of-pavia,"University of Pavia",,,,,,,
+california-state-university-csu-san-marcos,"⁠California State University (CSU) San Marcos",,,,,,,
+rochester-university,"Rochester University",40.00,7.0,3.50,1330,"January 15",6700,27.00
+fairfield-university,"Fairfield University",52.00,6.5,3.00,1180,"January 15",4500,6.00
+academy-of-fine-arts,"Academy of Fine Arts",7.00,6.5,3.50,1250,"Late January",270,9.00
+university-of-waikato-college,"University of Waikato College",70.00,6.0,2.70,,Rolling,8000,20.00
+wilfrid-laurier-international-college,"Wilfrid Laurier International College",70.00,6.0,2.70,,Rolling,300,95.00
+pace-university-westchester-campus,"Pace University (Westchester Campus)",84.00,6.5,3.00,1030,Rolling,3740,8.00
+university-of-aberdeen,"University of Aberdeen",56.00,6.0,3.00,,"January 15",11500,25.00
+university-of-leuven-catolic,"University of Leuven Catolic",20.00,6.5,3.30,1200,"March 1",38000,21.00
+corvinus-university-of-budapest,"Corvinus University of Budapest",45.00,6.0,3.00,,"May 31",4500,15.00
+aalto-university,"Aalto University",15.00,6.5,3.70,1350,Mid-January,7000,28.00
+university-of-massachusetts-boston,"University of Massachusetts Boston",79.70,6.0,3.00,1040,"March 1",13725,9.00
+shanghai-jiao-tong-university,"Shanghai Jiao Tong University",,,,,,,
+xiamen-university-malaysia,"Xiamen University Malaysia",,,,,,,
+adelphi-university,"Adelphi University",74.00,6.5,3.40,1250,"Early February",5200,10.00
+trinity-christian-college,"Trinity Christian College",,,,,,,
+tallinn-university-of-technology-taltech,"Tallinn University of Technology ( TalTech)",,,,,,,
+george-washington-university,"George Washington University",,,,,,,
+university-of-nebraska-omaha,"University of Nebraska Omaha",85.00,6.0,2.50,,Rolling,12500,5.00
+auburn-university-at-montgomery,"Auburn University at Montgomery",93.00,6.0,2.00,,Rolling,4324,3.00
+arizona-state-university-polytechnic-campus,"Arizona State University (Polytechnic Campus)",88.00,6.0,3.00,1120,Rolling,2300,11.00
+sapienza-university-of-rome,"Sapienza University of Rome",32.00,6.0,3.00,,"April 30",105000,7.00
+northeastern-university,"Northeastern University",6.80,6.5,3.00,1450,"January 15",18993,25.00
+karoli-gaspar-university,"Karoli Gaspar University",60.00,6.0,2.70,,"June 15",7000,8.00
+unist-ulsan-national-institute-of-science-technology,"UNIST | Ulsan National Institute of Science & Technology",15.00,6.0,3.00,1200,"November 30",4500,10.00
+pusan-national-university,"Pusan National University",12.50,6.0,3.00,1200,"November 30",20000,8.00
+washington-jefferson-college,"Washington & Jefferson College",73.00,6.5,3.00,1100,Rolling,1200,4.00
+kyunghee-university,"Kyunghee University",13.20,6.0,3.00,1200,"November 30",21000,12.50
+york-college-of-pennsylvania,"York College of Pennsylvania",75.00,6.0,3.00,1000,Rolling,3900,1.00
+peking-university,"Peking University",,,,,,,
+kaunas-univeristy-of-technology,"Kaunas Univeristy of Technology",,,,,,,
+the-hong-kong-polytechnic-university,"The Hong Kong Polytechnic University",,,,,,,
+suffolk-university,"Suffolk University",,,,,,,
+brunel-university-london-pathway-college,"Brunel University London Pathway College",,,,,,,
+anglia-ruskin-university,"Anglia Ruskin University",68.00,6.0,2.50,,Rolling,17000,15.00
+kingston-university,"Kingston University",35.00,6.0,2.70,,"January 29",15000,25.00
+university-of-manchester,"University of Manchester",52.00,6.5,3.30,1250,"January 31",31000,40.00
+liverpool-john-moores-university-ljmu,"Liverpool John Moores University (LJMU)",54.00,6.0,2.70,,"January 29",20000,14.00
+the-hong-kong-university-of-science-and-technology,"The Hong Kong University of Science and Technology",20.00,6.0,3.00,1200,"January 31",11000,30.00
+bridgewater-college,"Bridgewater College",74.00,6.0,2.50,,Rolling,1500,3.00
+shandong-university,"Shandong University",18.00,6.0,3.00,,"May 31",35000,3.50
+into-manchester,"INTO Manchester",70.00,5.0,2.50,,Rolling,150,98.00
+edgewood-college,"Edgewood College",73.00,6.0,2.70,,Rolling,1800,4.00
+dean-college,"Dean College",75.00,6.0,2.50,,Rolling,1100,5.00
+hotel-institute-montreux,"Hotel Institute Montreux",,,,,,,
+queen-mary-university-of-london-russell-group,"Queen Mary University of London (Russell Group)",,,,,,,
+swiss-hotel-management-school,"Swiss Hotel Management School",85.00,5.5,2.50,,Rolling,800,90.00
+lynn-university,"Lynn University",,,,,,,
+webster-university-usa,"Webster University USA",,,,,,,
+university-of-westminster,"University of Westminster",,,,,,,
+bournemouth-university,"Bournemouth University",,,,,,,
+lewis-university,"Lewis University",,,,,,,
+hiram-college,"Hiram College",,,,,,,
+bellarmine-university,"Bellarmine University",,,,,,,
+lehigh-university,"Lehigh University",,,,,,,
+the-hague-pathway-college-the-hague-university-of-applied-sciences,"The Hague Pathway College (The Hague University of Applied Sciences)",,,,,,,
+technical-university-of-munich-tum,"Technical University of Munich (TUM)",8.00,6.5,3.00,1300,"May 31",32000,41.00
+florida-atlantic-university,"Florida Atlantic University",,,,,,,
+twente-pathway-college-university-of-twente,"Twente Pathway College (University of Twente)",,,,,,,
+miami-university,"Miami University",72.00,6.5,3.50,1140,"February 1",17153,5.00
+bentley-university,"Bentley University",,,,,,,
+george-brown-college,"George Brown College",70.00,6.0,2.70,,"February 1",21000,29.00
+seneca-college,"Seneca College",70.00,6.0,2.70,,Rolling,22000,25.00
+university-of-sussex,"⁠University of Sussex",50.00,6.0,3.00,,"January 29",14000,30.00
+national-college-of-ireland,"National College of Ireland",45.00,6.0,2.70,,Rolling,2800,18.00
+kookmin-university,"Kookmin University",15.00,5.5,2.50,1100,"November 30",18000,8.00
+university-of-messina,"University of Messina",60.00,5.5,2.50,,Rolling,18000,7.00
+istituto-marangoni-london,"Istituto Marangoni (London)",60.00,6.0,2.70,,Rolling,800,85.00
+charles-university,"Charles University",18.00,6.5,3.00,1200,"February 28",30000,17.00
+university-of-saint-mary,"University of Saint Mary",67.00,6.0,2.50,1020,Rolling,750,5.00
+university-of-british-columbia,"University of British Columbia",54.00,6.5,3.00,1290,"January 15",45000,32.00
+eu-business-school,"EU Business School",70.00,6.0,2.50,,Rolling,1500,95.00
+blackburn-college,"Blackburn College",67.00,6.0,2.50,920,Rolling,520,3.00
+tsinghua-university,"Tsinghua University",0.10,6.5,3.50,1400,"March 31",3800,8.00
+university-of-st-andrews,"University of St Andrews",8.30,6.5,3.50,1350,"January 29",7500,45.00
+vytautas-magnus-universityvmu,"Vytautas Magnus University(VMU)",35.00,6.0,2.50,,"July 1",6000,12.00
+johns-hopkins-university,"Johns Hopkins University",8.00,7.0,3.70,1450,"January 2",6500,23.00
+city-university-of-hong-kong,"City University of Hong Kong",35.00,6.0,3.00,1190,"January 31",10000,20.00
+istituto-marangoni-paris,"Istituto Marangoni (Paris)",60.00,6.0,2.50,,Rolling,300,90.00
+leeds-beckett-university,"⁠Leeds Beckett University",58.00,6.0,2.70,,Rolling,22000,12.00
+istituto-marangoni-florence,"Istituto Marangoni (Florence)",,,,,,,
+simmons-university-undergraduate-programs-for-women,"Simmons University (undergraduate programs for women)",,,,,,,
+university-of-chicago,"University of Chicago",,,,,,,
+roosevelt-university,"Roosevelt University",80.00,6.0,2.50,,Rolling,4000,8.00
+virginia-wesleyan-university,"Virginia Wesleyan University",76.00,6.0,2.50,1000,Rolling,1400,5.00
+notre-dame-university,"Notre Dame University",13.00,7.0,3.70,1400,"January 1",8973,10.00
+reed-college,"Reed College",30.00,7.0,3.50,1380,"January 15",1400,15.00
+dublin-city-university,"Dublin City University",,,,,,,
+icn-international-college,"ICN International College",,,,,,,
+university-of-strathclyde,"University of Strathclyde",15.00,6.0,3.00,,"January 31",15000,25.00
+massachusetts-institute-of-technology,"Massachusetts Institute of Technology (MIT)",,,,,,,
+university-of-vienna,"University of Vienna",35.00,6.0,2.50,,"September 5",30000,27.00
+new-york-film-academy,"New York Film Academy",,,,,,,
+cornell-university,"Cornell University",8.70,7.0,3.80,1400,"January 2",16215,24.00
+gonzaga-university,"Gonzaga University",,,,,,,
+ohio-wesleyan-university,"Ohio Wesleyan University",74.00,6.5,3.00,1100,Rolling,1400,10.00
+montclair-state-university,"Montclair State University",82.00,6.0,3.00,1060,"March 1",16572,2.00
+gist-gwangju-institute-of-science-and-technology,"GIST | Gwangju Institute of Science and Technology",12.00,6.5,3.50,1400,"November 30",450,15.00
+stanford-university,"Stanford University",3.90,7.0,3.70,1460,"January 5",7645,23.00
+the-education-university-of-hong-kong-eduhk,"The Education University of Hong Kong (EdUHK)",18.00,6.0,3.00,,"January 31",4000,8.00
+the-university-of-tokyo,"The University of Tokyo",11.00,6.5,3.50,1400,"December 1",14000,10.00
+american-university,"American University",35.00,6.5,3.00,1230,"January 15",8888,15.00
+concordia-university,"Concordia University",72.00,6.5,2.70,,"March 1",37000,23.00
+university-of-turin,"University of Turin",55.00,6.0,3.00,,"April 30",35000,7.00
+university-of-nottingham,"University of Nottingham",11.40,6.0,3.30,1290,"January 31",26000,22.00
+wilfrid-laurier-university,"Wilfrid Laurier University",70.00,6.5,3.00,,"April 1",17000,10.00
+avila-university,"Avila University",78.00,6.0,2.50,1000,Rolling,1200,5.00
+auburn-university-montgomery,"Auburn University at Montgomery",92.00,6.0,2.00,920,Rolling,4471,3.00
+missouri-university-science-and-technology,"Missouri University of Science and Technology",84.00,6.0,3.00,1130,"August 1",5967,14.00
+cardiff-university,"Cardiff University",14.50,6.5,3.30,1250,"January 31",24000,24.00
+carnegie-mellon-university-qatar,"Carnegie Mellon University in Qatar",12.00,6.5,3.50,1400,"February 1",400,70.00
+university-of-buffalo,"University of Buffalo",68.00,6.5,3.00,1140,"May 1",23467,15.00
+university-arizona,"The University of Arizona",85.00,6.5,3.00,1090,Rolling,36753,12.00
+university-of-east-anglia,"University of East Anglia",14.50,6.0,3.00,1100,"January 15",14000,25.00
+transport-and-telecommunication-institute-tsi,"Transport and Telecommunication Institute (TSI)",60.00,5.5,2.50,,Rolling,700,30.00
+budapest-university-of-technology-and-economics,"Budapest University of Technology and Economics",45.00,6.0,3.00,1100,"May 15",15000,12.00
+st-thomas-aquinas-college,"St. Thomas Aquinas College",,,,,,,
+webster-university,"Webster University",,,,,,,
+texas-state-university,"Texas State University",,,,,,,
+western-oregon-university,"Western Oregon University",,,,,,,
+university-hartford,"University of Hartford",,,,,,,
+tallinn-university,"Tallinn University",,,,,,,
+michigan-state-university,"Michigan State University",76.00,6.5,3.00,1140,Rolling,40470,9.00
+new-york-university-abu-dhabi,"New York University Abu Dhabi",4.00,7.0,3.70,1400,"January 5",1600,85.00
+university-of-pisa,"University of Pisa",60.00,6.0,2.50,,"May 31",22000,7.00
+city-university-malaysia,"City University Malaysia",60.00,5.5,2.50,,Rolling,1500,15.00
+columbia-university,"Columbia University",3.90,7.0,3.90,1480,"January 1",8596,22.00
+university-of-kansas,"University of Kansas",91.00,6.0,3.00,1080,Rolling,21541,9.00
+louisiana-state-university,"Louisiana State University",73.00,6.5,3.00,1080,"May 15",30750,5.00
+tufts-university,"Tufts University",9.00,7.0,3.00,1350,"January 15",6768,16.00
+california-state-university,"California State University",63.00,6.0,3.00,1000,"November 30",419830,5.00
+university-dubuque,"University of Dubuque",75.00,6.0,2.50,,Rolling,1700,5.00
+university-of-huddersfield,"⁠University of Huddersfield",68.00,6.0,2.70,,Rolling,19000,22.00
+dakota-wesleyan-university,"Dakota Wesleyan University",67.00,6.0,2.50,,Rolling,700,5.00
+university-of-connecticut,"University of Connecticut",49.00,6.5,3.00,1170,"January 15",24079,8.00
+university-of-cassino-and-southern-lazio,"University of Cassino and Southern Lazio",60.00,5.5,2.50,,"July 31",6500,8.00
+oklahoma-city-university,"Oklahoma City University",77.00,6.0,3.00,1060,Rolling,2400,5.00
+schreiner-university,"Schreiner University",64.00,6.0,2.50,900,Rolling,1250,3.00
+university-chicago,"University of Chicago",5.40,7.0,3.70,1500,"January 2",7675,23.00
+university-of-pennsylvania,"University of Pennsylvania",,,,,,,
+university-pennsylvania,"University of Pennsylvania",,,,,,,
+aurak-american-university-of-ras-al-khaimah,"AURAK (American University of Ras Al Khaimah)",,,,,,,
+university-illinois-chicago,"University of Illinois Chicago",,,,,,,
+university-of-bristol,"University of Bristol",12.10,6.5,3.50,1300,"January 29",22000,23.00
+university-hong-kong,"The University of Hong Kong",,,,,,,
+holy-cross-college-at-notre-dame,"Holy Cross College at Notre Dame",72.00,6.5,3.00,1070,Rolling,534,3.00
+university-college-dublin,"University College Dublin",20.00,6.5,3.00,,Rolling,22000,33.00
+university-of-leeds,"University of Leeds",,,,,,,
+semmelweis-university,"Semmelweis University",,,,,,,
+university-pacific,"University of the Pacific",93.00,6.5,3.00,1080,Rolling,3600,12.00
+university-of-economics-and-business,"University of Economics and Business",12.00,6.5,3.30,1250,"April 30",12000,15.00
+university-connecticut,"University of Connecticut",49.00,6.5,3.00,1170,"February 1",24020,8.00
+university-oregon,"University of Oregon",86.00,6.5,3.00,1100,"January 15",20875,13.00
+university-of-simon-fraser,"University of Simon Fraser",59.00,6.5,3.00,,"January 31",25185,21.00
+university-lynchburg,"University of Lynchburg",72.00,6.0,3.00,1050,Rolling,2000,3.00
+randolph-college,"Randolph College",75.00,6.0,3.00,1020,Rolling,550,10.00
+fordham-university,"Fordham University",54.00,7.0,3.00,1280,"January 15",10237,12.00
+university-texas-san-antonio,"The University of Texas at San Antonio",84.00,6.0,2.50,990,"May 1",32234,2.00
+washington-state-university,"Washington State University",73.00,6.5,3.00,1060,"May 1",25000,8.00
+ithaca-college,"Ithaca College",74.00,6.5,3.00,1100,"February 1",5100,6.00
+barton-college,"Barton College",68.00,6.0,2.50,900,Rolling,1100,5.00
+university-st-andrews,"University of St Andrews",8.30,6.5,3.70,1350,"January 29",7300,45.00
+eotvos-lorand-university,"Eotvos Lorand University",40.00,6.0,3.00,,"May 31",22000,14.00
+university-of-calgary,"University of Calgary",,,,,,,
+warsaw-university-of-technology-wut,"Warsaw University of Technology (WUT)",,,,,,,
+york-college-pennsylvania,"York College of Pennsylvania",,,,,,,
+cornish-college-of-the-arts,"Cornish College of the Arts",,,,,,,
+herzing-university,"Herzing University",,,,,,,
+polytechnic-university-of-milan,"Polytechnic University of Milan",43.00,6.0,3.00,1100,"March 4",25000,30.00
+new-york-university,"New York University",,,,,,,
+university-of-charleston,"University of Charleston",,,,,,,
+budapest-business-university,"Budapest Business University",,,,,,,
+ucl-university-college-london,"UCL (University College London)",,,,,,,
+vienna-university-of-technology,"Vienna University of Technology",,,,,,,
+tor-vergata-university-of-rome,"Tor Vergata University of Rome",,,,,,,
+university-massachusetts-boston,"University of Massachusetts Boston",80.00,6.0,3.00,1060,Rolling,13784,10.00
+kyungbok-university,"Kyungbok University",,,,,,,
+university-of-bologna,"University of Bologna",55.00,6.0,2.70,,"March 31",64000,8.00
+forth-valley-college,"Forth Valley College",60.00,6.0,2.70,,Rolling,1500,12.00
+university-dayton,"University of Dayton",72.00,6.0,3.00,1110,Rolling,8623,5.00
+university-of-dayton,"University of Dayton",74.00,6.0,3.00,1110,Rolling,8878,7.00
+northwestern-university-qatar,"Northwestern University in Qatar",10.00,7.0,3.70,1400,"January 15",600,70.00
+international-black-sea-university,"International Black Sea University",45.00,6.0,2.50,,"August 15",2000,55.00
+university-of-the-arts-london,"University of The Arts London",18.00,6.0,3.00,,"January 15",18000,47.00
+northwestern-university,"Northwestern University",7.00,7.0,3.70,1460,"January 2",8365,11.00
+klaipeda-university,"Klaipeda University",60.00,5.5,2.50,,"July 1",2500,8.00
+eka-university-of-applied-sciences,"EKA University of Applied Sciences",60.00,5.5,2.00,,"July 1",800,15.00
+the-university-of-western-australia,"The University of Western Australia",40.00,6.5,3.00,,Rolling,24000,25.00
+taylors-university,"Taylor's University",60.00,6.0,2.50,1100,Rolling,8000,25.00
+city-st-georges-university-of-london,"City St George's, University of London",13.00,6.5,3.30,,"January 29",4500,25.00
+western-new-england-university,"Western New England University",78.00,6.0,3.00,1000,Rolling,2554,3.00
+university-of-economics-and-human-sciences-in-warsaw,"University of Economics and Human Sciences in Warsaw",60.00,6.0,2.70,,"September 15",3500,15.00
+korea-university,"Korea University",5.20,6.0,3.00,1300,"November 30",21000,12.50
+university-of-oklahoma,"University of Oklahoma",72.80,6.5,3.00,1090,"February 1",23000,9.00
+university-of-utah,"University of Utah",,,,,,,
+curtin-university-singapore,"Curtin University Singapore",,,,,,,
+milan-university,"Milan University",60.00,6.0,2.50,,"April 30",43000,8.00
+vilnius-university,"Vilnius University",,,,,,,
+toronto-metropolitan-university,"Toronto Metropolitan University",,,,,,,
+university-of-brescia,"University of Brescia",,,,,,,
+university-of-illinois-chicago,"University of Illinois Chicago",,,,,,,
+edith-cowan-university-australia,"Edith Cowan University Australia",,,,,,,
+queens-college-global-student-success-program,"Queens College Global Student Success Program",,,,,,,
+university-of-padova,"University of Padova",,,,,,,
+tianjin-university,"Tianjin University",,,,,,,
+university-of-oregon,"University of Oregon",,,,,,,
+georgetown-university-in-qatar,"Georgetown University in Qatar",14.00,7.0,3.50,1350,"January 15",650,90.00
+lazarski-university,"Lazarski University",60.00,6.0,2.70,,Rolling,4000,30.00
+nbs-neuroscience-business-school,"NBS | Neuroscience Business School",60.00,6.0,2.70,,Rolling,250,70.00
+chinese-university-of-hong-kong,"Chinese University of Hong Kong",14.00,6.5,3.00,1250,"January 4",14000,20.00
+university-of-szeged,"University of Szeged",60.00,6.0,3.00,,"May 31",12000,12.00
+towson-university,"Towson University",78.00,6.0,3.00,1050,"February 1",18224,2.00
+belmont-university,"Belmont University",83.00,6.5,3.00,1100,Rolling,6674,3.00
+american-university-in-dubai,"American University in Dubai",55.00,6.0,2.50,1000,Rolling,2200,85.00
+wilson-college,"Wilson College",81.00,6.0,2.50,,Rolling,900,5.00
+university-of-essex,"University of Essex",67.00,6.0,3.00,,Rolling,12300,40.00
+whittier-college,"Whittier College",73.00,6.0,3.00,1050,"February 15",1187,4.00
+austin-college,"Austin College",54.00,6.5,3.00,1100,"March 1",1200,10.00
+southern-university-of-science-and-technology,"Southern University of Science and Technology",3.00,6.0,3.00,1350,"May 31",4500,2.50
+central-methodist-university,"Central Methodist University",73.00,6.0,2.50,,Rolling,1050,3.00
+hanze-university-of-applied-sciences,"Hanze University of Applied Sciences",,,,,,,
+carnegie-mellon-university-in-qatar,"Carnegie Mellon University in Qatar",,,,,,,
+seoul-national-university,"Seoul National University",13.00,6.0,3.50,1300,"October 31",18000,12.00
+the-university-of-texas-at-san-antonio,"The University of Texas at San Antonio",83.70,6.0,3.00,1020,"May 1",32236,3.00
+university-of-liverpool,"University of Liverpool",14.30,6.5,3.00,1200,"January 31",22000,28.00
+lycoming-college,"Lycoming College",,,,,,,
+beijing-institute-of-technology,"Beijing Institute of Technology",,,,,,,
+culinary-arts-academy-switzerland,"Culinary Arts Academy Switzerland",,,,,,,
+university-of-pecs,"University of Pecs",,,,,,,
+rit-rochester-institute-of-technology-dubai,"RIT | Rochester Institute of Technology | Dubai",,,,,,,
+bethany-college,"Bethany College",,,,,,,
+eastern-connecticut-state-university,"Eastern Connecticut State University",,,,,,,
+colorado-state-university-pueblo,"Colorado State University Pueblo",,,,,,,
+east-texas-am-university,"East Texas A&M University",,,,,,,
+gettysburg-college,"Gettysburg College",,,,,,,
+lafayette-college,"Lafayette College",,,,,,,
+marymount-university,"Marymount University",,,,,,,
+purdue-university-fort-wayne,"Purdue University Fort Wayne",78.00,6.0,2.00,,Rolling,5654,2.00
+wroclaw-university,"Wroclaw University",70.00,6.0,3.00,,"July 15",18000,12.00
+university-of-amsterdam,"University of Amsterdam",4.00,6.5,3.00,1200,"January 15",24000,25.00
+yonsei-university,"Yonsei University",15.00,6.5,3.00,1200,"March 31",26000,12.00
+berlin-university-of-the-arts,"Berlin University of the Arts",,,,,,,
+juniata-college,"Juniata College",,,,,,,
+murdoch-university,"Murdoch University",,,,,,,
+drew-university,"Drew University",,,,,,,
+university-of-canberra-college,"University of Canberra College",,,,,,,
+george-mason-university,"George Mason University",,,,,,,
+abilene-christian-university,"Abilene Christian University",58.00,6.5,3.40,1250,"Early February",3700,4.00
+al-akhawayn-university-ifrane,"Al Akhawayn University in Ifrane",65.00,6.5,3.50,1280,"Late April",2000,15.00
+adams-state-university,"Adams State University",99.00,6.5,3.40,1250,"Early March",1500,2.00
+aberystwyth-university,"Aberystwyth University",90.70,6.5,3.40,1250,"Late January",6600,11.00
+alaska-pacific-university,"Alaska Pacific University",85.00,6.5,3.40,1250,"Early February",350,2.00
+albion-college,"Albion College",69.00,6.5,3.50,1250,"Early December",1540,6.00
+american-university-greece-global-campus,"The American University of Greece Global Campus",,,,,,,
+american-university-paris,"The American University of Paris",,,,,,,
+angelo-state-university,"Angelo State University",,,,,,,
+allegheny-college,"Allegheny College",64.00,6.5,3.50,1280,Mid-January,1300,10.00
+amda-american-musical-and-dramatic-academy,"AMDA The American Musical and Dramatic Academy",29.00,6.0,2.50,1000,"Early January",1586,20.00
+alvernia-university,"Alvernia University",94.00,6.5,3.40,1250,"Early March",2058,1.00
+american-international-college,"American International College",,,,,,,
+american-university-beirut-aub,"American University of Beirut (AUB)",,,,,,,
+american-college-mediterranean-acm,"American College of the Mediterranean (ACM)",75.00,6.0,2.50,1100,Mid-May,180,25.00
+american-university-bulgaria,"American University in Bulgaria",,,,,,,
+appalachian-state-university,"Appalachian State University",,,,,,,
+aquinas-college,"Aquinas College",,,,,,,
+arcadia-university,"Arcadia University",,,,,,,
+american-university-rome,"The American University of Rome",,,,,,,
+anderson-university-sc,"Anderson University (SC)",,,,,,,
+anderson-university,"Anderson University (IN)",,,,,,,
+anglo-american-university-prague,"Anglo-American University in Prague",,,,,,,
+anna-maria-college,"Anna Maria College",,,,,,,
+antioch-college,"Antioch College",,,,,,,
+bennington-college,"Bennington College",,,,,,,
+arizona-christian-university,"Arizona Christian University",,,,,,,
+arizona-state-university,"Arizona State University",,,,,,,
+art-academy-cincinnati,"Art Academy of Cincinnati",,,,,,,
+arts-university-bournemouth-uk,"Arts University Bournemouth, UK",,,,,,,
+asbury-university,"Asbury University",,,,,,,
+assumption-university,"Assumption University",,,,,,,
+auburn-university,"Auburn University",,,,,,,
+aurora-university,"Aurora University",,,,,,,
+augsburg-university,"Augsburg University",,,,,,,
+augusta-university,"Augusta University",,,,,,,
+augustana-college-illinois,"Augustana College (Illinois)",,,,,,,
+augustana-university-south-dakota,"Augustana University (South Dakota)",,,,,,,
+babson-college,"Babson College",,,,,,,
+baker-college,"Baker College",,,,,,,
+baldwin-wallace-university,"Baldwin Wallace University",,,,,,,
+ball-state-university,"Ball State University",,,,,,,
+bard-college-berlin,"Bard College Berlin",,,,,,,
+bard-college,"Bard College",,,,,,,
+barnard-college,"Barnard College",,,,,,,
+barry-university,"Barry University",,,,,,,
+bates-college,"Bates College",,,,,,,
+bay-path-university,"Bay Path University",,,,,,,
+baylor-university,"Baylor University",,,,,,,
+beacon-college,"Beacon College",,,,,,,
+belhaven-university,"Belhaven University",,,,,,,
+beloit-college,"Beloit College",,,,,,,
+bowling-green-state-university,"Bowling Green State University",,,,,,,
+bradley-university,"Bradley University",,,,,,,
+brandeis-university,"Brandeis University",,,,,,,
+bethany-lutheran-college,"Bethany Lutheran College",,,,,,,
+bethel-university-mn,"Bethel University (MN)",,,,,,,
+bethel-university-tn,"Bethel University-TN",,,,,,,
+black-hawk-college,"Black Hawk College",,,,,,,
+bluffton-university,"Bluffton University",,,,,,,
+boston-college,"Boston College",,,,,,,
+boston-university,"Boston University",,,,,,,
+bowdoin-college,"Bowdoin College",,,,,,,
+bryn-mawr-college,"Bryn Mawr College",,,,,,,
+brenau-university,"Brenau University",,,,,,,
+brescia-university,"Brescia University",,,,,,,
+brevard-college,"Brevard College",,,,,,,
+briar-cliff-university,"Briar Cliff University",,,,,,,
+coastal-carolina-university,"Coastal Carolina University",,,,,,,
+bridgewater-state-university,"Bridgewater State University",,,,,,,
+bryant-university,"Bryant University",,,,,,,
+bryn-athyn-college,"Bryn Athyn College",,,,,,,
+calumet-college-st-joseph,"Calumet College of St. Joseph",,,,,,,
+central-connecticut-state-university,"Central Connecticut State University",,,,,,,
+bucknell-university,"Bucknell University",,,,,,,
+buena-vista-university,"Buena Vista University",,,,,,,
+bushnell-university,"Bushnell University",,,,,,,
+butler-university,"Butler University",,,,,,,
+college-saint-mary,"College of Saint Mary",,,,,,,
+cairn-university,"Cairn University",,,,,,,
+caldwell-university,"Caldwell University",,,,,,,
+california-college-arts,"California College of the Arts",,,,,,,
+california-institute-technology-caltech,"California Institute of Technology (Caltech)",,,,,,,
+california-lutheran-university,"California Lutheran University",,,,,,,
+carnegie-mellon-university,"Carnegie Mellon University",,,,,,,
+carolina-university,"Carolina University",,,,,,,
+carroll-college-montana,"Carroll College (Montana)",,,,,,,
+central-michigan-university,"Central Michigan University",,,,,,,
+calvin-university,"Calvin University",,,,,,,
+campbell-university,"Campbell University",,,,,,,
+canisius-university,"Canisius University",,,,,,,
+capital-university,"Capital University",,,,,,,
+capitol-technology-university,"Capitol Technology University",,,,,,,
+carl-sandburg-college,"Carl Sandburg College",,,,,,,
+carleton-college,"Carleton College",,,,,,,
+carlow-university,"Carlow University",,,,,,,
+cedarville-university,"Cedarville University",,,,,,,
+centenary-college-louisiana,"Centenary College of Louisiana",,,,,,,
+centenary-university,"Centenary University",,,,,,,
+carroll-university,"Carroll University",,,,,,,
+carson-newman-university,"Carson-Newman University",,,,,,,
+carthage-college,"Carthage College",,,,,,,
+case-western-reserve-university,"Case Western Reserve University",,,,,,,
+cleveland-state-university,"Cleveland State University",,,,,,,
+catawba-college,"Catawba College",,,,,,,
+catholic-university-america,"The Catholic University of America",,,,,,,
+cedar-crest-college,"Cedar Crest College",,,,,,,
+charles-r-drew-university-medicine-and-science,"Charles R. Drew University of Medicine and Science",,,,,,,
+central-state-university,"Central State University",,,,,,,
+centre-college,"Centre College",,,,,,,
+chaminade-university-honolulu,"Chaminade University of Honolulu",,,,,,,
+champlain-college,"Champlain College",,,,,,,
+chapman-university,"Chapman University",,,,,,,
+clarkson-university,"Clarkson University",,,,,,,
+clayton-state-university,"Clayton State University",,,,,,,
+clemson-university,"Clemson University",,,,,,,
+cleveland-institute-art,"Cleveland Institute of Art",,,,,,,
+chatham-university,"Chatham University",,,,,,,
+chestnut-hill-college,"Chestnut Hill College",,,,,,,
+cheyney-university-pennsylvania,"Cheyney University of Pennsylvania",,,,,,,
+chicago-state-university,"Chicago State University",,,,,,,
+chowan-university,"Chowan University",,,,,,,
+christopher-newport-university,"Christopher Newport University",,,,,,,
+citadel-military-college-south-carolina,"The Citadel, The Military College of South Carolina",,,,,,,
+claremont-mckenna-college,"Claremont McKenna College",,,,,,,
+clark-university,"Clark University",,,,,,,
+college-holy-cross,"College of the Holy Cross",,,,,,,
+college-idaho,"The College of Idaho",,,,,,,
+college-new-jersey,"The College of New Jersey",,,,,,,
+college-saint-benedict,"College of Saint Benedict",,,,,,,
+coker-university,"Coker University",,,,,,,
+colby-college,"Colby College",,,,,,,
+colby-sawyer-college,"Colby-Sawyer College",,,,,,,
+college-creative-studies,"College for Creative Studies",,,,,,,
+college-st-scholastica,"The College of St. Scholastica",,,,,,,
+college-wooster,"College of Wooster",,,,,,,
+colorado-college,"Colorado College",,,,,,,
+colorado-mesa-university,"Colorado Mesa University",,,,,,,
+colorado-school-mines,"Colorado School of Mines",,,,,,,
+connecticut-college,"Connecticut College",,,,,,,
+converse-university,"Converse University",,,,,,,
+cooper-union-advancement-science-art,"Cooper Union for the Advancement of Science & Art",,,,,,,
+coppin-state-university,"Coppin State University",,,,,,,
+colorado-state-university,"Colorado State University",,,,,,,
+columbia-college-chicago,"Columbia College Chicago",,,,,,,
+columbia-college-missouri,"Columbia College Missouri",,,,,,,
+columbus-college-art-design,"Columbus College of Art & Design",,,,,,,
+concord-university,"Concord University",,,,,,,
+concordia-college-moorhead,"Concordia College at Moorhead",,,,,,,
+concordia-university-irvine,"Concordia University Irvine",,,,,,,
+concordia-university-st-paul,"Concordia University, St. Paul",,,,,,,
+concordia-university-wisconsin,"Concordia University Wisconsin",,,,,,,
+culver-stockton-college,"Culver-Stockton College",,,,,,,
+cumberland-university,"Cumberland University",,,,,,,
+cunef-universidad,"CUNEF Universidad",,,,,,,
+curry-college,"Curry College",,,,,,,
+cornell-college,"Cornell College",,,,,,,
+cornerstone-university,"Cornerstone University",,,,,,,
+cottey-college,"Cottey College",,,,,,,
+covenant-college,"Covenant College",,,,,,,
+creighton-university,"Creighton University",,,,,,,
+culinary-institute-america,"The Culinary Institute of America",,,,,,,
+depauw-university,"DePauw University",,,,,,,
+dharma-realm-buddhist-university,"Dharma Realm Buddhist University",,,,,,,
+dickinson-college,"Dickinson College",,,,,,,
+east-texas-baptist-university,"East Texas Baptist University",,,,,,,
+daemen-university,"Daemen University",,,,,,,
+dallas-baptist-university,"Dallas Baptist University",,,,,,,
+dartmouth-college,"Dartmouth College",,,,,,,
+davenport-university,"Davenport University",,,,,,,
+davidson-college,"Davidson College",,,,,,,
+denison-university,"Denison University",,,,,,,
+duke-university,"Duke University",,,,,,,
+duquesne-university,"Duquesne University",,,,,,,
+dyouville-university,"D'Youville University",,,,,,,
+dominican-university-california,"Dominican University of California",,,,,,,
+dominican-university-il,"Dominican University (IL)",,,,,,,
+dominican-university-new-york,"Dominican University New York",,,,,,,
+drake-university,"Drake University",,,,,,,
+drexel-university,"Drexel University",,,,,,,
+drury-university,"Drury University",,,,,,,
+duke-kunshan-university,"Duke Kunshan University",,,,,,,
+eastern-illinois-university,"Eastern Illinois University",,,,,,,
+edgewood-university,"Edgewood University",,,,,,,
+earlham-college,"Earlham College",,,,,,,
+east-carolina-university,"East Carolina University",,,,,,,
+east-central-university,"East Central University",,,,,,,
+east-stroudsburg-university-pennsylvania,"East Stroudsburg University of Pennsylvania",,,,,,,
+eastern-mennonite-university,"Eastern Mennonite University",,,,,,,
+eastern-michigan-university,"Eastern Michigan University",,,,,,,
+eastern-oregon-university,"Eastern Oregon University",,,,,,,
+eckerd-college,"Eckerd College",,,,,,,
+ehl-hospitality-business-school,"EHL Hospitality Business School",,,,,,,
+elim-bible-college,"Elim Bible College",,,,,,,
+elizabethtown-college,"Elizabethtown College",,,,,,,
+elmhurst-university,"Elmhurst University",,,,,,,
+fairleigh-dickinson-university,"Fairleigh Dickinson University",,,,,,,
+elmira-college,"Elmira College",,,,,,,
+elms-college,"Elms College",,,,,,,
+elon-university,"Elon University",,,,,,,
+emmanuel-college-ma,"Emmanuel College (MA)",,,,,,,
+emory-henry-university,"Emory & Henry University",,,,,,,
+emory-university,"Emory University",,,,,,,
+esade-barcelona,"Esade Barcelona",,,,,,,
+escp-business-school,"ESCP Business School",,,,,,,
+ferrum-college,"Ferrum College",,,,,,,
+evangel-university,"Evangel University",,,,,,,
+evergreen-state-college,"The Evergreen State College",,,,,,,
+florida-agricultural-mechanical-university-famu,"Florida Agricultural & Mechanical University (FAMU)",,,,,,,
+florida-gulf-coast-university,"Florida Gulf Coast University",,,,,,,
+florida-state-university,"Florida State University",,,,,,,
+fayetteville-state-university,"Fayetteville State University",,,,,,,
+fei-tian-college-northern-campus,"Fei Tian College - Northern Campus",,,,,,,
+felician-university,"Felician University",,,,,,,
+ferris-state-university,"Ferris State University",,,,,,,
+fisher-college,"Fisher College",,,,,,,
+fisk-university,"Fisk University",,,,,,,
+fitchburg-state-university,"Fitchburg State University",,,,,,,
+flagler-college,"Flagler College",,,,,,,
+florida-institute-technology,"Florida Institute of Technology",,,,,,,
+florida-international-university,"Florida International University",,,,,,,
+florida-polytechnic-university,"Florida Polytechnic University",,,,,,,
+florida-southern-college,"Florida Southern College",,,,,,,
+fort-lewis-college,"Fort Lewis College",,,,,,,
+framingham-state-university,"Framingham State University",,,,,,,
+franciscan-missionaries-our-lady-university-franu,"Franciscan Missionaries of Our Lady University (FranU)",,,,,,,
+georgetown-college,"Georgetown College",,,,,,,
+georgia-college-state-university,"Georgia College & State University",,,,,,,
+franklin-college,"Franklin College",,,,,,,
+franklin-marshall-college,"Franklin & Marshall College",,,,,,,
+franklin-pierce-university,"Franklin Pierce University",,,,,,,
+franklin-w-olin-college-engineering,"Franklin W. Olin College of Engineering",,,,,,,
+furman-university,"Furman University",,,,,,,
+gannon-university,"Gannon University",,,,,,,
+gardner-webb-university,"Gardner-Webb University",,,,,,,
+generations-college,"Generations College",,,,,,,
+geneva-college,"Geneva College",,,,,,,
+george-fox-university,"George Fox University",,,,,,,
+goucher-college,"Goucher College",,,,,,,
+grace-college,"Grace College",,,,,,,
+graceland-university,"Graceland University",,,,,,,
+georgia-institute-technology,"Georgia Institute of Technology",,,,,,,
+georgia-southern-university,"Georgia Southern University",,,,,,,
+georgia-state-university,"Georgia State University",,,,,,,
+georgian-court-university,"Georgian Court University",,,,,,,
+goldey-beacom-college,"Goldey-Beacom College",,,,,,,
+gordon-college,"Gordon College",,,,,,,
+goshen-college,"Goshen College",,,,,,,
+hamilton-college,"Hamilton College",,,,,,,
+grand-valley-state-university,"Grand Valley State University",,,,,,,
+grand-view-university,"Grand View University",,,,,,,
+greensboro-college,"Greensboro College",,,,,,,
+grinnell-college,"Grinnell College",,,,,,,
+guilford-college,"Guilford College",,,,,,,
+gustavus-adolphus-college,"Gustavus Adolphus College",,,,,,,
+gwynedd-mercy-university,"Gwynedd Mercy University",,,,,,,
+haverford-college,"Haverford College",,,,,,,
+hamline-university-mn,"Hamline University (MN)",,,,,,,
+hampden-sydney-college,"Hampden-Sydney College",,,,,,,
+hampshire-college,"Hampshire College",,,,,,,
+harcum-college,"Harcum College",,,,,,,
+hardin-simmons-university,"Hardin-Simmons University",,,,,,,
+harrisburg-university-science-and-technology,"Harrisburg University of Science and Technology",,,,,,,
+hartwick-college,"Hartwick College",,,,,,,
+harvey-mudd-college,"Harvey Mudd College",,,,,,,
+hastings-college,"Hastings College",,,,,,,
+holy-cross-college,"Holy Cross College",,,,,,,
+holy-family-university,"Holy Family University",,,,,,,
+hood-college,"Hood College",,,,,,,
+hope-college,"Hope College",,,,,,,
+hawaii-pacific-university,"Hawaii Pacific University",,,,,,,
+heidelberg-university,"Heidelberg University",,,,,,,
+hendrix-college,"Hendrix College",,,,,,,
+high-point-university,"High Point University",,,,,,,
+hilbert-college,"Hilbert College",,,,,,,
+hillsdale-college,"Hillsdale College",,,,,,,
+hobart-and-william-smith-colleges,"Hobart and William Smith Colleges",,,,,,,
+hofstra-university,"Hofstra University",,,,,,,
+hollins-university,"Hollins University",,,,,,,
+ie-university-madrid-campus-and-segovia-campus,"IE University - Madrid Campus and Segovia Campus",,,,,,,
+illinois-institute-technology,"Illinois Institute of Technology",,,,,,,
+illinois-state-university,"Illinois State University",,,,,,,
+houghton-university,"Houghton University",,,,,,,
+houston-christian-university,"Houston Christian University",,,,,,,
+hult-international-business-school-us-uk-dubai,"Hult International Business School – U.S, U.K, Dubai",,,,,,,
+huntington-university,"Huntington University",,,,,,,
+keiser-university-flagship-campus-west-palm-beach-florida,"Keiser University Flagship Campus - West Palm Beach Florida",,,,,,,
+husson-university,"Husson University",,,,,,,
+icn-business-school,"ICN Business School",,,,,,,
+indiana-university-south-bend,"Indiana University South Bend",,,,,,,
+indiana-wesleyan-university-marion,"Indiana Wesleyan University (Marion)",,,,,,,
+illinois-wesleyan-university,"Illinois Wesleyan University",,,,,,,
+immaculata-university,"Immaculata University",,,,,,,
+indiana-state-university,"Indiana State University",,,,,,,
+indiana-tech,"Indiana Tech",,,,,,,
+indiana-university-bloomington,"Indiana University Bloomington",,,,,,,
+indiana-university-indianapolis,"Indiana University Indianapolis",,,,,,,
+indiana-university-northwest,"Indiana University Northwest",,,,,,,
+johnson-wales-university-charlotte,"Johnson & Wales University-Charlotte",,,,,,,
+johnson-wales-university-providence,"Johnson & Wales University-Providence",,,,,,,
+inter-american-university-puerto-rico,"Inter American University of Puerto Rico",,,,,,,
+iona-university,"Iona University",,,,,,,
+iowa-state-university,"Iowa State University",,,,,,,
+jackson-state-university,"Jackson State University",,,,,,,
+kennesaw-state-university,"Kennesaw State University",,,,,,,
+jacksonville-university,"Jacksonville University",,,,,,,
+james-madison-university,"James Madison University",,,,,,,
+john-cabot-university-rome,"John Cabot University in Rome",,,,,,,
+john-carroll-university,"John Carroll University",,,,,,,
+kalamazoo-college,"Kalamazoo College",,,,,,,
+kansas-city-art-institute,"Kansas City Art Institute",,,,,,,
+kansas-state-university,"Kansas State University",,,,,,,
+kean-university,"Kean University",,,,,,,
+keene-state-college,"Keene State College",,,,,,,
+kent-state-university,"Kent State University",,,,,,,
+kentucky-wesleyan-college,"Kentucky Wesleyan College",,,,,,,
+kenyon-college,"Kenyon College",,,,,,,
+kettering-university,"Kettering University",,,,,,,
+keuka-college,"Keuka College",,,,,,,
+keystone-college,"Keystone College",,,,,,,
+kings-college,"King's College",,,,,,,
+knox-college,"Knox College",,,,,,,
+kutztown-university-pennsylvania,"Kutztown University of Pennsylvania",,,,,,,
+la-roche-university,"La Roche University",,,,,,,
+lake-erie-college,"Lake Erie College",,,,,,,
+lake-forest-college,"Lake Forest College",,,,,,,
+lake-superior-state-university,"Lake Superior State University",,,,,,,
+lamar-university,"Lamar University",,,,,,,
+menlo-college,"Menlo College",,,,,,,
+lander-university,"Lander University",,,,,,,
+landmark-college,"Landmark College",,,,,,,
+lasell-university,"Lasell University",,,,,,,
+lawrence-technological-university,"Lawrence Technological University",,,,,,,
+lawrence-university,"Lawrence University",,,,,,,
+lindenwood-university,"Lindenwood University",,,,,,,
+lipscomb-university,"Lipscomb University",,,,,,,
+list-college-jewish-theological-seminary,"List College The Jewish Theological Seminary",,,,,,,
+livingstone-college,"Livingstone College",,,,,,,
+le-moyne-college,"Le Moyne College",,,,,,,
+lebanese-american-university-lau,"Lebanese American University - LAU",,,,,,,
+lebanon-valley-college,"Lebanon Valley College",,,,,,,
+lenoir-rhyne-university,"Lenoir-Rhyne University",,,,,,,
+lesley-university,"Lesley University",,,,,,,
+lewis-clark-college,"Lewis & Clark College",,,,,,,
+liberty-university,"Liberty University",,,,,,,
+lincoln-land-community-college,"Lincoln Land Community College",,,,,,,
+lincoln-memorial-university,"Lincoln Memorial University",,,,,,,
+lincoln-university-pennsylvania,"Lincoln University of Pennsylvania",,,,,,,
+loyola-university-chicago,"Loyola University Chicago",,,,,,,
+loyola-university-maryland,"Loyola University Maryland",,,,,,,
+loyola-university-new-orleans,"Loyola University New Orleans",,,,,,,
+long-island-university,"Long Island University",,,,,,,
+longwood-university,"Longwood University",,,,,,,
+loras-college,"Loras College",,,,,,,
+louisiana-state-university-am-baton-rouge,"Louisiana State University A&M-Baton Rouge",,,,,,,
+lourdes-university,"Lourdes University",,,,,,,
+loyola-marymount-university,"Loyola Marymount University",,,,,,,
+malone-university,"Malone University",,,,,,,
+manchester-university,"Manchester University",,,,,,,
+minerva-university,"Minerva University",,,,,,,
+lubbock-christian-university,"Lubbock Christian University",,,,,,,
+luther-college,"Luther College",,,,,,,
+lyon-college,"Lyon College",,,,,,,
+macalester-college,"Macalester College",,,,,,,
+madonna-university,"Madonna University",,,,,,,
+maine-college-art-design,"Maine College of Art & Design",,,,,,,
+maine-maritime-academy,"Maine Maritime Academy",,,,,,,
+marshall-university,"Marshall University",,,,,,,
+manhattan-university,"Manhattan University",,,,,,,
+manhattanville-university,"Manhattanville University",,,,,,,
+manor-college,"Manor College",,,,,,,
+marian-university-indiana,"Marian University - Indiana",,,,,,,
+marian-university-wisconsin,"Marian University - Wisconsin",,,,,,,
+marietta-college,"Marietta College",,,,,,,
+marist-university,"Marist University",,,,,,,
+marquette-university,"Marquette University",,,,,,,
+mary-baldwin-university,"Mary Baldwin University",,,,,,,
+mary-immaculate-college,"Mary Immaculate College",,,,,,,
+maryland-institute-college-art,"Maryland Institute College of Art",,,,,,,
+marymount-manhattan-college,"Marymount Manhattan College",,,,,,,
+maryville-university-st-louis,"Maryville University of St. Louis",,,,,,,
+marywood-university,"Marywood University",,,,,,,
+massachusetts-college-art-and-design,"Massachusetts College of Art and Design",,,,,,,
+massachusetts-college-liberal-arts,"Massachusetts College of Liberal Arts",,,,,,,
+massachusetts-college-pharmacy-and-health-sciences,"Massachusetts College of Pharmacy and Health Sciences",,,,,,,
+massachusetts-maritime-academy,"Massachusetts Maritime Academy",,,,,,,
+mcdaniel-college,"McDaniel College",,,,,,,
+mckendree-university,"McKendree University",,,,,,,
+mercer-university,"Mercer University",,,,,,,
+mercy-university,"Mercy University",,,,,,,
+mercyhurst-university,"Mercyhurst University",,,,,,,
+meredith-college,"Meredith College",,,,,,,
+merrimack-college,"Merrimack College",,,,,,,
+millikin-university,"Millikin University",,,,,,,
+milwaukee-institute-art-design,"Milwaukee Institute of Art & Design",,,,,,,
+milwaukee-school-engineering,"Milwaukee School of Engineering",,,,,,,
+messiah-university,"Messiah University",,,,,,,
+methodist-university,"Methodist University",,,,,,,
+miami-dade-college,"Miami Dade College",,,,,,,
+miami-university-ohio,"Miami University (Ohio)",,,,,,,
+michigan-technological-university,"Michigan Technological University",,,,,,,
+middle-tennessee-state-university,"Middle Tennessee State University",,,,,,,
+middlebury-college,"Middlebury College",,,,,,,
+midway-university,"Midway University",,,,,,,
+misericordia-university,"Misericordia University",,,,,,,
+midwestern-state-university,"Midwestern State University",,,,,,,
+milligan-university,"Milligan University",,,,,,,
+mohamed-bin-zayed-university-artificial-intelligence,"Mohamed bin Zayed University of Artificial Intelligence",,,,,,,
+molloy-university,"Molloy University",,,,,,,
+mississippi-college,"Mississippi College",,,,,,,
+mississippi-state-university,"Mississippi State University",,,,,,,
+missouri-southern-state-university,"Missouri Southern State University",,,,,,,
+missouri-state-university,"Missouri State University",,,,,,,
+morningside-university,"Morningside University",,,,,,,
+mount-holyoke-college,"Mount Holyoke College",,,,,,,
+mount-marty-university,"Mount Marty University",,,,,,,
+trevecca-nazarene-university,"Trevecca Nazarene University",,,,,,,
+mondragon-university,"Mondragon University",,,,,,,
+monmouth-college-il,"Monmouth College (IL)",,,,,,,
+montana-state-university,"Montana State University",,,,,,,
+montreat-college,"Montreat College",,,,,,,
+university-maine-augusta,"University of Maine at Augusta",,,,,,,
+montserrat-college-art,"Montserrat College of Art",,,,,,,
+moore-college-art-and-design,"Moore College of Art and Design",,,,,,,
+morehead-state-university,"Morehead State University",,,,,,,
+morehouse-college,"Morehouse College",,,,,,,
+mount-mary-university,"Mount Mary University",,,,,,,
+mount-saint-mary-college,"Mount Saint Mary College",,,,,,,
+mount-saint-marys-university-los-angeles,"Mount Saint Mary's University Los Angeles",,,,,,,
+mount-st-joseph-university,"Mount St. Joseph University",,,,,,,
+mount-st-marys-university,"Mount St. Mary's University",,,,,,,
+mount-vernon-nazarene-university,"Mount Vernon Nazarene University",,,,,,,
+msu-denver,"MSU Denver",,,,,,,
+new-mexico-state-university,"New Mexico State University",,,,,,,
+muhlenberg-college,"Muhlenberg College",,,,,,,
+muskingum-university,"Muskingum University",,,,,,,
+naropa-university,"Naropa University",,,,,,,
+nazareth-university,"Nazareth University",,,,,,,
+nebraska-wesleyan-university,"Nebraska Wesleyan University",,,,,,,
+neumann-university,"Neumann University",,,,,,,
+new-college-florida,"New College of Florida",,,,,,,
+new-england-institute-technology,"New England Institute of Technology",,,,,,,
+new-jersey-institute-technology,"New Jersey Institute of Technology",,,,,,,
+new-mexico-institute-mining-and-technology,"New Mexico Institute of Mining and Technology",,,,,,,
+north-carolina-central-university,"North Carolina Central University",,,,,,,
+north-carolina-state-university-0,"North Carolina State University",,,,,,,
+new-school,"The New School",,,,,,,
+new-york-institute-technology-nyit,"New York Institute of Technology (NYIT)",,,,,,,
+new-york-school-career-applied-studies-touro-college-university-system,"New York School of Career & Applied Studies of Touro College & University System",,,,,,,
+newberry-college,"Newberry College",,,,,,,
+newman-university,"Newman University",,,,,,,
+niagara-university,"Niagara University",,,,,,,
+nichols-college,"Nichols College",,,,,,,
+norfolk-state-university,"Norfolk State University",,,,,,,
+north-american-university,"North American University",,,,,,,
+oklahoma-baptist-university,"Oklahoma Baptist University",,,,,,,
+north-carolina-wesleyan-university,"North Carolina Wesleyan University",,,,,,,
+north-central-college,"North Central College",,,,,,,
+north-park-university,"North Park University",,,,,,,
+northeastern-illinois-university,"Northeastern Illinois University",,,,,,,
+northern-arizona-university,"Northern Arizona University",,,,,,,
+northern-illinois-university,"Northern Illinois University",,,,,,,
+northern-michigan-university,"Northern Michigan University",,,,,,,
+northwest-missouri-state-university,"Northwest Missouri State University",,,,,,,
+occidental-college,"Occidental College",,,,,,,
+northwest-nazarene-university,"Northwest Nazarene University",,,,,,,
+northwest-university,"Northwest University",,,,,,,
+norwich-university,"Norwich University",,,,,,,
+notre-dame-maryland-university,"Notre Dame of Maryland University",,,,,,,
+nova-southeastern-university,"Nova Southeastern University",,,,,,,
+oakland-university,"Oakland University",,,,,,,
+oakton-college,"Oakton College",,,,,,,
+oberlin-college-arts-and-sciences,"Oberlin College of Arts and Sciences",,,,,,,
+oberlin-conservatory-music,"Oberlin Conservatory of Music",,,,,,,
+ole-miss-university-mississippi,"Ole Miss - The University of Mississippi",,,,,,,
+oral-roberts-university,"Oral Roberts University",,,,,,,
+oglethorpe-university,"Oglethorpe University",,,,,,,
+ohio-dominican-university,"Ohio Dominican University",,,,,,,
+ohio-northern-university,"Ohio Northern University",,,,,,,
+ohio-state-university,"The Ohio State University",,,,,,,
+ohio-university,"Ohio University",,,,,,,
+oklahoma-christian-university,"Oklahoma Christian University",,,,,,,
+oklahoma-state-university,"Oklahoma State University",,,,,,,
+old-dominion-university,"Old Dominion University",,,,,,,
+paine-college,"Paine College",,,,,,,
+park-university,"Park University",,,,,,,
+oregon-state-university,"Oregon State University",,,,,,,
+oregon-tech,"Oregon Tech",,,,,,,
+otis-college-art-and-design,"Otis College of Art and Design",,,,,,,
+otterbein-university,"Otterbein University",,,,,,,
+pace-university,"Pace University",,,,,,,
+pacific-lutheran-university,"Pacific Lutheran University",,,,,,,
+pacific-northwest-college-art,"Pacific Northwest College of Art",,,,,,,
+pacific-university-oregon,"Pacific University Oregon",,,,,,,
+paul-smiths-college,"Paul Smith's College",,,,,,,
+penn-state,"Penn State",,,,,,,
+pennsylvania-college-art-design,"Pennsylvania College of Art & Design",,,,,,,
+pennsylvania-college-technology,"Pennsylvania College of Technology",,,,,,,
+pennsylvania-western-university,"Pennsylvania Western University",,,,,,,
+pepperdine-university,"Pepperdine University",,,,,,,
+piedmont-university,"Piedmont University",,,,,,,
+pitzer-college,"Pitzer College",,,,,,,
+plymouth-state-university,"Plymouth State University",,,,,,,
+point-loma-nazarene-university,"Point Loma Nazarene University",,,,,,,
+point-park-university,"Point Park University",,,,,,,
+pomona-college,"Pomona College",,,,,,,
+portland-state-university,"Portland State University",,,,,,,
+pratt-institute,"Pratt Institute",,,,,,,
+prescott-college,"Prescott College",,,,,,,
+principia-college,"Principia College",,,,,,,
+providence-college,"Providence College",,,,,,,
+purchase-college-suny,"Purchase College, SUNY",,,,,,,
+regis-college,"Regis College",,,,,,,
+regis-university,"Regis University",,,,,,,
+reinhardt-university,"Reinhardt University",,,,,,,
+rider-university,"Rider University",,,,,,,
+purdue-university-northwest,"Purdue University Northwest",,,,,,,
+purdue-university,"Purdue University",,,,,,,
+queens-university-canada,"Queen's University, Canada",,,,,,,
+queens-university-charlotte,"Queens University of Charlotte",,,,,,,
+quincy-university,"Quincy University",,,,,,,
+quinnipiac-university,"Quinnipiac University",,,,,,,
+ramapo-college-new-jersey,"Ramapo College of New Jersey",,,,,,,
+randolph-macon-college,"Randolph-Macon College",,,,,,,
+regent-university,"Regent University",,,,,,,
+richmond-american-international-university-london,"Richmond The American International University in London",,,,,,,
+rend-lake-college,"Rend Lake College",,,,,,,
+rensselaer-polytechnic-institute,"Rensselaer Polytechnic Institute",,,,,,,
+rhode-island-college,"Rhode Island College",,,,,,,
+rhode-island-school-design,"Rhode Island School of Design",,,,,,,
+rochester-institute-technology,"Rochester Institute of Technology",,,,,,,
+rhodes-college,"Rhodes College",,,,,,,
+rice-university,"Rice University",,,,,,,
+richard-bland-college,"Richard Bland College",,,,,,,
+rollins-college,"Rollins College",,,,,,,
+ripon-college,"Ripon College",,,,,,,
+roanoke-college,"Roanoke College",,,,,,,
+robert-morris-university-pa,"Robert Morris University (PA)",,,,,,,
+roberts-wesleyan-university,"Roberts Wesleyan University",,,,,,,
+rockford-university,"Rockford University",,,,,,,
+rockhurst-university,"Rockhurst University",,,,,,,
+roger-williams-university,"Roger Williams University",,,,,,,
+saint-josephs-college-maine,"Saint Joseph's College of Maine",,,,,,,
+rose-hulman-institute-technology,"Rose-Hulman Institute of Technology",,,,,,,
+rowan-university,"Rowan University",,,,,,,
+russell-sage-college,"Russell Sage College",,,,,,,
+rutgers-university,"Rutgers University",,,,,,,
+saint-mary-woods-college,"Saint Mary-of-the-Woods College",,,,,,,
+saginaw-valley-state-university,"Saginaw Valley State University",,,,,,,
+saint-anselm-college,"Saint Anselm College",,,,,,,
+saint-elizabeth-university,"Saint Elizabeth University",,,,,,,
+saint-francis-university,"Saint Francis University",,,,,,,
+saint-johns-university-mn,"Saint John's University (MN)",,,,,,,
+saint-vincent-college,"Saint Vincent College",,,,,,,
+saint-xavier-university,"Saint Xavier University",,,,,,,
+salem-college,"Salem College",,,,,,,
+saint-josephs-university,"Saint Joseph's University",,,,,,,
+saint-louis-university-madrid,"Saint Louis University-Madrid",,,,,,,
+saint-louis-university,"Saint Louis University",,,,,,,
+saint-martins-university,"Saint Martin's University",,,,,,,
+saint-marys-college-california,"Saint Mary's College of California",,,,,,,
+saint-marys-college-notre-dame-indiana,"Saint Mary's College, Notre Dame, Indiana",,,,,,,
+saint-marys-university-minnesota,"Saint Mary's University of Minnesota",,,,,,,
+saint-michaels-college,"Saint Michael's College",,,,,,,
+salem-state-university,"Salem State University",,,,,,,
+salisbury-university,"Salisbury University",,,,,,,
+salve-regina-university,"Salve Regina University",,,,,,,
+salzburg-college,"Salzburg College",,,,,,,
+sam-houston-state-university,"Sam Houston State University",,,,,,,
+samford-university,"Samford University",,,,,,,
+san-francisco-bay-university,"San Francisco Bay University",,,,,,,
+seton-hill-university,"Seton Hill University",,,,,,,
+sewanee-university-south,"Sewanee: The University of the South",,,,,,,
+shanghai-jiao-tong-university-global-college-formerly-known-university-michigan-shanghai,"Shanghai Jiao Tong University Global College (Formerly known as University of Michigan- Shanghai Jiao Tong University Joint Institute)",,,,,,,
+santa-clara-university,"Santa Clara University",,,,,,,
+sarah-lawrence-college,"Sarah Lawrence College",,,,,,,
+sauk-valley-community-college,"Sauk Valley Community College",,,,,,,
+savannah-college-art-and-design,"Savannah College of Art and Design",,,,,,,
+school-art-institute-chicago,"School of the Art Institute of Chicago",,,,,,,
+school-visual-arts,"School of Visual Arts",,,,,,,
+scripps-college,"Scripps College",,,,,,,
+seattle-pacific-university,"Seattle Pacific University",,,,,,,
+seattle-university,"Seattle University",,,,,,,
+simpson-university,"Simpson University",,,,,,,
+skema-business-school-us-campus,"SKEMA Business School - US Campus",,,,,,,
+skidmore-college,"Skidmore College",,,,,,,
+smith-college,"Smith College",,,,,,,
+shawnee-state-university,"Shawnee State University",,,,,,,
+shepherd-university,"Shepherd University",,,,,,,
+shippensburg-university-pennsylvania,"Shippensburg University of Pennsylvania",,,,,,,
+siena-university,"Siena University",,,,,,,
+soka-university-america,"Soka University of America",,,,,,,
+simmons-university,"Simmons University",,,,,,,
+simons-rock-bard-college,"Simon’s Rock at Bard College",,,,,,,
+simpson-college,"Simpson College",,,,,,,
+southern-illinois-university-carbondale,"Southern Illinois University Carbondale",,,,,,,
+spelman-college,"Spelman College",,,,,,,
+south-carolina-state-university,"South Carolina State University",,,,,,,
+southeast-missouri-state-university,"Southeast Missouri State University",,,,,,,
+southeastern-university,"Southeastern University",,,,,,,
+southern-california-institute-architecture,"Southern California Institute of Architecture",,,,,,,
+st-marys-university,"St. Mary's University",,,,,,,
+southern-connecticut-state-university,"Southern Connecticut State University",,,,,,,
+spring-hill-college,"Spring Hill College",,,,,,,
+springfield-college,"Springfield College",,,,,,,
+st-ambrose-university,"St. Ambrose University",,,,,,,
+st-marys-college-maryland,"St. Mary's College of Maryland",,,,,,,
+southern-illinois-university-edwardsville,"Southern Illinois University Edwardsville",,,,,,,
+southern-methodist-university,"Southern Methodist University",,,,,,,
+southern-nazarene-university,"Southern Nazarene University",,,,,,,
+southern-new-hampshire-university,"Southern New Hampshire University",,,,,,,
+talladega-college,"Talladega College",,,,,,,
+southern-university-new-orleans-suno,"Southern University at New Orleans (SUNO)",,,,,,,
+southwestern-university,"Southwestern University",,,,,,,
+spalding-university,"Spalding University",,,,,,,
+spartanburg-methodist-college,"Spartanburg Methodist College",,,,,,,
+st-bonaventure-university,"St. Bonaventure University",,,,,,,
+st-catherine-university,"St. Catherine University",,,,,,,
+st-edwards-university,"St. Edward's University",,,,,,,
+st-francis-college,"St. Francis College",,,,,,,
+st-john-fisher-university,"St. John Fisher University",,,,,,,
+st-johns-college-md,"St. John's College (MD)",,,,,,,
+st-johns-college-nm,"St. John's College (NM)",,,,,,,
+stephen-f-austin-state-university,"Stephen F. Austin State University",,,,,,,
+st-johns-university-ny,"St. John's University (NY)",,,,,,,
+st-josephs-university-new-york-brooklyn-campus,"St. Joseph's University, New York - Brooklyn Campus",,,,,,,
+st-josephs-university-new-york-long-island-campus,"St. Joseph’s University, New York - Long Island Campus",,,,,,,
+st-lawrence-university,"St. Lawrence University",,,,,,,
+st-norbert-college,"St. Norbert College",,,,,,,
+st-olaf-college,"St. Olaf College",,,,,,,
+st-thomas-university-canada,"St. Thomas University, Canada",,,,,,,
+st-thomas-university-fl,"St. Thomas University (FL)",,,,,,,
+stephens-college,"Stephens College",,,,,,,
+sterling-college,"Sterling College",,,,,,,
+stetson-university,"Stetson University",,,,,,,
+stevens-institute-technology,"Stevens Institute of Technology",,,,,,,
+stevenson-university,"Stevenson University",,,,,,,
+stockton-university,"Stockton University",,,,,,,
+stonehill-college,"Stonehill College",,,,,,,
+suny-binghamton-university,"SUNY Binghamton University",,,,,,,
+suny-buffalo-state-university,"SUNY Buffalo State University",,,,,,,
+suny-university-albany,"SUNY, University at Albany",,,,,,,
+suny-university-buffalo,"SUNY University at Buffalo",,,,,,,
+susquehanna-university,"Susquehanna University",,,,,,,
+suny-cobleskill,"SUNY Cobleskill",,,,,,,
+suny-college-geneseo,"SUNY College at Geneseo",,,,,,,
+suny-cortland,"SUNY Cortland",,,,,,,
+suny-fredonia,"SUNY Fredonia",,,,,,,
+texas-am-university-galveston,"Texas A&M University at Galveston",,,,,,,
+suny-new-paltz,"SUNY New Paltz",,,,,,,
+suny-oneonta,"SUNY Oneonta",,,,,,,
+suny-oswego,"SUNY Oswego",,,,,,,
+suny-plattsburgh,"SUNY Plattsburgh",,,,,,,
+suny-potsdam,"SUNY Potsdam",,,,,,,
+suny-stony-brook-university,"SUNY Stony Brook University",,,,,,,
+tecnologico-de-monterrey,"Tecnológico de Monterrey",,,,,,,
+temple-university-japan-campus,"Temple University, Japan Campus",,,,,,,
+temple-university,"Temple University",,,,,,,
+swarthmore-college,"Swarthmore College",,,,,,,
+sweet-briar-college,"Sweet Briar College",,,,,,,
+syracuse-university,"Syracuse University",,,,,,,
+taejae-university,"Taejae University",,,,,,,
+tarleton-state-university,"Tarleton State University",,,,,,,
+taylor-university,"Taylor University",,,,,,,
+thomas-college,"Thomas College",,,,,,,
+thomas-edison-state-university,"Thomas Edison State University",,,,,,,
+texas-am-university-san-antonio,"Texas A&M University-San Antonio",,,,,,,
+texas-am-university,"Texas A&M University",,,,,,,
+texas-christian-university,"Texas Christian University",,,,,,,
+texas-lutheran-university,"Texas Lutheran University",,,,,,,
+texas-tech-university,"Texas Tech University",,,,,,,
+texas-wesleyan-university,"Texas Wesleyan University",,,,,,,
+triton-college,"Triton College",,,,,,,
+truman-state-university,"Truman State University",,,,,,,
+tulane-university,"Tulane University",,,,,,,
+ucam-universidad-catolica-de-murcia,"UCAM Universidad Católica de Murcia",,,,,,,
+thomas-jefferson-university,"Thomas Jefferson University",,,,,,,
+thomas-more-university,"Thomas More University",,,,,,,
+tiffin-university,"Tiffin University",,,,,,,
+transylvania-university,"Transylvania University",,,,,,,
+trine-university,"Trine University",,,,,,,
+trinity-university,"Trinity University",,,,,,,
+trinity-washington-university,"Trinity Washington University",,,,,,,

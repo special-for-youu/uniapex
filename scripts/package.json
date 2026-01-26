@@ -1,0 +1,15 @@
+{
+    "name": "uninexia-scrapers",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "scrape:illuminate": "node scrape-illuminate.js",
+        "scrape:unitap": "node scrape-unitap.js",
+        "scrape:all": "npm run scrape:illuminate && npm run scrape:unitap"
+    },
+    "dependencies": {
+        "cheerio": "^1.1.2",
+        "dotenv": "^16.3.1",
+        "puppeteer": "^21.6.0"
+    }
+}

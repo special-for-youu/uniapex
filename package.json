@@ -1,0 +1,45 @@
+{
+  "name": "uniapex",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0",
+    "build": "next build",
+    "start": "next start -H 0.0.0.0",
+    "lint": "next lint",
+    "generate-uni-data": "node -r dotenv/config scripts/generate-university-data.js dotenv_config_path=.env.local"
+  },
+  "dependencies": {
+    "@google/genai": "^1.30.0",
+    "@google/generative-ai": "^0.24.1",
+    "@supabase/auth-helpers-nextjs": "^0.8.7",
+    "@supabase/auth-ui-react": "^0.4.6",
+    "@supabase/auth-ui-shared": "^0.1.8",
+    "@supabase/supabase-js": "^2.84.0",
+    "@types/nodemailer": "^7.0.4",
+    "@vertx/core": "^4.5.14",
+    "dotenv": "^17.2.3",
+    "framer-motion": "^12.23.24",
+    "imap-simple": "^1.6.3",
+    "lucide-react": "^0.294.0",
+    "mailparser": "^3.9.0",
+    "mapbox-gl": "^3.16.0",
+    "next": "^14.2.33",
+    "nodemailer": "^7.0.11",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-map-gl": "^8.1.0",
+    "react-markdown": "^10.1.0",
+    "sharp": "^0.34.4",
+    "swiper": "^12.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
+}
