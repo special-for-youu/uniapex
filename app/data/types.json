@@ -1,0 +1,38 @@
+[
+    {
+        "id": "A",
+        "title": "Realistic (The Doer)",
+        "focus": "Hands",
+        "description": "Practical, loves tools, nature, physical tasks."
+    },
+    {
+        "id": "B",
+        "title": "Investigative (The Thinker)",
+        "focus": "Brain",
+        "description": "Analytical, research-oriented. Loves data and complex puzzles."
+    },
+    {
+        "id": "C",
+        "title": "Artistic (The Creator)",
+        "focus": "Imagination",
+        "description": "Creative, intuitive. Hates routine and strict rules."
+    },
+    {
+        "id": "D",
+        "title": "Social (The Helper)",
+        "focus": "Heart",
+        "description": "Communicative. Loves teaching, healing, and helping."
+    },
+    {
+        "id": "E",
+        "title": "Enterprising (The Persuader)",
+        "focus": "Willpower",
+        "description": "Leader. Loves influence, risk, money, and management."
+    },
+    {
+        "id": "F",
+        "title": "Conventional (The Organizer)",
+        "focus": "Order",
+        "description": "Systematic. Loves precision, numbers, rules, and documents."
+    }
+]

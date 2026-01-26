@@ -3,8 +3,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { CheckCircle, ArrowRight, ArrowLeft, Sparkles, BarChart2 } from 'lucide-react'
-import questions from '@/informations/careertest/questions.json'
-import types from '@/informations/careertest/types.json'
+import questions from '@/app/data/questions.json'
+import types from '@/app/data/types.json'
 import { motion } from 'framer-motion'
 
 interface Question {

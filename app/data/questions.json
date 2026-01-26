@@ -1,0 +1,622 @@
+[
+    {
+        "id": 1,
+        "section": "Environment & Preferences",
+        "question": "In which environment do you feel most comfortable?",
+        "options": [
+            {
+                "text": "A workshop or outdoors, where there are tools, machinery, and I can work with my hands.",
+                "domain": "A"
+            },
+            {
+                "text": "A quiet room where I can focus, think, analyze data, or solve logic puzzles.",
+                "domain": "B"
+            },
+            {
+                "text": "A creative, chaotic studio where there are no strict rules and plenty of freedom.",
+                "domain": "C"
+            },
+            {
+                "text": "A place full of people, communication, teamwork, and helping others.",
+                "domain": "D"
+            },
+            {
+                "text": "The center of action—boardrooms, negotiations, or places where decisions are made.",
+                "domain": "E"
+            },
+            {
+                "text": "An organized office where everything is \"on the shelves,\" clear, and predictable.",
+                "domain": "F"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "section": "Environment & Preferences",
+        "question": "What role do you usually take in a group project?",
+        "options": [
+            {
+                "text": "The Builder: I build the model, set up the equipment, or handle the physical tasks.",
+                "domain": "A"
+            },
+            {
+                "text": "The Brain: I research information, analyze facts, and write the code or report.",
+                "domain": "B"
+            },
+            {
+                "text": "The Creator: I come up with the core idea, the design, and the visual presentation.",
+                "domain": "C"
+            },
+            {
+                "text": "The Peacemaker: I make sure everyone gets along and help those who are struggling.",
+                "domain": "D"
+            },
+            {
+                "text": "The Leader: I assign tasks, set deadlines, and present the result to the teacher/boss.",
+                "domain": "E"
+            },
+            {
+                "text": "The Organizer: I structure the files, check for errors, and ensure formatting is correct.",
+                "domain": "F"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "section": "Environment & Preferences",
+        "question": "What tires or annoys you the most?",
+        "options": [
+            {
+                "text": "Long conversations with no action or abstract theories.",
+                "domain": "A"
+            },
+            {
+                "text": "Loud noise, crowds, and having to act without thinking first.",
+                "domain": "B"
+            },
+            {
+                "text": "Routine, repetitive tasks, and strict \"9-to-5\" schedules.",
+                "domain": "C"
+            },
+            {
+                "text": "Working in isolation, cold numbers, and conflicts between people.",
+                "domain": "D"
+            },
+            {
+                "text": "Lack of results, slow-moving people, and having to obey others.",
+                "domain": "E"
+            },
+            {
+                "text": "Chaos, unpredictability, and constantly changing plans.",
+                "domain": "F"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "section": "Environment & Preferences",
+        "question": "What is your favorite way to relax?",
+        "options": [
+            {
+                "text": "Sports, fishing, repairing things, hiking, or crafting.",
+                "domain": "A"
+            },
+            {
+                "text": "Reading non-fiction, playing chess/strategy games, watching documentaries.",
+                "domain": "B"
+            },
+            {
+                "text": "Drawing, listening to music, visiting exhibitions, photography.",
+                "domain": "C"
+            },
+            {
+                "text": "Hanging out with friends, volunteering, giving advice.",
+                "domain": "D"
+            },
+            {
+                "text": "Competitive games, organizing parties/events, escape rooms.",
+                "domain": "E"
+            },
+            {
+                "text": "Collecting things, cleaning/organizing, doing hobbies that follow instructions (e.g., Lego).",
+                "domain": "F"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "section": "Thinking & Tasks",
+        "question": "How do you prefer to solve a problem?",
+        "options": [
+            {
+                "text": "I immediately try to fix it physically (trial and error).",
+                "domain": "A"
+            },
+            {
+                "text": "I study the theory first, find the root cause, and build a logical chain.",
+                "domain": "B"
+            },
+            {
+                "text": "I look for an unconventional approach or try to \"hack\" the system creatively.",
+                "domain": "C"
+            },
+            {
+                "text": "I ask others for advice and discuss the problem to find a consensus.",
+                "domain": "D"
+            },
+            {
+                "text": "I find the resources or the people who can solve it for me.",
+                "domain": "E"
+            },
+            {
+                "text": "I follow the official instructions or manual strictly.",
+                "domain": "F"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "section": "Thinking & Tasks",
+        "question": "What topics do you usually read about in the news?",
+        "options": [
+            {
+                "text": "New gadgets, cars, hardware, weapons, or manufacturing tech.",
+                "domain": "A"
+            },
+            {
+                "text": "Scientific discoveries, space, IT, medicine, history.",
+                "domain": "B"
+            },
+            {
+                "text": "Art, fashion, design, cinema, pop culture.",
+                "domain": "C"
+            },
+            {
+                "text": "Psychology, relationships, education, human stories.",
+                "domain": "D"
+            },
+            {
+                "text": "Business, politics, stock markets, success stories.",
+                "domain": "E"
+            },
+            {
+                "text": "Laws, life hacks for organization, taxes/accounting.",
+                "domain": "F"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "section": "Thinking & Tasks",
+        "question": "Which quality do you value most in yourself?",
+        "options": [
+            {
+                "text": "Practicality and \"golden hands\" (manual skills).",
+                "domain": "A"
+            },
+            {
+                "text": "Intelligence and analytical ability.",
+                "domain": "B"
+            },
+            {
+                "text": "Originality and taste.",
+                "domain": "C"
+            },
+            {
+                "text": "Kindness and empathy.",
+                "domain": "D"
+            },
+            {
+                "text": "Ambition and decisiveness.",
+                "domain": "E"
+            },
+            {
+                "text": "Accuracy and reliability.",
+                "domain": "F"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "section": "Thinking & Tasks",
+        "question": "If you started a YouTube channel, what would it be about?",
+        "options": [
+            {
+                "text": "DIY, crafting, tool reviews, \"How It's Made.\"",
+                "domain": "A"
+            },
+            {
+                "text": "Science explanations, coding tutorials, complex analysis.",
+                "domain": "B"
+            },
+            {
+                "text": "Sketches, music covers, art tutorials, lifestyle vlogs.",
+                "domain": "C"
+            },
+            {
+                "text": "Interviews, social experiments, psychological advice.",
+                "domain": "D"
+            },
+            {
+                "text": "How to make money, motivation, business tips.",
+                "domain": "E"
+            },
+            {
+                "text": "Stationary reviews, planning/journaling, unboxing and organizing.",
+                "domain": "F"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "section": "Skills & Actions",
+        "question": "You need to learn complex software. What do you do?",
+        "options": [
+            {
+                "text": "I just start clicking buttons to see what happens.",
+                "domain": "A"
+            },
+            {
+                "text": "I read the documentation and watch detailed tutorials first.",
+                "domain": "B"
+            },
+            {
+                "text": "I only learn the specific tools I need for my creative idea; I ignore the rest.",
+                "domain": "C"
+            },
+            {
+                "text": "I ask a friend to show me how it works.",
+                "domain": "D"
+            },
+            {
+                "text": "I hire a tutor or find a mentor to learn it as fast as possible.",
+                "domain": "E"
+            },
+            {
+                "text": "I create a learning plan and go through it lesson by lesson.",
+                "domain": "F"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "section": "Skills & Actions",
+        "question": "What does a \"good result\" mean to you?",
+        "options": [
+            {
+                "text": "Something tangible that works (a fixed chair, a built PC).",
+                "domain": "A"
+            },
+            {
+                "text": "A discovered truth, a solved puzzle, or bug-free code.",
+                "domain": "B"
+            },
+            {
+                "text": "A beautiful creation that evokes emotion.",
+                "domain": "C"
+            },
+            {
+                "text": "A \"thank you\" from someone I helped.",
+                "domain": "D"
+            },
+            {
+                "text": "Profit, winning a competition, or gaining status.",
+                "domain": "E"
+            },
+            {
+                "text": "A perfectly filled spreadsheet, zero errors, and met deadlines.",
+                "domain": "F"
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "section": "Skills & Actions",
+        "question": "How do you feel about math?",
+        "options": [
+            {
+                "text": "It's useful for measuring materials or calculating dimensions.",
+                "domain": "A"
+            },
+            {
+                "text": "I love it; it’s the language of logic and the universe.",
+                "domain": "B"
+            },
+            {
+                "text": "Boring and too dry for me.",
+                "domain": "C"
+            },
+            {
+                "text": "It's okay if I need it to help someone (e.g., dosage).",
+                "domain": "D"
+            },
+            {
+                "text": "Interesting if it involves money, interest rates, or growth percentages.",
+                "domain": "E"
+            },
+            {
+                "text": "I like the precision and working with numbers.",
+                "domain": "F"
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "section": "Skills & Actions",
+        "question": "What is your attitude toward risk?",
+        "options": [
+            {
+                "text": "I take physical risks (sports), but not financial ones.",
+                "domain": "A"
+            },
+            {
+                "text": "I calculate the probability of success; if the chance is low, I don't risk it.",
+                "domain": "B"
+            },
+            {
+                "text": "I take risks easily for the sake of an idea or inspiration.",
+                "domain": "C"
+            },
+            {
+                "text": "I dislike risk; I am afraid of letting others down.",
+                "domain": "D"
+            },
+            {
+                "text": "I love risk; it’s exciting and the only way to win big.",
+                "domain": "E"
+            },
+            {
+                "text": "I avoid risk; I prefer insurance and guarantees.",
+                "domain": "F"
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "section": "Future & Career",
+        "question": "What motivates you to get out of bed in the morning?",
+        "options": [
+            {
+                "text": "The desire to make or fix something real.",
+                "domain": "A"
+            },
+            {
+                "text": "Curiosity to learn something new.",
+                "domain": "B"
+            },
+            {
+                "text": "The urge to create something cool.",
+                "domain": "C"
+            },
+            {
+                "text": "The desire to connect with people.",
+                "domain": "D"
+            },
+            {
+                "text": "Ambition, the desire to succeed and earn more.",
+                "domain": "E"
+            },
+            {
+                "text": "A sense of duty and my schedule.",
+                "domain": "F"
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "section": "Future & Career",
+        "question": "Imagine you own a business. What role do you take?",
+        "options": [
+            {
+                "text": "Production or technical maintenance.",
+                "domain": "A"
+            },
+            {
+                "text": "R&D (Research and Development) or new technologies.",
+                "domain": "B"
+            },
+            {
+                "text": "Brand development, advertising, and design.",
+                "domain": "C"
+            },
+            {
+                "text": "Customer service or staff training (HR).",
+                "domain": "D"
+            },
+            {
+                "text": "Strategy, negotiations with investors, sales.",
+                "domain": "E"
+            },
+            {
+                "text": "Finance, logistics, quality control.",
+                "domain": "F"
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "section": "Future & Career",
+        "question": "If you could choose a superpower, what would it be?",
+        "options": [
+            {
+                "text": "Technopathy (controlling machines/mechanisms).",
+                "domain": "A"
+            },
+            {
+                "text": "Super-intelligence and photographic memory.",
+                "domain": "B"
+            },
+            {
+                "text": "Reality warping (creating illusions).",
+                "domain": "C"
+            },
+            {
+                "text": "Healing others.",
+                "domain": "D"
+            },
+            {
+                "text": "Mind control / Persuasion.",
+                "domain": "E"
+            },
+            {
+                "text": "Stopping time (to get everything organized).",
+                "domain": "F"
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "section": "Future & Career",
+        "question": "If you wrote a book, what genre would it be?",
+        "options": [
+            {
+                "text": "A survival guide or technical manual.",
+                "domain": "A"
+            },
+            {
+                "text": "Science fiction or a complex detective story.",
+                "domain": "B"
+            },
+            {
+                "text": "Fantasy or poetry.",
+                "domain": "C"
+            },
+            {
+                "text": "A drama about relationships and love.",
+                "domain": "D"
+            },
+            {
+                "text": "\"How to become a millionaire in a year.\"",
+                "domain": "E"
+            },
+            {
+                "text": "An encyclopedia or a bibliography.",
+                "domain": "F"
+            }
+        ]
+    },
+    {
+        "id": 17,
+        "section": "Future & Career",
+        "question": "What is your communication style?",
+        "options": [
+            {
+                "text": "Brief, to the point, no extra emotions.",
+                "domain": "A"
+            },
+            {
+                "text": "Argumentative, based on facts and logic.",
+                "domain": "B"
+            },
+            {
+                "text": "Emotional, expressive, full of metaphors.",
+                "domain": "C"
+            },
+            {
+                "text": "Gentle, supportive, attentive listening.",
+                "domain": "D"
+            },
+            {
+                "text": "Confident, assertive, persuasive.",
+                "domain": "E"
+            },
+            {
+                "text": "Polite, formal, reserved.",
+                "domain": "F"
+            }
+        ]
+    },
+    {
+        "id": 18,
+        "section": "Future & Career",
+        "question": "What is most important to you in a job?",
+        "options": [
+            {
+                "text": "Reliable equipment/tools.",
+                "domain": "A"
+            },
+            {
+                "text": "Complex intellectual challenges.",
+                "domain": "B"
+            },
+            {
+                "text": "Freedom of self-expression.",
+                "domain": "C"
+            },
+            {
+                "text": "A friendly team atmosphere.",
+                "domain": "D"
+            },
+            {
+                "text": "Career growth and money.",
+                "domain": "E"
+            },
+            {
+                "text": "Stability and clear rules.",
+                "domain": "F"
+            }
+        ]
+    },
+    {
+        "id": 19,
+        "section": "Future & Career",
+        "question": "What is easiest for you to work with?",
+        "options": [
+            {
+                "text": "Things, plants, animals, materials.",
+                "domain": "A"
+            },
+            {
+                "text": "Information, formulas, code, ideas.",
+                "domain": "B"
+            },
+            {
+                "text": "Images, words, sounds, aesthetics.",
+                "domain": "C"
+            },
+            {
+                "text": "People.",
+                "domain": "D"
+            },
+            {
+                "text": "People and Resources (money, time).",
+                "domain": "E"
+            },
+            {
+                "text": "Documents, databases, archives.",
+                "domain": "F"
+            }
+        ]
+    },
+    {
+        "id": 20,
+        "section": "Future & Career",
+        "question": "Which character archetype fits you best?",
+        "options": [
+            {
+                "text": "Tony Stark (in the garage building the suit).",
+                "domain": "A"
+            },
+            {
+                "text": "Sherlock Holmes (deduction and analysis).",
+                "domain": "B"
+            },
+            {
+                "text": "Salvador Dali (pure creativity).",
+                "domain": "C"
+            },
+            {
+                "text": "Dr. House / The Good Doctor (saving lives).",
+                "domain": "D"
+            },
+            {
+                "text": "Elon Musk (business, risk, scale).",
+                "domain": "E"
+            },
+            {
+                "text": "Hermione Granger (knowledge, rules, order).",
+                "domain": "F"
+            }
+        ]
+    }
+]
