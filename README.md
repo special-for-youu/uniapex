@@ -17,7 +17,7 @@
 ## 🚀 Features
 
 ### 🎓 University Finder
-- **Global Database**: Access detailed information on 3,000+ universities worldwide.
+- **Global Database**: Access detailed information on 1,000+ universities worldwide.
 - **Advanced Filtering**: Filter by location, tuition, ranking, and programs.
 - **Admission Chances**: Calculate your acceptance probability (Safety, Target, Reach) based on GPA, IELTS, and SAT scores.
 
