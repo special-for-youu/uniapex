@@ -1,170 +1,96 @@
-# Student OS (Talapker OS)
+<div align="center">
+  <img src="public/logo.png" alt="UNIAPEX Logo" width="120" />
+  <h1>UNIAPEX</h1>
+  <p>
+    <strong>Empowering students to find their dream university and career path through AI-driven guidance.</strong>
+  </p>
+  <p>
+    <a href="#-features">Features</a> •
+    <a href="#-tech-stack">Tech Stack</a> •
+    <a href="#-getting-started">Getting Started</a> •
+    <a href="#-license">License</a>
+  </p>
+</div>
 
-> Super-App for students in Kazakhstan: university admission, test preparation (IELTS, SAT, UNT), and career planning.
+---
 
 ## 🚀 Features
 
-- **University Finder**: Search and filter 3000+ universities worldwide
-- **Chances Calculator**: Get personalized Safety, Target, and Reach recommendations
-- **AI Tutor**: IELTS essay checking and study plan generation with Google Gemini
-- **Test Preparation**: Practice for IELTS, SAT, and UNT exams
-- **Profile Management**: Track your stats and progress
+### 🎓 University Finder
+- **Global Database**: Access detailed information on 3,000+ universities worldwide.
+- **Advanced Filtering**: Filter by location, tuition, ranking, and programs.
+- **Admission Chances**: Calculate your acceptance probability (Safety, Target, Reach) based on GPA, IELTS, and SAT scores.
+
+### 🤖 AI Tutor
+- **Personalized Learning**: Get tailored study plans for IELTS, SAT, and UNT.
+- **Essay Analysis**: AI-powered feedback on your admission essays.
+- **24/7 Support**: Ask questions and get instant academic assistance.
+
+### 💼 Career Guidance
+- **Career Test**: Comprehensive personality and aptitude test to find your ideal career path.
+- **CV Maker**: Build professional, academic-style resumes optimized for university applications.
+- **Extracurriculars**: Discover opportunities to boost your profile.
+
+### 📊 Student Dashboard
+- **Track Progress**: Monitor your test scores, university applications, and to-do lists.
+- **Favorites**: Save universities and programs for quick access.
+
+---
 
 ## 🛠️ Tech Stack
 
-### Frontend
-- **Next.js 14+** (App Router)
-- **Tailwind CSS** (Dark mode first design)
-- **Lucide React** (Icons)
-- **TypeScript**
+- **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Database**: [Supabase](https://supabase.com/) (PostgreSQL)
+- **AI**: [Google Gemini Pro](https://deepmind.google/technologies/gemini/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Deployment**: [Vercel](https://vercel.com/)
 
-### Backend
-- **Supabase** (PostgreSQL, Authentication, Row Level Security)
-- **Google Gemini 1.5 Flash** (AI Engine)
-
-### Data Pipeline
-- **Python 3.11+**
-- **BeautifulSoup** (Web scraping)
-- **libzim** (Khan Academy offline content)
-
-## 📦 Project Structure
-
-```
-student-os/
-├── app/                    # Next.js App Router
-│   ├── layout.tsx         # Root layout
-│   ├── page.tsx           # Landing page
-│   ├── globals.css        # Global styles
-│   └── auth/              # Authentication pages
-├── components/            # Reusable React components
-├── lib/                   # Utilities and clients
-│   └── supabase.ts       # Supabase client
-├── scripts/              # Python data pipeline
-│   ├── scraper_unitap.py # University data scraper
-│   ├── zim_reader.py     # Khan Academy content reader
-│   ├── ai_tutor.py       # Gemini AI integration
-│   └── requirements.txt  # Python dependencies
-├── supabase/
-│   └── schema.sql        # Database schema
-└── package.json
-```
+---
 
 ## 🏁 Getting Started
 
 ### Prerequisites
+- Node.js 18+
+- npm or yarn
 
-- Node.js 18+ and npm
-- Python 3.11+
-- Supabase account
-- Google Gemini API key
+### Installation
 
-### 1. Clone and Install
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/AdilZhalgasbay/uniapex.git
+    cd uniapex
+    ```
 
-```bash
-# Install frontend dependencies
-npm install
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
 
-# Install Python dependencies
-cd scripts
-pip install -r requirements.txt
-```
+3.  **Set up Environment Variables**
+    Create a `.env.local` file in the root directory and add your keys:
+    ```env
+    NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+    NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+    GEMINI_API_KEY=your_gemini_api_key
+    ```
+    *(Note: `.env.local` is gitignored to keep your secrets safe)*
 
-### 2. Set Up Environment Variables
+4.  **Run the development server**
+    ```bash
+    npm run dev
+    ```
 
-Create a `.env.local` file in the root directory:
-
-```env
-# Supabase
-NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-
-# Google Gemini
-GEMINI_API_KEY=your-gemini-api-key
-
-# App
-NEXT_PUBLIC_APP_URL=http://localhost:3000
-```
-
-### 3. Set Up Database
-
-1. Create a new Supabase project
-2. Run the SQL schema:
-   ```bash
-   # In Supabase SQL Editor, paste and run:
-   supabase/schema.sql
-   ```
-
-### 4. Run Development Server
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## 🔧 Data Pipeline
-
-### Scrape University Data
-
-```bash
-cd scripts
-python scraper_unitap.py
-```
-
-### Process Khan Academy Content
-
-```bash
-# Download ZIM file first from https://wiki.kiwix.org/
-python zim_reader.py
-```
-
-### Test AI Tutor
-
-```bash
-python ai_tutor.py
-```
-
-## 📝 Database Schema
-
-### Tables
-- `profiles`: User profiles and stats
-- `universities`: University database
-- `programs`: Academic programs
-- `saved_universities`: User's saved/applied universities
-- `ai_chats`: AI interaction history
-
-See [supabase/schema.sql](supabase/schema.sql) for full schema with RLS policies.
-
-## 🎯 Roadmap
-
-### Phase 1: Foundation (Current)
-- [x] Database schema
-- [x] Next.js project structure
-- [x] Python data scripts skeleton
-- [ ] Supabase authentication
-- [ ] Basic UI components
-
-### Phase 2: Core Features
-- [ ] University finder with filters
-- [ ] Chances calculator algorithm
-- [ ] AI essay checker interface
-- [ ] User dashboard
-
-### Phase 3: Enhancement
-- [ ] Real-time updates
-- [ ] Progress tracking
-- [ ] Study plan generator
-- [ ] Mobile PWA
-
-## 📄 License
-
-MIT License - see LICENSE file for details
-
-## 🤝 Contributing
-
-Contributions are welcome! Please read our contributing guidelines first.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ---
 
-Built with ❤️ for students in Kazakhstan
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+<div align="center">
+  <p>Built with ❤️ by students, for students.</p>
+</div>
