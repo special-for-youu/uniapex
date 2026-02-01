@@ -1,19 +1,77 @@
 import { GoogleGenAI } from '@google/genai'
 import { NextResponse } from 'next/server'
-
-
+import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
+import { cookies } from 'next/headers'
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY })
 
 export async function POST(req: Request) {
     try {
         const body = await req.json()
-        const { mode, message, profile, history } = body
+        const { mode, message, history } = body
 
         if (!process.env.GEMINI_API_KEY) {
             console.error('GEMINI_API_KEY is missing')
             return NextResponse.json({ error: 'API key missing' }, { status: 500 })
         }
+
+        // --- FETCH USER CONTEXT ---
+        let userContext = ''
+        try {
+            const cookieStore = cookies()
+            const supabase = createRouteHandlerClient({ cookies: () => cookieStore })
+
+            const { data: { user } } = await supabase.auth.getUser()
+
+            if (user) {
+                // 1. Fetch Profile
+                const { data: profile } = await supabase
+                    .from('profiles')
+                    .select('*')
+                    .eq('id', user.id)
+                    .single()
+
+                // 2. Fetch Recent Test Results
+                const { data: testResults } = await supabase
+                    .from('test_results')
+                    .select('*')
+                    .eq('user_id', user.id)
+                    .order('created_at', { ascending: false })
+                    .limit(5)
+
+                if (profile) {
+                    userContext += `\n\nUSER PROFILE:\nTime now: ${new Date().toISOString()}\n`
+                    if (profile.full_name) userContext += `- Name: ${profile.full_name}\n`
+                    if (profile.target_country) userContext += `- Target Country: ${profile.target_country}\n`
+                    if (profile.current_gpa) userContext += `- GPA: ${profile.current_gpa}\n`
+                    if (profile.ielts_score) userContext += `- IELTS Score: ${profile.ielts_score}\n`
+                    if (profile.sat_score) userContext += `- SAT Score: ${profile.sat_score}\n`
+                    if (profile.interests) userContext += `- Interests: ${Array.isArray(profile.interests) ? profile.interests.join(', ') : profile.interests}\n`
+                }
+
+                if (testResults && testResults.length > 0) {
+                    userContext += `\n\nRECENT TEST RESULTS:\n`
+                    testResults.forEach((test: any) => {
+                        const date = new Date(test.created_at).toLocaleDateString()
+                        if (test.test_type === 'CAREER') {
+                            const topCareer = test.result_data?.topType?.type?.title || 'Unknown'
+                            userContext += `- Career Test (${date}): Result was "${topCareer}". Focus: ${test.result_data?.topType?.type?.focus}.\n`
+                        } else if (test.test_type === 'MBTI') {
+                            const type = test.result_data?.type || 'Unknown'
+                            userContext += `- MBTI Personality (${date}): Type ${type}.\n`
+                        } else {
+                            // Generic handler for other tests (e.g. GENERAL)
+                            const summary = test.result_data?.summary || test.result_data?.score || 'See details'
+                            userContext += `- ${test.test_type} Test (${date}): ${JSON.stringify(summary)}\n`
+                        }
+                    })
+                }
+            }
+        } catch (ctxError) {
+            console.error('Error fetching user context:', ctxError)
+            // Continue without context if fetch fails
+        }
+        // --------------------------
 
         let prompt = ''
 
@@ -26,14 +84,16 @@ export async function POST(req: Request) {
         if (mode === 'essay') {
             prompt = `You are an expert college admissions counselor. Please review the following essay and provide constructive feedback on structure, content, and tone. Highlight strengths and areas for improvement. Essay: "${message}"`
         } else if (mode === 'career_analysis') {
+            // ... (keeping existing logic for specific career analysis if prompted with a profile object directly)
+            const profileFromRequest = body.profile || {}
             prompt = `You are an expert career counselor. Analyze the following student profile and suggest 3 suitable careers.
             
             Profile:
-            - Interests: ${profile?.interests?.join(', ') || 'General'}
-            - Skills/Qualities: ${profile?.qualities?.join(', ') || 'General'}
-            - Goals: ${profile?.goals?.join(', ') || 'Success'}
-            - Grade: ${profile?.grade || 'High School'}
-            - Country: ${profile?.target_country || 'Global'}
+            - Interests: ${profileFromRequest?.interests?.join(', ') || 'General'}
+            - Skills/Qualities: ${profileFromRequest?.qualities?.join(', ') || 'General'}
+            - Goals: ${profileFromRequest?.goals?.join(', ') || 'Success'}
+            - Grade: ${profileFromRequest?.grade || 'High School'}
+            - Country: ${profileFromRequest?.target_country || 'Global'}
 
             Return the response strictly as a JSON object with a "careers" array. Each career object must have:
             - title (string)
@@ -48,6 +108,8 @@ export async function POST(req: Request) {
         } else if (mode === 'test_prep') {
             prompt = `You are an expert IELTS and SAT tutor. The student is asking for help with exam preparation.
             
+            ${userContext}
+
             Current Request: "${message}"
             
             Previous Conversation:
@@ -57,15 +119,21 @@ export async function POST(req: Request) {
             If they ask for a tip, provide a specific, actionable strategy.
             Keep the tone encouraging and professional.`
         } else {
-            prompt = `You are a helpful university admissions assistant called "UNIAPEX AI".
+            prompt = `You are "UNIAPEX AI", a highly intelligent university admissions assistant and career counselor.
             
+            ${userContext}
+            
+            INSTRUCTIONS:
+            1. Use the "USER PROFILE" (especially IELTS code, SAT score, GPA) and "RECENT TEST RESULTS" above to personalize your advice.
+            2. ALWAYS consider their IELTS and SAT scores when suggesting universities.
+            3. If the user asks "What are my strengths?", analyze their test results (MBTI, Career, General) and stats.
+            4. If the user has no profile data, politely ask them to fill it out in the Profile section.
+            5. Be encouraging, professional, and concise.
+
             Current Request: "${message}"
             
             Previous Conversation:
-            ${historyContext}
-            
-            Answer questions about university applications, tests (IELTS/SAT), scholarships, or general advice.
-            Keep answers concise and helpful.`
+            ${historyContext}`
         }
 
         const response = await ai.models.generateContent({

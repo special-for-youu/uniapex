@@ -1,5 +1,7 @@
 import { GoogleGenAI } from '@google/genai';
 import { NextResponse } from 'next/server';
+import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
@@ -58,6 +60,30 @@ Return your response in this EXACT JSON format (no markdown, just pure JSON):
         try {
             const cleanText = text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
             const parsed = JSON.parse(cleanText);
+
+            // SAVE TO SUPABASE
+            const cookieStore = cookies();
+            const supabase = createRouteHandlerClient({ cookies: () => cookieStore });
+
+            try {
+                const { data: { user } } = await supabase.auth.getUser();
+                if (user) {
+                    await supabase.from('test_results').insert({
+                        user_id: user.id,
+                        test_type: 'CAREER',
+                        // Save both the AI analysis and the raw scores
+                        result_data: {
+                            analysis: parsed,
+                            scores: results,
+                            topType: topType
+                        }
+                    });
+                }
+            } catch (saveError) {
+                console.error('Failed to save assessment results:', saveError);
+                // We don't block the response if save fails, but log it
+            }
+
             return NextResponse.json(parsed);
         } catch (e) {
             console.error('Failed to parse AI response:', e);

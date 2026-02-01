@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { PieChart, Briefcase, Brain, ArrowRight, Sparkles } from 'lucide-react'
 import Link from 'next/link'
+import AssessmentsTable from '../components/AssessmentsTable'
 
 export default function AnalysePage() {
     interface TestItem {
@@ -49,7 +50,7 @@ export default function AnalysePage() {
             delay: 0.3
         }
     ]
-    
+
     return (
         <div className="min-h-screen p-6 md:p-10 space-y-8">
             <div className="max-w-5xl mx-auto">
@@ -100,6 +101,8 @@ export default function AnalysePage() {
                         </motion.div>
                     ))}
                 </div>
+
+                <AssessmentsTable />
             </div>
         </div>
     )

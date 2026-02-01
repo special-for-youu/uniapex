@@ -1,5 +1,7 @@
 import { GoogleGenAI } from '@google/genai';
 import { NextResponse } from 'next/server';
+import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
@@ -165,6 +167,28 @@ export async function POST(req: Request) {
                 }
             ]
         };
+
+
+        // SAVE TO SUPABASE
+        const cookieStore = cookies();
+        const supabase = createRouteHandlerClient({ cookies: () => cookieStore });
+
+        try {
+            const { data: { user } } = await supabase.auth.getUser();
+            if (user) {
+                await supabase.from('test_results').insert({
+                    user_id: user.id,
+                    test_type: 'MBTI',
+                    result_data: {
+                        scores: scores,
+                        type: type,
+                        personality: responseData
+                    }
+                });
+            }
+        } catch (err) {
+            console.error('Failed to save MBTI result:', err);
+        }
 
         return NextResponse.json(responseData);
 

@@ -125,11 +125,10 @@ export default function AITutorPage() {
         return "Hello! I'm your AI Tutor. Ask me anything about universities, applications, or exams."
     }
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault()
-        if (!input.trim() || loading) return
+    const sendMessage = async (text: string) => {
+        if (!text.trim() || loading) return
 
-        const userMessage = input.trim()
+        const userMessage = text.trim()
         setInput('')
 
         // Optimistic UI update
@@ -202,8 +201,20 @@ export default function AITutorPage() {
         }
     }
 
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        await sendMessage(input)
+    }
+
+    const suggestions = [
+        "What universities are acceptable for my profile?",
+        "Help me create a plan to research universities",
+        "What are my academic strengths based on my profile?",
+        "Can you help me identify universities in USA?"
+    ]
+
     return (
-        <div className="flex h-full overflow-hidden" style={{ backgroundColor: 'var(--main-bg)', color: 'var(--text-color)' }}>
+        <div className="flex h-[calc(100vh-80px)] overflow-hidden" style={{ backgroundColor: 'var(--main-bg)', color: 'var(--text-color)' }}>
 
             {/* Mobile Overlay */}
             <AnimatePresence>
@@ -304,10 +315,26 @@ export default function AITutorPage() {
                 {/* Messages */}
                 <div className="flex-1 overflow-y-auto p-4 md:p-8 space-y-6 scroll-smooth">
                     {messages.length === 0 && !loading && (
-                        <div className="flex flex-col items-center justify-center h-full text-center opacity-50">
-                            <Sparkles className="w-16 h-16 mb-4 text-blue-500" />
-                            <h3 className="text-xl font-semibold mb-2">Start a new conversation</h3>
-                            <p className="max-w-md">Ask me anything about universities, applications, or exams.</p>
+                        <div className="flex flex-col items-center justify-center h-full text-center p-4">
+                            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-6 shadow-lg shadow-blue-500/20">
+                                <Sparkles className="w-8 h-8 text-white" />
+                            </div>
+                            <h3 className="text-2xl font-bold mb-2">How can I help you today?</h3>
+                            <p className="max-w-md text-muted-foreground mb-8">
+                                Ask me anything about universities, applications, or exams.
+                            </p>
+
+                            <div className="grid gap-3 w-full max-w-2xl">
+                                {suggestions.map((suggestion, idx) => (
+                                    <button
+                                        key={idx}
+                                        onClick={() => sendMessage(suggestion)}
+                                        className="p-4 rounded-xl border border-pink-200 dark:border-pink-900/50 bg-pink-50/50 dark:bg-pink-900/10 hover:bg-pink-100 dark:hover:bg-pink-900/20 text-pink-700 dark:text-pink-300 transition-all text-sm font-medium text-left hover:scale-[1.01] active:scale-[0.99]"
+                                    >
+                                        {suggestion}
+                                    </button>
+                                ))}
+                            </div>
                         </div>
                     )}
 
