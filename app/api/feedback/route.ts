@@ -2,10 +2,15 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
+import DOMPurify from 'isomorphic-dompurify';
 
 export async function POST(request: Request) {
     try {
         const { title, description, userEmail } = await request.json();
+
+        // Sanitize input to prevent XSS in emails
+        const safeTitle = DOMPurify.sanitize(title);
+        const safeDescription = DOMPurify.sanitize(description);
 
         if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
             console.error('Email credentials missing');
@@ -33,8 +38,8 @@ export async function POST(request: Request) {
             .insert({
                 user_id: session.user.id,
                 user_email: userEmail || session.user.email,
-                title,
-                description,
+                title: safeTitle,
+                description: safeDescription,
                 status: 'pending'
             });
 
@@ -62,14 +67,14 @@ export async function POST(request: Request) {
             from: process.env.EMAIL_USER,
             to: process.env.EMAIL_USER, // Send to self (admin)
             replyTo: userEmail || undefined, // Allow replying to the user
-            subject: `[Feedback] ${title}`,
+            subject: `[Feedback] ${safeTitle}`,
             text: `
 New Feedback Received:
 
 From: ${userEmail || 'Anonymous'}
-Title: ${title}
+Title: ${safeTitle}
 Description:
-${description}
+${safeDescription}
 
 ----------------------------------------------------
 Sent from UNIAPEX Feedback System
@@ -77,9 +82,9 @@ Sent from UNIAPEX Feedback System
             html: `
                 <h2>New Feedback Received</h2>
                 <p><strong>From:</strong> ${userEmail || 'Anonymous'}</p>
-                <p><strong>Title:</strong> ${title}</p>
+                <p><strong>Title:</strong> ${safeTitle}</p>
                 <p><strong>Description:</strong></p>
-                <p style="white-space: pre-wrap;">${description}</p>
+                <p style="white-space: pre-wrap;">${safeDescription}</p>
                 <hr />
                 <p><small>Sent from UNIAPEX Feedback System</small></p>
             `,

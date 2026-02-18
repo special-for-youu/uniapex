@@ -30,14 +30,61 @@ export async function POST(req: Request) {
         }
         // ------------------------
 
+        // ------------------------
+
+        // --- AUTH & RATE LIMITING ---
+        const cookieStore = cookies()
+        const supabase = createRouteHandlerClient({ cookies: () => cookieStore })
+        const { data: { user } } = await supabase.auth.getUser()
+
+        if (user) {
+            try {
+                // Check Rate Limit
+                const { data: limitData, error: limitError } = await supabase
+                    .from('api_rate_limits')
+                    .select('*')
+                    .eq('user_id', user.id)
+                    .eq('endpoint', 'ai-tutor')
+                    .single()
+
+                const now = new Date()
+
+                if (limitData) {
+                    const windowStart = new Date(limitData.window_start)
+                    const diffSeconds = (now.getTime() - windowStart.getTime()) / 1000
+
+                    if (diffSeconds < 60) {
+                        // In window
+                        if (limitData.request_count >= 10) {
+                            return NextResponse.json({ error: 'Rate limit exceeded. Please wait a minute.' }, { status: 429 })
+                        }
+                        await supabase.from('api_rate_limits')
+                            .update({ request_count: limitData.request_count + 1 })
+                            .eq('user_id', user.id)
+                            .eq('endpoint', 'ai-tutor')
+                    } else {
+                        // New window
+                        await supabase.from('api_rate_limits')
+                            .update({ request_count: 1, window_start: now.toISOString() })
+                            .eq('user_id', user.id)
+                            .eq('endpoint', 'ai-tutor')
+                    }
+                } else {
+                    // First request
+                    await supabase.from('api_rate_limits')
+                        .insert({ user_id: user.id, endpoint: 'ai-tutor', request_count: 1, window_start: now.toISOString() })
+                }
+            } catch (rateLimitError) {
+                console.error('Rate limit check failed:', rateLimitError)
+                // Fail open? Or closed? Let's fail open for now to avoid blocking users on DB errors.
+            }
+        }
+        // ----------------------------
+
         // --- FETCH USER CONTEXT ---
         let userContext = ''
         try {
-            const cookieStore = cookies()
-            const supabase = createRouteHandlerClient({ cookies: () => cookieStore })
-
-            const { data: { user } } = await supabase.auth.getUser()
-
+            // Already initialized supabase above
             if (user) {
                 // 1. Fetch Profile
                 const { data: profile } = await supabase
