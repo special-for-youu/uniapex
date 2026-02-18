@@ -1,3 +1,4 @@
+
 'use client'
 
 import { useEffect, useState } from 'react'
@@ -17,6 +18,7 @@ interface Article {
     description: string
     image_url: string
     link_url: string
+    content?: string
 }
 
 export default function DashboardPage() {
@@ -115,7 +117,7 @@ export default function DashboardPage() {
                                             title={article.title}
                                             description={article.description}
                                             image={article.image_url}
-                                            href={article.link_url}
+                                            href={article.content ? `/article/${article.id}` : article.link_url}
                                             delay={0.3 + (index * 0.1)}
                                         />
                                     ))}

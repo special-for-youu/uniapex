@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { Search, Filter, BookmarkPlus, BookmarkCheck, MapPin, DollarSign, GraduationCap, Loader2, X, Globe, Phone, Mail, Facebook, Twitter, Instagram, Youtube, BookOpen, Users, Building } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import DOMPurify from 'isomorphic-dompurify'
 
 // Updated interface to match DB schema
 interface University {
@@ -808,11 +809,19 @@ function UniversityModal({ university, onClose }: { university: University; onCl
       .replace(/style='[^']*'/gi, '')
   }
 
+
   // Helper to add hyperlinks to keywords
   const processDescription = (html: string) => {
     if (!html) return ''
-    let processed = cleanHtml(html)
 
+    // 1. Sanitize HTML first (Prevent XSS)
+    const clean = DOMPurify.sanitize(html, {
+      ALLOWED_TAGS: ['b', 'i', 'em', 'strong', 'a', 'p', 'br', 'ul', 'li', 'h3', 'h4'],
+      ALLOWED_ATTR: ['href', 'target', 'rel', 'class']
+    })
+
+    // 2. Add hyperlinks to keywords
+    let processed = clean
     const keywords = [
       { term: 'early admission', url: '/articles/early-admission' },
       { term: 'scholarship', url: '/articles/find-fit-university' },

@@ -15,6 +15,21 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: 'API key missing' }, { status: 500 })
         }
 
+        // --- INPUT VALIDATION ---
+        if (!message || typeof message !== 'string') {
+            return NextResponse.json({ error: 'Message is required and must be a string' }, { status: 400 })
+        }
+
+        if (message.length > 2000) {
+            return NextResponse.json({ error: 'Message is too long (max 2000 characters)' }, { status: 400 })
+        }
+
+        const validModes = ['essay', 'career_analysis', 'test_prep', 'chat', 'general']
+        if (mode && !validModes.includes(mode)) {
+            return NextResponse.json({ error: 'Invalid mode' }, { status: 400 })
+        }
+        // ------------------------
+
         // --- FETCH USER CONTEXT ---
         let userContext = ''
         try {

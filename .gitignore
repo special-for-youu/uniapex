@@ -10,7 +10,7 @@ coverage/
 .next/
 out/
 build/
-
+bacups/
 # production
 dist/
 
@@ -45,7 +45,7 @@ ENV/
 .idea/
 *.swp
 *.swo
-
+*.log
 # OS
 Thumbs.db
 
