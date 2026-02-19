@@ -118,8 +118,18 @@ export async function POST(req: Request) {
                         } else if (test.test_type === 'MBTI') {
                             const type = test.result_data?.type || 'Unknown'
                             userContext += `- MBTI Personality(${date}): Type ${type}.\n`
+                        } else if (test.test_type === 'TEST_INTRO') {
+                            const { wizardData, analysis } = test.result_data
+                            userContext += `- General Academic Pathway(${date}):\n`
+                            if (analysis?.summary) userContext += `  Summary: "${analysis.summary}"\n`
+                            if (wizardData) {
+                                if (wizardData.targetCountries) userContext += `  Target Countries: ${wizardData.targetCountries.join(', ')}\n`
+                                if (wizardData.interests) userContext += `  Interests: ${wizardData.interests.join(', ')}\n`
+                                if (wizardData.exams?.ielts?.taken) userContext += `  IELTS: ${wizardData.exams.ielts.score}\n`
+                                if (wizardData.exams?.sat?.taken) userContext += `  SAT: ${wizardData.exams.sat.score}\n`
+                            }
                         } else {
-                            // Generic handler for other tests (e.g. GENERAL)
+                            // Generic handler for other tests
                             const summary = test.result_data?.summary || test.result_data?.score || 'See details'
                             userContext += `- ${test.test_type} Test(${date}): ${JSON.stringify(summary)} \n`
                         }
