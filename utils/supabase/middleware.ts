@@ -36,9 +36,17 @@ export async function updateSession(request: NextRequest) {
     // supabase.auth.getUser(). A simple mistake could make it very hard to debug
     // issues with users being randomly logged out.
 
-    const {
-        data: { user },
-    } = await supabase.auth.getUser()
+    let user = null
+    try {
+        const {
+            data: { user: supabaseUser },
+        } = await supabase.auth.getUser()
+        user = supabaseUser
+    } catch (error) {
+        // This likely means the refresh token is invalid.
+        // We treat this as "no user" and let the redirection logic handle it.
+        // console.error('Middleware Auth Error:', error)
+    }
 
     const protectedPaths = ['/dashboard', '/profile', '/universities', '/extracurriculars', '/ai-tutor', '/career-test']
     const isProtectedPath = protectedPaths.some(path => request.nextUrl.pathname.startsWith(path))
