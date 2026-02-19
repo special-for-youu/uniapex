@@ -100,6 +100,20 @@ export default function DashboardPage() {
                             <TodoList />
                         </motion.div>
 
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            className="p-6 rounded-2xl border backdrop-blur-xl min-h-[400px]"
+                            style={{
+                                backgroundColor: 'var(--main-container-bg)',
+                                borderColor: 'var(--border-color)',
+                                boxShadow: 'var(--container-shadow)'
+                            }}
+                        >
+                            <TodoList />
+                        </motion.div>
+
                         <section>
                             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                                 <FileText className="w-6 h-6 text-blue-500" />

@@ -70,7 +70,8 @@ export default function AssessmentsTable() {
                                     <td className="p-4">
                                         <div className="font-medium text-foreground">
                                             {item.test_type === 'CAREER' ? 'Career Test' :
-                                                item.test_type === 'MBTI' ? 'MBTI Personality' : item.test_type}
+                                                item.test_type === 'MBTI' ? 'MBTI Personality' :
+                                                    item.test_type === 'TEST_INTRO' ? 'General Academic Pathway' : item.test_type}
                                         </div>
                                     </td>
                                     <td className="p-4 text-muted-foreground">

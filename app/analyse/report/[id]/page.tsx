@@ -130,6 +130,103 @@ export default function ReportPage() {
         )
     }
 
+    // Render TEST_INTRO (General Academic Pathway) Report
+    if (test_type === 'TEST_INTRO') {
+        const { analysis, wizardData } = result_data
+
+        return (
+            <div className="min-h-screen p-6 md:p-10 max-w-5xl mx-auto space-y-8">
+                <Link href="/analyse" className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors mb-4">
+                    <ArrowLeft className="w-4 h-4 mr-2" /> Back to Analysis
+                </Link>
+
+                <div className="bg-card border border-border rounded-2xl p-8 shadow-sm">
+                    {/* Header */}
+                    <div className="space-y-4 mb-8">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-medium">
+                            <Sparkles className="w-4 h-4" />
+                            Academic Roadmap
+                        </div>
+                        <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
+                            Your Personalized Pathway
+                        </h1>
+                        <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
+                            {analysis.summary}
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-8">
+                        {/* Recommendations */}
+                        <div className="space-y-4">
+                            <h2 className="text-2xl font-semibold flex items-center gap-2">
+                                <Sparkles className="w-6 h-6 text-purple-500" />
+                                Strategic Recommendations
+                            </h2>
+                            <ul className="space-y-4">
+                                {analysis.recommendations.map((rec: string, i: number) => (
+                                    <motion.li
+                                        key={i}
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: i * 0.1 }}
+                                        className="p-4 rounded-xl bg-background border border-border shadow-sm flex gap-3"
+                                    >
+                                        <div className="min-w-[24px] h-6 flex items-center justify-center rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 text-xs font-bold mt-0.5">
+                                            {i + 1}
+                                        </div>
+                                        <span>{rec}</span>
+                                    </motion.li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Career Paths */}
+                        <div className="space-y-4">
+                            <h2 className="text-2xl font-semibold flex items-center gap-2">
+                                <Briefcase className="w-6 h-6 text-emerald-500" />
+                                Potential Major & Career Fits
+                            </h2>
+                            <div className="grid gap-3">
+                                {analysis.careerPaths.map((path: string, i: number) => (
+                                    <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, x: 20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: i * 0.1 + 0.2 }}
+                                        className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900"
+                                    >
+                                        <div className="font-semibold text-emerald-800 dark:text-emerald-300">
+                                            {path}
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+
+                            {/* Context Data Summary */}
+                            <div className="mt-8 pt-8 border-t border-border">
+                                <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">
+                                    Based on your profile
+                                </h3>
+                                <div className="flex flex-wrap gap-2">
+                                    {wizardData.continents.map((c: any) => (
+                                        <span key={c.code} className="px-2 py-1 bg-secondary text-secondary-foreground rounded text-xs">
+                                            {c.name}
+                                        </span>
+                                    ))}
+                                    {wizardData.interests.map((i: string) => (
+                                        <span key={i} className="px-2 py-1 bg-secondary text-secondary-foreground rounded text-xs">
+                                            {i}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
     // Render MBTI Report
     if (test_type === 'MBTI') {
         const { personality } = result_data
