@@ -179,7 +179,7 @@ export default function TodoList() {
                             >
                                 <button
                                     onClick={() => toggleTodo(todo.id, todo.is_completed)}
-                                    className={`flex-shrink-0 transition-colors ${todo.is_completed ? 'text-green-500' : 'text-gray-300 hover:text-blue-500'
+                                    className={`flex-shrink-0 transition-colors ${todo.is_completed ? 'text-green-500' : 'text-gray-400 dark:text-gray-500 hover:text-blue-500'
                                         }`}
                                 >
                                     {todo.is_completed ? (
