@@ -15,13 +15,7 @@ const CONTINENTS = [
     { code: 'ME', name: 'Middle East' },
 ]
 
-const POPULAR_COUNTRIES = [
-    'USA', 'Canada', 'UK', 'Germany', 'Netherlands', 'France', 'Switzerland',
-    'South Korea', 'China', 'Japan', 'Singapore', 'Hong Kong', 'Australia', 'New Zealand',
-    'Ireland', 'Sweden', 'Norway', 'Denmark', 'Finland', 'Italy', 'Spain',
-    'Belgium', 'Austria', 'UAE', 'Qatar', 'Saudi Arabia', 'Malaysia',
-    'Brazil', 'Argentina', 'South Africa', 'India', 'Turkey'
-]
+import { POPULAR_COUNTRIES } from '@/app/constants/countries'
 
 interface Step1Props {
     data: WizardState

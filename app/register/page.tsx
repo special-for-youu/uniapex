@@ -9,6 +9,7 @@ import Link from 'next/link'
 
 import Image from 'next/image'
 import logo from '@/components/assets/logo.png'
+import CountrySelect from '@/app/components/CountrySelect'
 
 export default function RegisterPage() {
     const router = useRouter()
@@ -232,25 +233,13 @@ export default function RegisterPage() {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium mb-2 text-slate-900">
-                                        <Globe className="w-4 h-4 inline mr-1" />
-                                        Target Country
-                                    </label>
-                                    <select
-                                        name="country"
-                                        required
+                                    <CountrySelect
+                                        label="Target Country"
                                         value={formData.country}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-slate-50 border border-transparent text-slate-900"
-                                    >
-                                        <option value="" className="bg-white">Select Country</option>
-                                        <option value="USA" className="bg-white">USA</option>
-                                        <option value="UK" className="bg-white">UK</option>
-                                        <option value="Canada" className="bg-white">Canada</option>
-                                        <option value="Kazakhstan" className="bg-white">Kazakhstan</option>
-                                        <option value="Europe" className="bg-white">Europe</option>
-                                        <option value="Asia" className="bg-white">Asia</option>
-                                    </select>
+                                        onChange={(value) => setFormData({ ...formData, country: value })}
+                                        className="mb-4"
+                                        required
+                                    />
                                 </div>
 
                                 <div>

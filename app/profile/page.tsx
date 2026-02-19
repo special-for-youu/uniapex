@@ -8,6 +8,7 @@ import { getProfile, updateProfile, createProfile } from '@/lib/supabase'
 import type { Profile } from '@/lib/supabase'
 import Link from 'next/link'
 import { User, Mail, GraduationCap, MapPin, Target, Sparkles, LogOut, Save, Book, Award, Briefcase, CheckCircle, AlertCircle, FileText, MessageSquare } from 'lucide-react'
+import CountrySelect from '@/app/components/CountrySelect'
 
 export default function Profile() {
     const router = useRouter()
@@ -146,26 +147,11 @@ export default function Profile() {
                         </div>
 
                         <div>
-                            <label htmlFor="target_country" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-color)' }}>
-                                Target Country
-                            </label>
-                            <select
-                                id="target_country"
+                            <CountrySelect
+                                label="Target Country"
                                 value={formData.target_country}
-                                onChange={(e) => setFormData({ ...formData, target_country: e.target.value })}
-                                className="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                                style={{ backgroundColor: 'var(--main-bg)', borderColor: 'var(--item-hover)', color: 'var(--text-color)' }}
-                            >
-                                <option value="">Select a country</option>
-                                <option value="Kazakhstan">Kazakhstan</option>
-                                <option value="USA">USA</option>
-                                <option value="UK">UK</option>
-                                <option value="Canada">Canada</option>
-                                <option value="Germany">Germany</option>
-                                <option value="Korea">South Korea</option>
-                                <option value="Japan">Japan</option>
-                                <option value="Other">Other</option>
-                            </select>
+                                onChange={(value) => setFormData({ ...formData, target_country: value })}
+                            />
                         </div>
 
                         <div>
