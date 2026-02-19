@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@/utils/supabase/server';
 import { cookies } from 'next/headers';
 import DOMPurify from 'isomorphic-dompurify';
 
@@ -21,12 +21,12 @@ export async function POST(request: Request) {
         }
 
         // 1. Save to Database
-        const supabase = createRouteHandlerClient({ cookies });
+        const supabase = await createClient();
 
         // Get user session to ensure we have the correct user_id
-        const { data: { session } } = await supabase.auth.getSession();
+        const { data: { user }, error: authError } = await supabase.auth.getUser();
 
-        if (!session) {
+        if (authError || !user) {
             return NextResponse.json(
                 { error: 'Unauthorized' },
                 { status: 401 }
@@ -36,8 +36,8 @@ export async function POST(request: Request) {
         const { error: dbError } = await supabase
             .from('feedback')
             .insert({
-                user_id: session.user.id,
-                user_email: userEmail || session.user.email,
+                user_id: user.id,
+                user_email: userEmail || user.email,
                 title: safeTitle,
                 description: safeDescription,
                 status: 'pending'

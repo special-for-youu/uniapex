@@ -23,7 +23,7 @@ import {
     X,
     PieChart
 } from 'lucide-react';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@/utils/supabase/client';
 import Image from 'next/image';
 import logo from '@/components/assets/logo.png';
 import FeedbackModal from './FeedbackModal';
@@ -34,7 +34,7 @@ export default function Sidebar() {
     const [isDark, setIsDark] = useState(false);
     const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
     const pathname = usePathname();
-    const supabase = createClientComponentClient();
+    const supabase = createClient();
 
     const [userEmail, setUserEmail] = useState<string | null>(null);
 
@@ -62,7 +62,7 @@ export default function Sidebar() {
         }
     }, []);
 
-    // Close mobile menu on route change
+
     useEffect(() => {
         setIsMobileOpen(false);
     }, [pathname]);
@@ -101,7 +101,6 @@ export default function Sidebar() {
 
     return (
         <>
-            {/* Mobile Hamburger Button */}
             <button
                 onClick={() => setIsMobileOpen(!isMobileOpen)}
                 className="md:hidden fixed top-4 left-4 z-50 p-2 bg-white dark:bg-slate-900 rounded-lg shadow-md border border-gray-200 dark:border-white text-gray-700 dark:text-white"
@@ -109,7 +108,6 @@ export default function Sidebar() {
                 {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
-            {/* Mobile Overlay */}
             {isMobileOpen && (
                 <div
                     className="md:hidden fixed inset-0 bg-black/50 z-[100] backdrop-blur-md"

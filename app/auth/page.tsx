@@ -3,7 +3,7 @@
 import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/utils/supabase/client'
 import { GraduationCap, Mail, Lock, Loader2, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
@@ -18,7 +18,7 @@ function AuthContent() {
     const [loading, setLoading] = useState(true)
     const [formLoading, setFormLoading] = useState(false)
     const [message, setMessage] = useState('')
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
 
     useEffect(() => {
         checkUser()

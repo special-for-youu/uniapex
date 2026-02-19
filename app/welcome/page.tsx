@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/utils/supabase/client'
 import { ArrowRight, Sparkles, Rocket } from 'lucide-react'
 import Image from 'next/image'
 import logo from '@/components/assets/logo.png'
@@ -11,7 +11,7 @@ import logo from '@/components/assets/logo.png'
 export default function WelcomePage() {
     const router = useRouter()
     const [name, setName] = useState('')
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
 
     useEffect(() => {
         const getUser = async () => {
@@ -29,7 +29,7 @@ export default function WelcomePage() {
                     }
                 }
             } catch (error) {
-                console.error('Error fetching profile:', error)
+                if (process.env.NODE_ENV === 'development') console.error('Error fetching profile:', error)
             }
         }
         getUser()

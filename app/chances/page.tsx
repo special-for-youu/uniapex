@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
-import { supabase, getProfile, createProfile } from '@/lib/supabase'
+import { getProfile, createProfile } from '@/lib/supabase'
+import { createClient } from '@/utils/supabase/client'
 import { Profile } from '@/lib/supabase'
 import { matchUniversities, getImprovementSuggestions, UniversityMatch } from '@/lib/matcher'
 import { Target, TrendingUp, AlertTriangle, XCircle, ExternalLink, Lightbulb } from 'lucide-react'
@@ -20,6 +21,7 @@ export default function ChancesPage() {
     outOfReach: UniversityMatch[]
   } | null>(null)
   const [suggestions, setSuggestions] = useState<string[]>([])
+  const supabase = createClient()
 
   useEffect(() => {
     loadData()
@@ -34,10 +36,10 @@ export default function ChancesPage() {
         return
       }
 
-      let userProfile = await getProfile(user.id)
+      let userProfile = await getProfile(user.id, supabase)
 
       if (!userProfile) {
-        userProfile = await createProfile(user.id, user.email!)
+        userProfile = await createProfile(user.id, user.email!, supabase)
       }
 
       setProfile(userProfile)
@@ -45,7 +47,7 @@ export default function ChancesPage() {
       // Only calculate matches if profile is available
       if (userProfile) {
         // Calculate matches
-        const matchResults = await matchUniversities(userProfile)
+        const matchResults = await matchUniversities(userProfile, supabase)
         setMatches(matchResults)
 
         // Get suggestions
@@ -54,7 +56,7 @@ export default function ChancesPage() {
       }
 
     } catch (error) {
-      console.error('Error loading data:', error)
+      if (process.env.NODE_ENV === 'development') console.error('Error loading data:', error)
     } finally {
       setLoading(false)
     }

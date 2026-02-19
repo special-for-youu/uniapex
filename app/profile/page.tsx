@@ -2,15 +2,16 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/utils/supabase/client'
+import { motion } from 'framer-motion'
 import { getProfile, updateProfile, createProfile } from '@/lib/supabase'
-import { Profile } from '@/lib/supabase'
+import type { Profile } from '@/lib/supabase'
 import Link from 'next/link'
-import { User, Save, CheckCircle, AlertCircle, FileText, MessageSquare } from 'lucide-react'
+import { User, Mail, GraduationCap, MapPin, Target, Sparkles, LogOut, Save, Book, Award, Briefcase, CheckCircle, AlertCircle, FileText, MessageSquare } from 'lucide-react'
 
-export default function ProfilePage() {
+export default function Profile() {
     const router = useRouter()
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
     const [loading, setLoading] = useState(true)
     const [saving, setSaving] = useState(false)
     const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
@@ -53,7 +54,7 @@ export default function ProfilePage() {
                 })
             }
         } catch (error) {
-            console.error('Error loading profile:', error)
+            if (process.env.NODE_ENV === 'development') console.error('Error loading profile:', error)
         } finally {
             setLoading(false)
         }
@@ -87,7 +88,7 @@ export default function ProfilePage() {
 
             setMessage({ type: 'success', text: 'Profile updated successfully!' })
         } catch (error: any) {
-            console.error('Profile update error:', error)
+            if (process.env.NODE_ENV === 'development') console.error('Profile update error:', error)
             setMessage({ type: 'error', text: error.message || 'Failed to update profile' })
         } finally {
             setSaving(false)
@@ -105,7 +106,6 @@ export default function ProfilePage() {
     return (
         <div className="min-h-screen p-6 pt-20 md:p-8" style={{ backgroundColor: 'var(--main-bg)', color: 'var(--text-color)' }}>
             <div className="max-w-2xl mx-auto">
-                {/* Header */}
                 <div className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
                         <div className="flex items-center gap-3 mb-2">
@@ -128,10 +128,8 @@ export default function ProfilePage() {
                     </div>
                 </div>
 
-                {/* Form */}
                 <div className="backdrop-blur-lg rounded-2xl p-8 border" style={{ backgroundColor: 'var(--main-container-bg)', borderColor: 'var(--item-hover)' }}>
                     <form onSubmit={handleSubmit} className="space-y-6">
-                        {/* Full Name */}
                         <div>
                             <label htmlFor="full_name" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-color)' }}>
                                 Full Name
@@ -147,7 +145,6 @@ export default function ProfilePage() {
                             />
                         </div>
 
-                        {/* Target Country */}
                         <div>
                             <label htmlFor="target_country" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-color)' }}>
                                 Target Country
@@ -171,7 +168,6 @@ export default function ProfilePage() {
                             </select>
                         </div>
 
-                        {/* GPA */}
                         <div>
                             <label htmlFor="current_gpa" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-color)' }}>
                                 Current GPA (0.0 - 4.0)
@@ -190,7 +186,6 @@ export default function ProfilePage() {
                             />
                         </div>
 
-                        {/* IELTS */}
                         <div>
                             <label htmlFor="ielts_score" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-color)' }}>
                                 IELTS Score (0.0 - 9.0)
@@ -209,7 +204,6 @@ export default function ProfilePage() {
                             />
                         </div>
 
-                        {/* SAT */}
                         <div>
                             <label htmlFor="sat_score" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-color)' }}>
                                 SAT Score (400 - 1600)
@@ -227,7 +221,6 @@ export default function ProfilePage() {
                             />
                         </div>
 
-                        {/* Message */}
                         {message && (
                             <div
                                 className={`flex items-center gap-3 p-4 rounded-lg ${message.type === 'success'
@@ -244,7 +237,6 @@ export default function ProfilePage() {
                             </div>
                         )}
 
-                        {/* Submit Button */}
                         <button
                             type="submit"
                             disabled={saving}

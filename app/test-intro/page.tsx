@@ -63,7 +63,7 @@ export default function TestIntroPage() {
 
             setRecommendations(data)
         } catch (err: any) {
-            console.error(err)
+            if (process.env.NODE_ENV === 'development') console.error(err)
             setError(err.message || 'Failed to generate recommendations. Please try again.')
         } finally {
             setLoading(false)

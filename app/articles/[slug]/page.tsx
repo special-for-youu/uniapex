@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/utils/supabase/client'
 import { useParams, useRouter } from 'next/navigation'
 import { ArrowLeft, Calendar, Clock, Share2, Bookmark, User } from 'lucide-react'
 import { motion } from 'framer-motion'
@@ -19,7 +19,7 @@ interface Article {
 export default function ArticlePage() {
   const params = useParams()
   const router = useRouter()
-  const supabase = createClientComponentClient()
+  const supabase = createClient()
   const [article, setArticle] = useState<Article | null>(null)
   const [loading, setLoading] = useState(true)
 

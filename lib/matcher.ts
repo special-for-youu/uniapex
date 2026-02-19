@@ -1,5 +1,6 @@
 import { supabase } from './supabase'
 import { Profile, University } from './supabase'
+import { SupabaseClient } from '@supabase/supabase-js'
 
 export interface MatchResult {
   safety: UniversityMatch[]
@@ -22,10 +23,10 @@ export interface UniversityMatch extends University {
  * Match universities based on user profile
  * Categorizes universities as Safety, Target, Reach, or Out of Reach
  */
-export async function matchUniversities(profile: Profile): Promise<MatchResult> {
+export async function matchUniversities(profile: Profile, supabaseClient: SupabaseClient = supabase): Promise<MatchResult> {
   try {
-    // Fetch all universities
-    const { data: universities, error } = await supabase
+
+    const { data: universities, error } = await supabaseClient
       .from('universities')
       .select('*')
       .order('ranking', { ascending: true, nullsFirst: false })
@@ -41,7 +42,7 @@ export async function matchUniversities(profile: Profile): Promise<MatchResult> 
       }
     })
 
-    // Categorize
+
     const safety = matches.filter(m => m.matchCategory === 'safety')
     const target = matches.filter(m => m.matchCategory === 'target')
     const reach = matches.filter(m => m.matchCategory === 'reach')
@@ -49,7 +50,7 @@ export async function matchUniversities(profile: Profile): Promise<MatchResult> 
 
     return { safety, target, reach, outOfReach }
   } catch (error) {
-    console.error('Error matching universities:', error)
+    if (process.env.NODE_ENV === 'development') console.error('Error matching universities:', error)
     throw error
   }
 }
@@ -68,7 +69,7 @@ export function calculateMatch(profile: Profile, university: University): {
   let totalScore = 0
   let criteriaCount = 0
 
-  // Check IELTS
+
   if (requirements.min_ielts) {
     criteriaCount++
     const userIELTS = profile.ielts_score || 0
@@ -86,7 +87,7 @@ export function calculateMatch(profile: Profile, university: University): {
     }
   }
 
-  // Check GPA
+
   if (requirements.min_gpa) {
     criteriaCount++
     const userGPA = profile.current_gpa || 0
@@ -104,7 +105,7 @@ export function calculateMatch(profile: Profile, university: University): {
     }
   }
 
-  // Check SAT
+
   if (requirements.min_sat) {
     criteriaCount++
     const userSAT = profile.sat_score || 0
@@ -122,10 +123,10 @@ export function calculateMatch(profile: Profile, university: University): {
     }
   }
 
-  // Calculate average score
+
   const avgScore = criteriaCount > 0 ? totalScore / criteriaCount : 50
 
-  // Determine category
+
   let category: 'safety' | 'target' | 'reach' | 'out-of-reach'
 
   if (avgScore >= 90) {
@@ -151,7 +152,7 @@ export function calculateMatch(profile: Profile, university: University): {
 export function getImprovementSuggestions(profile: Profile, matches: MatchResult): string[] {
   const suggestions: string[] = []
 
-  // Check IELTS
+
   if (!profile.ielts_score || profile.ielts_score < 7.0) {
     const targetIELTS = 7.0
     const gap = targetIELTS - (profile.ielts_score || 0)
@@ -160,7 +161,7 @@ export function getImprovementSuggestions(profile: Profile, matches: MatchResult
     }
   }
 
-  // Check GPA
+
   if (!profile.current_gpa || profile.current_gpa < 3.5) {
     const targetGPA = 3.5
     const gap = targetGPA - (profile.current_gpa || 0)
@@ -169,7 +170,7 @@ export function getImprovementSuggestions(profile: Profile, matches: MatchResult
     }
   }
 
-  // Check SAT
+
   if (!profile.sat_score || profile.sat_score < 1400) {
     const targetSAT = 1400
     const gap = targetSAT - (profile.sat_score || 0)

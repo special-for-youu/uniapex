@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/utils/supabase/client'
 import { Plus, Trash2, CheckCircle2, Circle, Loader2, Calendar } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -19,7 +19,7 @@ export default function TodoList() {
     const [dueDate, setDueDate] = useState('')
     const [loading, setLoading] = useState(true)
     const [adding, setAdding] = useState(false)
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
 
     useEffect(() => {
         fetchTodos()
@@ -39,7 +39,7 @@ export default function TodoList() {
             if (error) throw error
             setTodos(data || [])
         } catch (error) {
-            console.error('Error fetching todos:', error)
+            if (process.env.NODE_ENV === 'development') console.error('Error fetching todos:', error)
         } finally {
             setLoading(false)
         }
@@ -71,7 +71,7 @@ export default function TodoList() {
             setNewTask('')
             setDueDate('')
         } catch (error) {
-            console.error('Error adding todo:', error)
+            if (process.env.NODE_ENV === 'development') console.error('Error adding todo:', error)
         } finally {
             setAdding(false)
         }
@@ -89,7 +89,7 @@ export default function TodoList() {
 
             if (error) throw error
         } catch (error) {
-            console.error('Error toggling todo:', error)
+            if (process.env.NODE_ENV === 'development') console.error('Error toggling todo:', error)
             // Revert on error
             setTodos(todos.map(t => t.id === id ? { ...t, is_completed: currentStatus } : t))
         }
@@ -108,7 +108,7 @@ export default function TodoList() {
 
             if (error) throw error
         } catch (error) {
-            console.error('Error deleting todo:', error)
+            if (process.env.NODE_ENV === 'development') console.error('Error deleting todo:', error)
             setTodos(oldTodos)
         }
     }
@@ -125,7 +125,6 @@ export default function TodoList() {
                 </span>
             </div>
 
-            {/* Add Task Form */}
             <form onSubmit={addTodo} className="mb-4 space-y-2">
                 <div className="relative">
                     <input
@@ -156,7 +155,6 @@ export default function TodoList() {
                 </div>
             </form>
 
-            {/* Todo List */}
             <div className="flex-grow overflow-y-auto pr-2 space-y-2 custom-scrollbar max-h-[300px]">
                 {loading ? (
                     <div className="flex justify-center py-8">

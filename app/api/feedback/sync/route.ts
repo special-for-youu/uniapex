@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@/utils/supabase/server';
 import { cookies } from 'next/headers';
 import imaps from 'imap-simple';
 import { simpleParser } from 'mailparser';
@@ -10,11 +10,18 @@ export const dynamic = 'force-dynamic';
 
 export async function POST(request: Request) {
     try {
+        const cookieStore = await cookies();
+        const adminSession = cookieStore.get('admin_session');
+
+        if (!adminSession) {
+            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+        }
+
         if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
             return NextResponse.json({ error: 'Email credentials missing' }, { status: 500 });
         }
 
-        const supabase = createRouteHandlerClient({ cookies });
+        const supabase = await createClient();
 
         // 1. Fetch pending feedback from DB
         const { data: pendingFeedback, error: dbError } = await supabase

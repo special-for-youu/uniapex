@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/utils/supabase/client'
 import { Plus, Trash2, LogOut, Image as ImageIcon, Link as LinkIcon, FileText, MessageSquare, X, Upload } from 'lucide-react'
 import { motion } from 'framer-motion'
 
@@ -25,7 +25,7 @@ export default function AdminDashboard() {
     const [articles, setArticles] = useState<Article[]>([])
     const [loading, setLoading] = useState(true)
     const [submitting, setSubmitting] = useState(false)
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
 
     // Form State
     const [title, setTitle] = useState('')

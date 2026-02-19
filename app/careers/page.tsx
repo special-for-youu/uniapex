@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/utils/supabase/client'
 import { Search, TrendingUp, DollarSign, Briefcase, ExternalLink, Loader2, BookOpen, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -19,7 +19,7 @@ export default function CareersPage() {
     const [loading, setLoading] = useState(true)
     const [searchTerm, setSearchTerm] = useState('')
     const [selectedCareer, setSelectedCareer] = useState<Career | null>(null)
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
 
     useEffect(() => {
         fetchCareers()

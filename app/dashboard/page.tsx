@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/utils/supabase/client'
 import { getProfile, createProfile } from '@/lib/supabase'
 import { Profile } from '@/lib/supabase'
 import { BookOpen, School, Target, Sparkles, TrendingUp, Award, ChevronRight, FileText } from 'lucide-react'
@@ -26,7 +26,7 @@ export default function DashboardPage() {
     const [profile, setProfile] = useState<Profile | null>(null)
     const [loading, setLoading] = useState(true)
     const [articles, setArticles] = useState<Article[]>([])
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
 
     useEffect(() => {
         loadUserData()
@@ -50,7 +50,7 @@ export default function DashboardPage() {
 
             setProfile(userProfile)
         } catch (error) {
-            console.error('Error loading user data:', error)
+            if (process.env.NODE_ENV === 'development') console.error('Error loading user data:', error)
         } finally {
             setLoading(false)
         }
@@ -67,7 +67,7 @@ export default function DashboardPage() {
             if (error) throw error
             setArticles(data || [])
         } catch (error) {
-            console.error('Error fetching articles:', error)
+            if (process.env.NODE_ENV === 'development') console.error('Error fetching articles:', error)
         }
     }
 
@@ -84,10 +84,8 @@ export default function DashboardPage() {
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-                    {/* LEFT COLUMN - Content & Guides (2/3 width) */}
                     <div className="lg:col-span-2 space-y-8">
 
-                        {/* To-Do List Widget (Moved from Right) */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -102,7 +100,6 @@ export default function DashboardPage() {
                             <TodoList />
                         </motion.div>
 
-                        {/* Articles Section (Moved to Bottom) */}
                         <section>
                             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                                 <FileText className="w-6 h-6 text-blue-500" />
@@ -131,10 +128,8 @@ export default function DashboardPage() {
                         </section>
                     </div>
 
-                    {/* RIGHT COLUMN - Stats & Tools (1/3 width) */}
                     <div className="space-y-6">
 
-                        {/* Profile Snapshot */}
                         <motion.div
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -165,7 +160,6 @@ export default function DashboardPage() {
                             </div>
                         </motion.div>
 
-                        {/* Essential Resources */}
                         <motion.div
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -203,9 +197,7 @@ export default function DashboardPage() {
                             </div>
                         </motion.div>
 
-                        {/* Guides & Info Grid (Moved from Left) */}
                         <div className="space-y-6">
-                            {/* What You Need to Know */}
                             <motion.section
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -234,7 +226,6 @@ export default function DashboardPage() {
                                 </ul>
                             </motion.section>
 
-                            {/* University Journey Guides */}
                             <motion.section
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}

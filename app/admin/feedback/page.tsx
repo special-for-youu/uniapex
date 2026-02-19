@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/utils/supabase/client'
 import { ArrowLeft, RefreshCw, CheckCircle, Clock, Mail } from 'lucide-react'
 import { motion } from 'framer-motion'
 
@@ -21,14 +21,9 @@ export default function AdminFeedback() {
     const [feedback, setFeedback] = useState<Feedback[]>([])
     const [loading, setLoading] = useState(true)
     const [syncing, setSyncing] = useState(false)
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
 
     useEffect(() => {
-        const isAdmin = localStorage.getItem('admin_session')
-        if (!isAdmin) {
-            router.push('/admin')
-            return
-        }
         fetchFeedback()
     }, [])
 

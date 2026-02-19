@@ -2,21 +2,24 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { usePathname, useRouter } from 'next/navigation'
-import { GraduationCap, LayoutDashboard, School, Target, Sparkles, User, LogOut, Menu, X, Trophy, Briefcase, DollarSign, Map } from 'lucide-react'
-import { signOut } from '@/lib/supabase'
+import { motion, AnimatePresence } from 'framer-motion'
+import { createClient } from '@/utils/supabase/client'
+import { useRouter, usePathname } from 'next/navigation'
+import { User, LogOut, Menu, X, ChevronDown, Sparkles, BookOpen, UserCircle, Briefcase, GraduationCap, LayoutDashboard, School, Target, Trophy, DollarSign, Map } from 'lucide-react'
 
 export default function Navbar() {
     const pathname = usePathname()
     const router = useRouter()
+
+    const supabase = createClient()
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     const handleSignOut = async () => {
         try {
-            await signOut()
+            await supabase.auth.signOut()
             router.push('/')
         } catch (error) {
-            console.error('Error signing out:', error)
+            if (process.env.NODE_ENV === 'development') console.error('Error signing out:', error)
         }
     }
 
@@ -37,7 +40,6 @@ export default function Navbar() {
         <nav className="bg-slate-900/80 backdrop-blur-lg border-b border-white/10 sticky top-0 z-50">
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between h-16">
-                    {/* Logo */}
                     <Link href="/dashboard" className="flex items-center gap-2 group">
                         <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                             <GraduationCap className="w-6 h-6 text-white" />
@@ -45,7 +47,6 @@ export default function Navbar() {
                         <span className="text-xl font-bold text-white hidden sm:block">Student OS</span>
                     </Link>
 
-                    {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-1">
                         {navItems.map((item) => {
                             const Icon = item.icon
@@ -65,7 +66,6 @@ export default function Navbar() {
                         })}
                     </div>
 
-                    {/* User Menu */}
                     <div className="hidden md:flex items-center gap-2">
                         <Link
                             href="/profile"
@@ -86,7 +86,6 @@ export default function Navbar() {
                         </button>
                     </div>
 
-                    {/* Mobile Menu Button */}
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         className="md:hidden p-2 rounded-lg text-gray-300 hover:bg-white/5"
@@ -95,7 +94,6 @@ export default function Navbar() {
                     </button>
                 </div>
 
-                {/* Mobile Menu */}
                 {mobileMenuOpen && (
                     <div className="md:hidden py-4 border-t border-white/10">
                         <div className="flex flex-col gap-2">

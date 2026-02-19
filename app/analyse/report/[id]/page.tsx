@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/utils/supabase/client'
 import { Loader2, ArrowLeft, BarChart2, Briefcase, Sparkles } from 'lucide-react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -12,7 +12,7 @@ export default function ReportPage() {
     const router = useRouter()
     const [loading, setLoading] = useState(true)
     const [result, setResult] = useState<any>(null)
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
 
     useEffect(() => {
         const fetchResult = async () => {
@@ -26,7 +26,7 @@ export default function ReportPage() {
                 if (error) throw error
                 setResult(data)
             } catch (error) {
-                console.error('Error fetching result:', error)
+                if (process.env.NODE_ENV === 'development') console.error('Error fetching result:', error)
             } finally {
                 setLoading(false)
             }

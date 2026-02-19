@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/utils/supabase/client'
 import Link from 'next/link'
 import { Search, Filter, ExternalLink, Calendar, MapPin, X, Loader2, ChevronDown, Heart, Globe } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -47,7 +47,7 @@ export default function ExtracurricularsPage() {
     const [selectedActivity, setSelectedActivity] = useState<Activity | null>(null)
     const observerTarget = useRef(null)
 
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
 
     useEffect(() => {
         loadAllActivities()
@@ -108,7 +108,7 @@ export default function ExtracurricularsPage() {
 
             setAllActivities(mappedActivities)
         } catch (error) {
-            console.error('Error loading activities:', error)
+            if (process.env.NODE_ENV === 'development') console.error('Error loading activities:', error)
         } finally {
             setLoading(false)
         }

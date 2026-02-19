@@ -29,7 +29,6 @@ export default function ArticleCard({ title, description, image, href, delay = 0
                     }}
                 >
                     <div className="flex flex-col sm:flex-row h-full">
-                        {/* Image Section */}
                         <div className="sm:w-1/3 h-48 sm:h-auto relative overflow-hidden">
                             <img
                                 src={image}
@@ -39,7 +38,6 @@ export default function ArticleCard({ title, description, image, href, delay = 0
                             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
                         </div>
 
-                        {/* Content Section */}
                         <div className="p-5 sm:w-2/3 flex flex-col justify-between">
                             <div>
                                 <h3 className="text-lg font-bold mb-2 line-clamp-2 group-hover:text-blue-500 transition-colors">

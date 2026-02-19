@@ -2,12 +2,12 @@
 
 import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/utils/supabase/client'
 import { Search, Filter, BookmarkPlus, BookmarkCheck, MapPin, DollarSign, GraduationCap, Loader2, X, Globe, Phone, Mail, Facebook, Twitter, Instagram, Youtube, BookOpen, Users, Building } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import DOMPurify from 'isomorphic-dompurify'
 
-// Updated interface to match DB schema
+
 interface University {
   id: string
   name: string
@@ -45,7 +45,7 @@ interface University {
       youtube?: string
     }
   } | null
-  // Helper properties for UI (computed)
+
   country?: string
   city?: string
   tuition_fee?: number
@@ -66,7 +66,7 @@ const ITEMS_PER_PAGE = 12;
 export default function UniversitiesPage() {
   const router = useRouter()
   const [universities, setUniversities] = useState<University[]>([])
-  const supabase = createClientComponentClient()
+  const supabase = createClient()
   const [loading, setLoading] = useState(true)
   const [loadingMore, setLoadingMore] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
@@ -100,7 +100,7 @@ export default function UniversitiesPage() {
     return () => clearTimeout(timer)
   }, [searchTerm, filters])
 
-  // Infinite Scroll Observer
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
@@ -139,7 +139,7 @@ export default function UniversitiesPage() {
         .from('universities')
         .select('*', { count: 'exact' })
 
-      // Apply Filters
+
       if (searchTerm) {
         query = query.or(`name.ilike.%${searchTerm}%,location.ilike.%${searchTerm}%`)
       }
@@ -177,7 +177,7 @@ export default function UniversitiesPage() {
         tuition_fee: uni.admissions?.tuition ? parseInt(String(uni.admissions.tuition).replace(/[^0-9]/g, '')) : null,
       }))
 
-      // Client-side filtering
+
       if (filters.program) {
         const programTerm = filters.program.toLowerCase()
         mappedData = mappedData.filter(u =>
@@ -214,7 +214,7 @@ export default function UniversitiesPage() {
         })
       }
 
-      // Slice to correct page size after filtering
+
       const paginatedData = mappedData.slice(0, ITEMS_PER_PAGE)
 
       if (reset) {
@@ -239,7 +239,7 @@ export default function UniversitiesPage() {
       setPage(currentPage + 1)
 
     } catch (error) {
-      console.error('Error loading universities:', error)
+      if (process.env.NODE_ENV === 'development') console.error('Error loading universities:', error)
     } finally {
       setLoading(false)
       setLoadingMore(false)
@@ -259,7 +259,7 @@ export default function UniversitiesPage() {
       if (error) throw error
       setSavedIds(new Set(data?.map(s => s.university_id) || []))
     } catch (error) {
-      console.error('Error loading saved universities:', error)
+      if (process.env.NODE_ENV === 'development') console.error('Error loading saved universities:', error)
     }
   }
 
@@ -300,11 +300,11 @@ export default function UniversitiesPage() {
         setSavedIds(new Set(savedIds).add(universityId))
       }
     } catch (error) {
-      console.error('Error toggling save:', error)
+      if (process.env.NODE_ENV === 'development') console.error('Error toggling save:', error)
     }
   }
 
-  // Hardcoded popular countries for filter
+
   const popularCountries = [
     'United States', 'United Kingdom', 'Canada', 'Australia', 'Germany', 'Italy', 'Netherlands',
     'Japan', 'South Korea', 'China', 'France', 'Spain', 'Switzerland', 'Sweden',
@@ -317,7 +317,7 @@ export default function UniversitiesPage() {
     'Marketing', 'Finance', 'Biology', 'Physics', 'Mathematics', 'Political Science'
   ]
 
-  // Floating Action Buttons
+
   const [showScrollTop, setShowScrollTop] = useState(false)
   const [showMobileFilters, setShowMobileFilters] = useState(false)
 
@@ -360,9 +360,9 @@ export default function UniversitiesPage() {
           </p>
         </div>
 
-        {/* Search and Filters */}
+
         <div className="p-4 md:p-6 rounded-xl mb-6 md:mb-8 shadow-sm bg-card border border-border">
-          {/* Search Bar (Desktop) */}
+
           <div className="mb-4 hidden md:block">
             <div className="relative">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
@@ -376,7 +376,7 @@ export default function UniversitiesPage() {
             </div>
           </div>
 
-          {/* Desktop Filters Grid */}
+
           <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
             <select
               value={filters.country}
@@ -433,7 +433,7 @@ export default function UniversitiesPage() {
           </div>
         </div>
 
-        {/* Universities Grid */}
+
         {loading ? (
           <div className="flex justify-center py-20">
             <Loader2 className="w-10 h-10 animate-spin text-blue-500" />
@@ -459,7 +459,7 @@ export default function UniversitiesPage() {
               </div>
             )}
 
-            {/* Infinite Scroll Target */}
+
             {hasMore && (
               <div ref={observerTarget} className="flex justify-center py-8">
                 {loadingMore && <Loader2 className="w-8 h-8 animate-spin text-blue-500" />}
@@ -469,7 +469,7 @@ export default function UniversitiesPage() {
         )}
       </div>
 
-      {/* Floating Action Buttons */}
+
       <div className="fixed bottom-24 right-6 flex flex-col gap-3 z-40 md:hidden">
         <AnimatePresence>
           {showScrollTop && (
@@ -486,7 +486,7 @@ export default function UniversitiesPage() {
         </AnimatePresence>
       </div>
 
-      {/* Mobile Filter Button */}
+
       <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-40 md:hidden">
         <button
           className="bg-blue-500 text-white px-6 py-3 rounded-full shadow-xl flex items-center gap-2 font-semibold text-sm"
@@ -500,7 +500,7 @@ export default function UniversitiesPage() {
         </button>
       </div>
 
-      {/* Mobile Filter Modal */}
+
       <AnimatePresence>
         {showMobileFilters && (
           <>
@@ -605,7 +605,7 @@ export default function UniversitiesPage() {
         )}
       </AnimatePresence>
 
-      {/* University Details Modal */}
+
       <AnimatePresence>
         {selectedUniversity && (
           <UniversityModal
@@ -630,9 +630,9 @@ function UniversityCard({ university, isSaved, onToggleSave, onClick }: {
       onClick={onClick}
       className="rounded-xl overflow-hidden cursor-pointer group flex md:flex-col h-full transition-all duration-300 bg-card shadow-sm hover:shadow-md border border-border"
     >
-      {/* Mobile Layout: Row */}
+
       <div className="flex md:hidden w-full p-3 gap-4">
-        {/* Image (Left) */}
+
         <div className="w-24 h-24 flex-shrink-0 relative rounded-lg overflow-hidden bg-muted">
           {university.image_url ? (
             <img
@@ -648,7 +648,7 @@ function UniversityCard({ university, isSaved, onToggleSave, onClick }: {
           )}
         </div>
 
-        {/* Content (Right) */}
+
         <div className="flex flex-col flex-grow justify-between py-1">
           <div className="flex justify-between items-start gap-2">
             <div>
@@ -691,9 +691,9 @@ function UniversityCard({ university, isSaved, onToggleSave, onClick }: {
         </div>
       </div>
 
-      {/* Desktop Layout: Column (Original) */}
+
       <div className="hidden md:flex flex-col h-full">
-        {/* Banner Image */}
+
         <div className="h-48 w-full relative overflow-hidden bg-muted">
           {university.image_url ? (
             <img
@@ -708,7 +708,7 @@ function UniversityCard({ university, isSaved, onToggleSave, onClick }: {
             </div>
           )}
 
-          {/* Logo Overlay */}
+
           <div className="absolute bottom-4 left-4 w-12 h-12 bg-card rounded-full p-1 shadow-md flex items-center justify-center overflow-hidden">
             {university.logo_url ? (
               <img src={university.logo_url} alt="logo" className="w-full h-full object-contain rounded-full" />
@@ -739,7 +739,7 @@ function UniversityCard({ university, isSaved, onToggleSave, onClick }: {
             <span className="truncate">{university.location || 'Location not specified'}</span>
           </div>
 
-          {/* Requirements Badges */}
+
           {university.admissions?.requirements && (
             <div className="flex flex-wrap gap-2 mb-4">
               {university.admissions.requirements.min_gpa && (
@@ -755,7 +755,7 @@ function UniversityCard({ university, isSaved, onToggleSave, onClick }: {
             </div>
           )}
 
-          {/* Programs Preview */}
+
           {university.programs && university.programs.length > 0 && (
             <div className="mb-4">
               <div className="flex flex-wrap gap-1.5">

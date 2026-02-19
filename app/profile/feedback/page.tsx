@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/utils/supabase/client'
 import { ArrowLeft, MessageSquare, Clock, CheckCircle } from 'lucide-react'
 import { motion } from 'framer-motion'
 
@@ -19,7 +19,7 @@ export default function UserFeedback() {
     const router = useRouter()
     const [feedback, setFeedback] = useState<Feedback[]>([])
     const [loading, setLoading] = useState(true)
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
 
     useEffect(() => {
         fetchFeedback()
@@ -41,7 +41,7 @@ export default function UserFeedback() {
             if (error) throw error
             setFeedback(data || [])
         } catch (error) {
-            console.error('Error fetching feedback:', error)
+            if (process.env.NODE_ENV === 'development') console.error('Error fetching feedback:', error)
         } finally {
             setLoading(false)
         }

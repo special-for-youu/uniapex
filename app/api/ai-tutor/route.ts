@@ -1,6 +1,6 @@
 import { GoogleGenAI } from '@google/genai'
 import { NextResponse } from 'next/server'
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/utils/supabase/server'
 import { cookies } from 'next/headers'
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY })
@@ -30,11 +30,8 @@ export async function POST(req: Request) {
         }
         // ------------------------
 
-        // ------------------------
-
         // --- AUTH & RATE LIMITING ---
-        const cookieStore = cookies()
-        const supabase = createRouteHandlerClient({ cookies: () => cookieStore })
+        const supabase = await createClient()
         const { data: { user } } = await supabase.auth.getUser()
 
         if (user) {
@@ -102,29 +99,29 @@ export async function POST(req: Request) {
                     .limit(5)
 
                 if (profile) {
-                    userContext += `\n\nUSER PROFILE:\nTime now: ${new Date().toISOString()}\n`
-                    if (profile.full_name) userContext += `- Name: ${profile.full_name}\n`
-                    if (profile.target_country) userContext += `- Target Country: ${profile.target_country}\n`
-                    if (profile.current_gpa) userContext += `- GPA: ${profile.current_gpa}\n`
-                    if (profile.ielts_score) userContext += `- IELTS Score: ${profile.ielts_score}\n`
-                    if (profile.sat_score) userContext += `- SAT Score: ${profile.sat_score}\n`
-                    if (profile.interests) userContext += `- Interests: ${Array.isArray(profile.interests) ? profile.interests.join(', ') : profile.interests}\n`
+                    userContext += `\n\nUSER PROFILE: \nTime now: ${new Date().toISOString()} \n`
+                    if (profile.full_name) userContext += `- Name: ${profile.full_name} \n`
+                    if (profile.target_country) userContext += `- Target Country: ${profile.target_country} \n`
+                    if (profile.current_gpa) userContext += `- GPA: ${profile.current_gpa} \n`
+                    if (profile.ielts_score) userContext += `- IELTS Score: ${profile.ielts_score} \n`
+                    if (profile.sat_score) userContext += `- SAT Score: ${profile.sat_score} \n`
+                    if (profile.interests) userContext += `- Interests: ${Array.isArray(profile.interests) ? profile.interests.join(', ') : profile.interests} \n`
                 }
 
                 if (testResults && testResults.length > 0) {
-                    userContext += `\n\nRECENT TEST RESULTS:\n`
+                    userContext += `\n\nRECENT TEST RESULTS: \n`
                     testResults.forEach((test: any) => {
                         const date = new Date(test.created_at).toLocaleDateString()
                         if (test.test_type === 'CAREER') {
                             const topCareer = test.result_data?.topType?.type?.title || 'Unknown'
-                            userContext += `- Career Test (${date}): Result was "${topCareer}". Focus: ${test.result_data?.topType?.type?.focus}.\n`
+                            userContext += `- Career Test(${date}): Result was "${topCareer}".Focus: ${test.result_data?.topType?.type?.focus}.\n`
                         } else if (test.test_type === 'MBTI') {
                             const type = test.result_data?.type || 'Unknown'
-                            userContext += `- MBTI Personality (${date}): Type ${type}.\n`
+                            userContext += `- MBTI Personality(${date}): Type ${type}.\n`
                         } else {
                             // Generic handler for other tests (e.g. GENERAL)
                             const summary = test.result_data?.summary || test.result_data?.score || 'See details'
-                            userContext += `- ${test.test_type} Test (${date}): ${JSON.stringify(summary)}\n`
+                            userContext += `- ${test.test_type} Test(${date}): ${JSON.stringify(summary)} \n`
                         }
                     })
                 }
@@ -140,31 +137,31 @@ export async function POST(req: Request) {
         // Construct history context
         let historyContext = ''
         if (history && Array.isArray(history)) {
-            historyContext = history.map((msg: any) => `${msg.role === 'user' ? 'Student' : 'Tutor'}: ${msg.content}`).join('\n')
+            historyContext = history.map((msg: any) => `${msg.role === 'user' ? 'Student' : 'Tutor'}: ${msg.content} `).join('\n')
         }
 
         if (mode === 'essay') {
-            prompt = `You are an expert college admissions counselor. Please review the following essay and provide constructive feedback on structure, content, and tone. Highlight strengths and areas for improvement. Essay: "${message}"`
+            prompt = `You are an expert college admissions counselor.Please review the following essay and provide constructive feedback on structure, content, and tone.Highlight strengths and areas for improvement.Essay: "${message}"`
         } else if (mode === 'career_analysis') {
             // ... (keeping existing logic for specific career analysis if prompted with a profile object directly)
             const profileFromRequest = body.profile || {}
-            prompt = `You are an expert career counselor. Analyze the following student profile and suggest 3 suitable careers.
-            
-            Profile:
-            - Interests: ${profileFromRequest?.interests?.join(', ') || 'General'}
-            - Skills/Qualities: ${profileFromRequest?.qualities?.join(', ') || 'General'}
-            - Goals: ${profileFromRequest?.goals?.join(', ') || 'Success'}
-            - Grade: ${profileFromRequest?.grade || 'High School'}
-            - Country: ${profileFromRequest?.target_country || 'Global'}
+            prompt = `You are an expert career counselor.Analyze the following student profile and suggest 3 suitable careers.
 
-            Return the response strictly as a JSON object with a "careers" array. Each career object must have:
-            - title (string)
-            - matchScore (number, 0-100)
-            - salaryKZ (string, e.g., "$1000/mo")
-            - salaryUS (string, e.g., "$5000/mo")
-            - description (string, 1-2 sentences)
-            - education (string, recommended degree)
-            - universities (array of strings, 2-3 top universities for this field)
+    Profile:
+- Interests: ${profileFromRequest?.interests?.join(', ') || 'General'}
+- Skills / Qualities: ${profileFromRequest?.qualities?.join(', ') || 'General'}
+- Goals: ${profileFromRequest?.goals?.join(', ') || 'Success'}
+- Grade: ${profileFromRequest?.grade || 'High School'}
+- Country: ${profileFromRequest?.target_country || 'Global'}
+
+            Return the response strictly as a JSON object with a "careers" array.Each career object must have:
+- title(string)
+    - matchScore(number, 0 - 100)
+    - salaryKZ(string, e.g., "$1000/mo")
+    - salaryUS(string, e.g., "$5000/mo")
+    - description(string, 1 - 2 sentences)
+    - education(string, recommended degree)
+    - universities(array of strings, 2 - 3 top universities for this field)
             
             Do not include markdown formatting like \`\`\`json. Just return the raw JSON string.`
         } else if (mode === 'test_prep') {

@@ -14,23 +14,23 @@
     "@aws-sdk/client-sso": "^3.992.0",
     "@google/genai": "^1.30.0",
     "@google/generative-ai": "^0.24.1",
-    "@supabase/auth-helpers-nextjs": "^0.8.7",
     "@supabase/auth-ui-react": "^0.4.6",
     "@supabase/auth-ui-shared": "^0.1.8",
+    "@supabase/ssr": "^0.8.0",
     "@supabase/supabase-js": "^2.84.0",
     "@types/nodemailer": "^7.0.4",
     "@vertx/core": "^4.5.14",
     "dotenv": "^17.2.3",
     "framer-motion": "^12.23.24",
-    "imap-simple": "^1.6.3",
+    "imap-simple": "^5.1.0",
     "isomorphic-dompurify": "^2.36.0",
-    "lucide-react": "^0.294.0",
+    "lucide-react": "^0.574.0",
     "mailparser": "^3.9.0",
     "mapbox-gl": "^3.16.0",
-    "next": "^14.2.33",
+    "next": "^16.1.6",
     "nodemailer": "^7.0.11",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "react-map-gl": "^8.1.0",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
@@ -45,5 +45,20 @@
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
+  },
+  "overrides": {
+    "imap-simple": {
+      "imap": {
+        "utf7": {
+          "semver": "^5.7.2"
+        }
+      }
+    },
+    "utf7": {
+      "semver": "^5.7.2"
+    },
+    "minimatch": "^10.2.1",
+    "trim-newlines": "^3.0.1",
+    "glob": "^10.4.5"
   }
 }

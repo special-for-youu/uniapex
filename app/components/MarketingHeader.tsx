@@ -5,12 +5,12 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import logo from '@/components/assets/logo.png'
 import { useState, useEffect } from 'react'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/utils/supabase/client'
 
 export default function MarketingHeader() {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [loading, setLoading] = useState(true)
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
 
     useEffect(() => {
         checkAuth()

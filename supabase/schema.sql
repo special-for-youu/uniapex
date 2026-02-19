@@ -98,6 +98,25 @@ CREATE INDEX idx_ai_chats_type ON ai_chats(type);
 CREATE INDEX idx_ai_chats_created_at ON ai_chats(created_at DESC);
 
 -- ============================================
+-- FEEDBACK TABLE
+-- ============================================
+-- Stores user feedback and admin replies
+CREATE TABLE feedback (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+    user_email TEXT,
+    title TEXT NOT NULL,
+    description TEXT NOT NULL,
+    status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'replied')),
+    admin_reply TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+CREATE INDEX idx_feedback_user_id ON feedback(user_id);
+CREATE INDEX idx_feedback_status ON feedback(status);
+
+-- ============================================
 -- ROW LEVEL SECURITY POLICIES
 -- ============================================
 
@@ -107,6 +126,22 @@ ALTER TABLE universities ENABLE ROW LEVEL SECURITY;
 ALTER TABLE programs ENABLE ROW LEVEL SECURITY;
 ALTER TABLE saved_universities ENABLE ROW LEVEL SECURITY;
 ALTER TABLE ai_chats ENABLE ROW LEVEL SECURITY;
+ALTER TABLE feedback ENABLE ROW LEVEL SECURITY;
+
+-- FEEDBACK POLICIES
+-- Users can view their own feedback
+CREATE POLICY "Users can view own feedback"
+    ON feedback FOR SELECT
+    USING (auth.uid() = user_id);
+
+-- Users can insert their own feedback
+CREATE POLICY "Users can insert own feedback"
+    ON feedback FOR INSERT
+    WITH CHECK (auth.uid() = user_id);
+
+-- Admins (service role or specific logic) can view/update all
+-- Note: Supabase Service Role bypasses RLS, so this is for authenticated admin users if implemented via RLS
+-- For now, we rely on the API route checks for Admin updates (sync/reply).
 
 -- PROFILES POLICIES
 -- Users can view their own profile
@@ -210,18 +245,4 @@ CREATE TRIGGER update_saved_universities_updated_at
 -- SAMPLE DATA (OPTIONAL - for testing)
 -- ============================================
 
--- Insert sample universities
-INSERT INTO universities (name, country, city, ranking, tuition_fee, acceptance_rate, requirements, website_url) VALUES
-('Nazarbayev University', 'Kazakhstan', 'Astana', 1, 0, 8.5, '{"min_ielts": 6.5, "min_gpa": 3.5, "min_sat": 1200}', 'https://nu.edu.kz'),
-('KBTU', 'Kazakhstan', 'Almaty', 2, 3000, 25.0, '{"min_ielts": 6.0, "min_gpa": 3.0, "min_sat": 1100}', 'https://kbtu.kz'),
-('MIT', 'USA', 'Cambridge', 1, 55000, 3.2, '{"min_ielts": 7.5, "min_gpa": 3.9, "min_sat": 1500}', 'https://mit.edu'),
-('Stanford University', 'USA', 'Stanford', 3, 56000, 3.9, '{"min_ielts": 7.0, "min_gpa": 3.8, "min_sat": 1480}', 'https://stanford.edu'),
-('Suleyman Demirel University', 'Kazakhstan', 'Almaty', 3, 2500, 30.0, '{"min_ielts": 5.5, "min_gpa": 2.8, "min_sat": 1000}', 'https://sdu.edu.kz');
-
--- Insert sample programs
-INSERT INTO programs (university_id, name, degree_level, duration_years)
-SELECT id, 'Computer Science', 'bachelor', 4 FROM universities WHERE name = 'KBTU'
-UNION ALL
-SELECT id, 'Business Administration', 'bachelor', 4 FROM universities WHERE name = 'Nazarbayev University'
-UNION ALL
-SELECT id, 'Artificial Intelligence', 'master', 2 FROM universities WHERE name = 'MIT';
+-- (Sample data removed)

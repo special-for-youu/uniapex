@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { ArrowRight, GraduationCap, Sparkles, Target, Globe, BookOpen, Zap, Trophy, Bot } from 'lucide-react'
 import VideoSlider from '@/components/VideoSlider'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/utils/supabase/client'
 import logo from '@/components/assets/logo.png'
 import MarketingHeader from '@/app/components/MarketingHeader'
 import MarketingFooter from '@/app/components/MarketingFooter'
@@ -14,7 +14,7 @@ import MarketingFooter from '@/app/components/MarketingFooter'
 export default function LandingPage() {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [loading, setLoading] = useState(true)
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
 
     useEffect(() => {
         checkAuth()
@@ -30,26 +30,20 @@ export default function LandingPage() {
     return (
         <div className="dark min-h-screen w-full overflow-x-hidden bg-background text-foreground">
 
-            {/* Navigation */}
             <MarketingHeader />
 
-            {/* Hero Section */}
             <section className="relative min-h-screen flex items-center pt-32 overflow-hidden">
-                {/* Background Video - Subtle */}
                 <div className="absolute inset-0 opacity-20">
                     <VideoSlider />
                 </div>
 
-                {/* Gradient Overlay - More Vibrant */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-transparent to-emerald-600/20" />
 
-                {/* Ambient Glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
                 <div className="container mx-auto px-6 relative z-10">
                     <div className="max-w-5xl mx-auto text-center">
 
-                        {/* Main Heading */}
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -63,7 +57,6 @@ export default function LandingPage() {
                             </span>
                         </motion.h1>
 
-                        {/* Subheading */}
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -73,7 +66,6 @@ export default function LandingPage() {
                             Navigate your university journey with AI. From career discovery to admission success.
                         </motion.p>
 
-                        {/* CTA Buttons */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -89,7 +81,6 @@ export default function LandingPage() {
                             </Link>
                         </motion.div>
 
-                        {/* Stats */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -112,7 +103,6 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* Features Section */}
             <section className="py-32 relative">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-20">
@@ -180,7 +170,6 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* CTA Section */}
             <section className="py-32 relative">
                 <div className="container mx-auto px-6">
                     <motion.div

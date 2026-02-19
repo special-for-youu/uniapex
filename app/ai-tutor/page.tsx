@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/utils/supabase/client'
 import { Send, Sparkles, User, Bot, Loader2, Plus, MessageSquare, Trash2, Menu, X, FileText } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -27,7 +27,7 @@ export default function AITutorPage() {
     const [loading, setLoading] = useState(false)
     const [isSidebarOpen, setIsSidebarOpen] = useState(true)
     const messagesEndRef = useRef<HTMLDivElement>(null)
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
 
     // Initial Load
     useEffect(() => {

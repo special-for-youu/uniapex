@@ -5,7 +5,7 @@ import { useParams, useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/utils/supabase/client'
 import { ArrowLeft, Clock, Calendar, User } from 'lucide-react'
 import Link from 'next/link'
 
@@ -25,7 +25,7 @@ export default function ArticlePage() {
     const router = useRouter()
     const [article, setArticle] = useState<Article | null>(null)
     const [loading, setLoading] = useState(true)
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
 
     useEffect(() => {
         if (params.id) {

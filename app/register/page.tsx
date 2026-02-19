@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/utils/supabase/client'
 import { GraduationCap, ArrowRight, Loader2, User, Mail, Lock, Calendar, Globe, FileText } from 'lucide-react'
 import Link from 'next/link'
 
@@ -26,7 +26,7 @@ export default function RegisterPage() {
         interests: '',
         goals: ''
     })
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -70,7 +70,7 @@ export default function RegisterPage() {
                 window.location.href = '/welcome'
             }
         } catch (error: any) {
-            console.error('Registration error:', error)
+            if (process.env.NODE_ENV === 'development') console.error('Registration error:', error)
             alert(error.message || 'An error occurred during registration')
         } finally {
             setLoading(false)

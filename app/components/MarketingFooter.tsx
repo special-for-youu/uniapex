@@ -8,7 +8,7 @@ export default function MarketingFooter() {
         <footer className="border-t border-border bg-background/50 backdrop-blur-lg pt-16 pb-8">
             <div className="container mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-                    {/* Brand */}
+
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
                             UNIAPEX
@@ -18,7 +18,7 @@ export default function MarketingFooter() {
                         </p>
                     </div>
 
-                    {/* Product */}
+
                     <div>
                         <h4 className="font-semibold mb-4 text-foreground">Product</h4>
                         <ul className="space-y-2 text-sm text-muted-foreground">
@@ -29,7 +29,7 @@ export default function MarketingFooter() {
                         </ul>
                     </div>
 
-                    {/* Company */}
+
                     <div>
                         <h4 className="font-semibold mb-4 text-foreground">Company</h4>
                         <ul className="space-y-2 text-sm text-muted-foreground">
@@ -39,7 +39,7 @@ export default function MarketingFooter() {
                         </ul>
                     </div>
 
-                    {/* Legal */}
+
                     <div>
                         <h4 className="font-semibold mb-4 text-foreground">Legal</h4>
                         <ul className="space-y-2 text-sm text-muted-foreground">

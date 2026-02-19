@@ -10,14 +10,23 @@ export default function AdminLogin() {
     const [error, setError] = useState('')
     const router = useRouter()
 
-    const handleLogin = (e: React.FormEvent) => {
+    const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault()
-        if (password === 'admin council') {
-            // Set a cookie or local storage to persist session (simple implementation)
-            localStorage.setItem('admin_session', 'true')
-            router.push('/admin/dashboard')
-        } else {
-            setError('Invalid password')
+        try {
+            const res = await fetch('/api/admin/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ password })
+            })
+            const data = await res.json()
+
+            if (data.success) {
+                router.push('/admin/dashboard')
+            } else {
+                setError(data.error || 'Invalid password')
+            }
+        } catch (err) {
+            setError('Login failed')
         }
     }
 
