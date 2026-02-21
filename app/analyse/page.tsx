@@ -52,8 +52,12 @@ export default function AnalysePage() {
     ]
 
     return (
-        <div className="min-h-screen p-6 md:p-10 space-y-8">
-            <div className="max-w-5xl mx-auto">
+        <div className="min-h-screen p-6 md:p-10 space-y-8 bg-grid-pattern relative overflow-hidden">
+            {/* Ambient Background Glows */}
+            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/10 blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-purple-500/10 blur-[120px] pointer-events-none" />
+
+            <div className="max-w-5xl mx-auto relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -104,6 +108,6 @@ export default function AnalysePage() {
 
                 <AssessmentsTable />
             </div>
-        </div>
+        </div >
     )
 }

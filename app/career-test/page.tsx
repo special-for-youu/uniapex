@@ -110,8 +110,12 @@ export default function CareerTestPage() {
 
     if (showResults) {
         return (
-            <div className="min-h-screen pt-20 pb-10 px-4">
-                <div className="max-w-4xl mx-auto space-y-8">
+            <div className="min-h-screen pt-20 pb-10 px-4 bg-grid-pattern relative overflow-hidden text-foreground">
+                {/* Ambient Background Glows */}
+                <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-purple-500/10 blur-[120px] pointer-events-none" />
+                <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none" />
+
+                <div className="max-w-4xl mx-auto space-y-8 relative z-10">
                     <div className="text-center">
                         <h1 className="text-3xl font-bold mb-2">Your Personality Profile</h1>
                         <p className="text-muted-foreground">Based on Holland Codes (RIASEC)</p>
@@ -119,9 +123,9 @@ export default function CareerTestPage() {
 
                     {/* Top Result Card */}
                     {results.length > 0 && (
-                        <div className="bg-card border border-border rounded-2xl p-8 shadow-lg text-center">
+                        <div className="bg-black/20 border border-white/10 glass-card rounded-2xl p-8 shadow-2xl text-center">
                             <h2 className="text-4xl font-bold text-primary mb-2">{results[0].type.title}</h2>
-                            <div className="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
+                            <div className="inline-block px-4 py-1 bg-primary/20 text-primary rounded-full text-sm font-medium mb-6 border border-primary/20">
                                 Focus: {results[0].type.focus}
                             </div>
                             <p className="text-xl text-foreground max-w-2xl mx-auto">
@@ -131,9 +135,9 @@ export default function CareerTestPage() {
                     )}
 
                     {/* Bar Chart */}
-                    <div className="bg-card border border-border rounded-2xl p-8 shadow-sm">
+                    <div className="bg-black/20 border border-white/10 glass-card rounded-2xl p-8 shadow-xl">
                         <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
-                            <BarChart2 className="w-5 h-5" />
+                            <BarChart2 className="w-5 h-5 text-primary" />
                             Profile Breakdown
                         </h3>
                         <div className="space-y-4">
@@ -158,19 +162,20 @@ export default function CareerTestPage() {
 
                     {/* AI Insight */}
                     {loading ? (
-                        <div className="flex flex-col items-center justify-center py-12 bg-card border border-border rounded-2xl">
-                            <Sparkles className="w-8 h-8 text-yellow-400 animate-pulse mb-4" />
-                            <p className="text-lg font-medium">AI is analyzing your profile...</p>
+                        <div className="flex flex-col items-center justify-center py-12 bg-black/20 border border-white/10 glass-card rounded-2xl">
+                            <Sparkles className="w-8 h-8 text-yellow-500 animate-pulse mb-4 drop-shadow-[0_0_10px_rgba(234,179,8,1)]" />
+                            <p className="text-lg font-medium text-foreground">AI is analyzing your profile...</p>
                         </div>
                     ) : aiResults && (
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 border border-blue-100 dark:border-blue-900 rounded-2xl p-8"
+                            className="bg-black/20 border border-white/10 glass-card rounded-2xl p-8 shadow-2xl relative overflow-hidden"
                         >
-                            <div className="flex items-center gap-3 mb-6">
-                                <Sparkles className="w-6 h-6 text-blue-500" />
-                                <h3 className="text-2xl font-bold">AI Recommendation</h3>
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[50px] -z-10 rounded-full" />
+                            <div className="flex items-center gap-3 mb-6 relative z-10">
+                                <Sparkles className="w-6 h-6 text-primary" />
+                                <h3 className="text-2xl font-bold text-foreground">AI Recommendation</h3>
                             </div>
                             <div className="prose dark:prose-invert max-w-none mb-8">
                                 <p className="text-lg leading-relaxed whitespace-pre-wrap">
@@ -180,13 +185,15 @@ export default function CareerTestPage() {
 
                             {/* Top 5 Careers */}
                             {aiResults.careers && (
-                                <div className="space-y-6 pt-6 border-t border-border">
-                                    <h3 className="text-2xl font-bold text-center">Top 5 Recommended Professions</h3>
+                                <div className="space-y-6 pt-6 border-t border-white/10 relative z-10">
+                                    <h3 className="text-2xl font-bold text-center text-foreground">Top 5 Recommended Professions</h3>
                                     <div className="grid md:grid-cols-2 gap-6">
                                         {aiResults.careers.map((career: any, index: number) => (
-                                            <div key={index} className="bg-card border border-border rounded-xl p-6 hover:shadow-md transition-all">
-                                                <div className="flex justify-between items-start mb-4">
-                                                    <h3 className="text-xl font-bold text-primary">{career.title}</h3>
+                                            <div key={index} className="bg-black/40 border border-white/5 rounded-xl p-6 hover:border-white/20 transition-all hover:bg-black/60 shadow-lg relative overflow-hidden group">
+                                                {/* Hover glow */}
+                                                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors pointer-events-none" />
+                                                <div className="flex justify-between items-start mb-4 relative z-10">
+                                                    <h3 className="text-xl font-bold text-primary group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)] transition-all">{career.title}</h3>
                                                 </div>
 
                                                 <p className="text-muted-foreground mb-4 text-sm">
@@ -235,43 +242,46 @@ export default function CareerTestPage() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: 'var(--main-bg)', color: 'var(--text-color)' }}>
-            <div className="max-w-xl w-full">
+        <div className="min-h-screen flex items-center justify-center p-4 bg-grid-pattern relative overflow-hidden text-foreground">
+            {/* Ambient Background Glows */}
+            <div className="absolute top-[10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-[0%] right-[-10%] w-[40%] h-[40%] rounded-full bg-purple-500/10 blur-[120px] pointer-events-none" />
+
+            <div className="max-w-xl w-full relative z-10">
                 {/* Progress Bar */}
                 <div className="mb-8">
-                    <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400 mb-2">
+                    <div className="flex justify-between text-sm text-muted-foreground mb-2">
                         <span>Question {currentQuestion + 1} of {typedQuestions.length}</span>
                         <span>{Math.round(progress)}%</span>
                     </div>
-                    <div className="h-2 bg-gray-200 dark:bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-2 bg-white/5 rounded-full overflow-hidden border border-white/5">
                         <div
-                            className="h-full bg-blue-600 transition-all duration-300"
+                            className="h-full bg-primary shadow-[0_0_10px_rgba(59,130,246,0.8)] transition-all duration-300"
                             style={{ width: `${progress}%` }}
                         />
                     </div>
                 </div>
 
                 {/* Question Card */}
-                <div className="backdrop-blur-lg rounded-2xl p-8 border text-center relative overflow-hidden min-h-[400px] flex flex-col justify-center" style={{ backgroundColor: 'var(--main-container-bg)', borderColor: 'var(--item-hover)' }}>
-                    <div className="mb-8">
-                        <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 mb-4">
+                <div className="glass-card bg-black/20 border-white/10 rounded-2xl p-8 text-center relative overflow-hidden min-h-[400px] flex flex-col justify-center shadow-2xl">
+                    <div className="mb-8 relative z-10">
+                        <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-primary/20 text-primary border border-primary/20 shadow-[0_0_15px_rgba(59,130,246,0.3)] mb-4">
                             {typedQuestions[currentQuestion].section}
                         </span>
-                        <h2 className="text-2xl md:text-3xl font-bold leading-relaxed" style={{ color: 'var(--text-color)' }}>
+                        <h2 className="text-2xl md:text-3xl font-bold leading-relaxed text-foreground drop-shadow-md">
                             {typedQuestions[currentQuestion].question}
                         </h2>
                     </div>
 
-                    <div className="grid gap-3">
+                    <div className="grid gap-3 relative z-10">
                         {typedQuestions[currentQuestion].options.map((option, index) => (
                             <button
                                 key={index}
                                 onClick={() => handleAnswer(option.domain)}
-                                className="p-4 rounded-xl border text-left transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-between group"
-                                style={{ backgroundColor: 'var(--main-bg)', borderColor: 'var(--item-hover)' }}
+                                className="p-4 rounded-xl border border-white/5 bg-white/5 text-left transition-all hover:bg-white/10 hover:border-white/20 active:scale-[0.98] flex items-center justify-between group"
                             >
-                                <span className="font-medium opacity-90 group-hover:opacity-100">{option.text}</span>
-                                <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity text-blue-500" />
+                                <span className="font-medium opacity-90 group-hover:opacity-100 text-foreground">{option.text}</span>
+                                <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity text-primary" />
                             </button>
                         ))}
                     </div>
@@ -279,9 +289,9 @@ export default function CareerTestPage() {
                     {currentQuestion > 0 && (
                         <button
                             onClick={handlePrevious}
-                            className="absolute top-8 left-8 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
+                            className="absolute top-8 left-8 p-2 rounded-full hover:bg-white/10 transition-colors z-20 text-muted-foreground hover:text-foreground"
                         >
-                            <ArrowLeft className="w-6 h-6 opacity-50 hover:opacity-100" />
+                            <ArrowLeft className="w-6 h-6 opacity-80 hover:opacity-100" />
                         </button>
                     )}
                 </div>

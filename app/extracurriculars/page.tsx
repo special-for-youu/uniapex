@@ -187,8 +187,12 @@ export default function ExtracurricularsPage() {
     }
 
     return (
-        <div className="min-h-screen p-8 bg-background text-foreground">
-            <div className="max-w-7xl mx-auto relative">
+        <div className="min-h-screen p-8 bg-grid-pattern text-foreground relative overflow-hidden">
+            {/* Ambient Background Glows */}
+            <div className="absolute top-0 right-[10%] w-[30%] h-[30%] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none z-0" />
+            <div className="absolute bottom-[20%] left-0 w-[40%] h-[40%] rounded-full bg-purple-500/5 blur-[120px] pointer-events-none z-0" />
+
+            <div className="max-w-7xl mx-auto relative z-10">
                 <header className="mb-12 text-center pt-8">
                     <h1 className="text-3xl font-bold mb-6">Extracurricular Activities</h1>
                     <p className="text-xl opacity-80 max-w-2xl mx-auto">
@@ -405,11 +409,6 @@ export default function ExtracurricularsPage() {
                             >
                                 <X className="w-5 h-5" />
                             </button>
-
-                            <div className="flex items-center gap-2 mb-4 text-sm text-muted-foreground">
-                                <span className="font-medium text-blue-500">Made By:</span>
-                                <span>Project: Empower</span>
-                            </div>
 
                             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-card-foreground leading-tight">
                                 {selectedActivity.title}

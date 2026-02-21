@@ -17,18 +17,18 @@ export default function Header() {
     };
 
     return (
-        <header className="w-full border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-slate-900 sticky top-0 z-20">
+        <header className="sticky top-0 z-20 w-full bg-slate-950 border-b border-slate-800">
             <div className="max-w-7xl mx-auto px-6 py-4 flex justify-end items-center gap-4">
                 <Link
                     href="/profile"
-                    className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-white transition-colors"
+                    className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-primary/20 text-gray-400 hover:text-primary transition-all duration-300 border border-white/5 hover:border-primary/30"
                     title="Profile"
                 >
                     <User className="w-5 h-5" />
                 </Link>
                 <button
                     onClick={handleLogout}
-                    className="p-2 rounded-full hover:bg-red-50 dark:hover:bg-red-900/20 text-red-500 transition-colors"
+                    className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-red-500/20 text-gray-400 hover:text-red-500 transition-all duration-300 border border-white/5 hover:border-red-500/30"
                     title="Logout"
                 >
                     <LogOut className="w-5 h-5" />

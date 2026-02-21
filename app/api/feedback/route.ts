@@ -33,6 +33,26 @@ export async function POST(request: Request) {
             );
         }
 
+        // Check rate limit: max 2 feedbacks per hour
+        const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+        const { data: recentFeedback, error: limitError } = await supabase
+            .from('feedback')
+            .select('id')
+            .eq('user_id', user.id)
+            .gte('created_at', oneHourAgo);
+
+        if (limitError) {
+            console.error('Rate limit check error:', limitError);
+            return NextResponse.json({ error: 'Database error' }, { status: 500 });
+        }
+
+        if (recentFeedback && recentFeedback.length >= 2) {
+            return NextResponse.json(
+                { error: 'Rate limit exceeded. You can only submit 2 feedbacks per hour.' },
+                { status: 429 }
+            );
+        }
+
         const { error: dbError } = await supabase
             .from('feedback')
             .insert({

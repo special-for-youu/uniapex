@@ -23,7 +23,7 @@ export default function MarketingHeader() {
     }
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b bg-background/95 border-border">
+        <nav className="fixed top-0 left-0 right-0 z-50 border-b bg-background border-border">
             <div className="container mx-auto px-6 py-2 flex items-center justify-between">
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}

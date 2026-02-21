@@ -50,23 +50,23 @@ export default function UserFeedback() {
     if (loading) return <div className="min-h-screen flex items-center justify-center">Loading...</div>
 
     return (
-        <div className="min-h-screen p-8" style={{ backgroundColor: 'var(--main-bg)', color: 'var(--text-color)' }}>
-            <div className="max-w-4xl mx-auto">
+        <div className="min-h-screen p-8 pt-24 bg-grid-pattern text-foreground">
+            <div className="max-w-4xl mx-auto relative z-10">
                 <div className="flex items-center gap-4 mb-8">
                     <button
                         onClick={() => router.push('/profile')}
-                        className="p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-full transition-colors"
+                        className="p-2 hover:bg-white/10 text-muted-foreground hover:text-white rounded-full transition-colors"
                     >
                         <ArrowLeft className="w-6 h-6" />
                     </button>
-                    <h1 className="text-3xl font-bold">My Feedback</h1>
+                    <h1 className="text-3xl font-bold text-white">My Feedback</h1>
                 </div>
 
                 <div className="grid gap-6">
                     {feedback.length === 0 ? (
-                        <div className="text-center py-12 text-gray-500 border-2 border-dashed rounded-2xl border-gray-700">
-                            <MessageSquare className="w-12 h-12 mx-auto mb-4 opacity-50" />
-                            <p className="text-lg">You haven't sent any feedback yet.</p>
+                        <div className="text-center py-12 text-muted-foreground border-2 border-dashed border-slate-700 rounded-2xl bg-slate-900">
+                            <MessageSquare className="w-12 h-12 mx-auto mb-4 opacity-50 text-primary" />
+                            <p className="text-lg text-white">You haven't sent any feedback yet.</p>
                             <p className="text-sm mt-2">Use the "Feedback" button in the sidebar to send us a message.</p>
                         </div>
                     ) : (
@@ -75,23 +75,19 @@ export default function UserFeedback() {
                                 key={item.id}
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="p-6 rounded-2xl border relative overflow-hidden"
-                                style={{
-                                    backgroundColor: 'var(--main-container-bg)',
-                                    borderColor: 'var(--border-color)'
-                                }}
+                                className="p-6 rounded-2xl border relative overflow-hidden bg-slate-900 border-slate-700 hover:border-primary/50 transition-colors"
                             >
                                 <div className="flex justify-between items-start mb-4">
                                     <div>
-                                        <h3 className="text-xl font-bold mb-1">{item.title}</h3>
-                                        <div className="text-sm text-gray-500">
+                                        <h3 className="text-xl font-bold mb-1 text-white">{item.title}</h3>
+                                        <div className="text-sm text-muted-foreground">
                                             {new Date(item.created_at).toLocaleDateString()}
                                         </div>
                                     </div>
-                                    <div className={`px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2
+                                    <div className={`px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2 shadow-sm
                                         ${item.status === 'replied'
-                                            ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400'
-                                            : 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400'
+                                            ? 'bg-green-500/10 border border-green-500/20 text-green-400'
+                                            : 'bg-yellow-500/10 border border-yellow-500/20 text-yellow-400'
                                         }`}
                                     >
                                         {item.status === 'replied' ? (
@@ -108,14 +104,14 @@ export default function UserFeedback() {
                                     </div>
                                 </div>
 
-                                <div className="bg-gray-50 dark:bg-slate-900/50 p-4 rounded-xl mb-4 text-gray-700 dark:text-gray-300">
+                                <div className="bg-slate-800 border border-slate-700 p-4 rounded-xl mb-4 text-gray-300">
                                     {item.description}
                                 </div>
 
                                 {item.status === 'replied' && item.admin_reply && (
-                                    <div className="border-t border-gray-100 dark:border-gray-800 pt-4 mt-4">
-                                        <h4 className="text-sm font-bold text-blue-500 mb-2">Admin Reply:</h4>
-                                        <div className="text-sm text-gray-600 dark:text-gray-400 whitespace-pre-wrap">
+                                    <div className="border-t border-slate-700 pt-4 mt-4">
+                                        <h4 className="text-sm font-bold text-primary mb-2">Admin Reply:</h4>
+                                        <div className="text-sm text-gray-300 whitespace-pre-wrap px-4 py-3 bg-slate-800 rounded-lg border border-slate-700 shadow-inner">
                                             {item.admin_reply}
                                         </div>
                                     </div>

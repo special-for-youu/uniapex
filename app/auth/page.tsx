@@ -85,12 +85,15 @@ function AuthContent() {
     }
 
     return (
-        <div className="min-h-screen w-full flex items-center justify-center p-6 bg-slate-100 text-slate-900">
+        <div className="min-h-screen w-full flex items-center justify-center p-6 bg-grid-pattern text-foreground relative overflow-hidden">
+            {/* Ambient Background Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] -z-10" />
+
             <div className="w-full max-w-md relative z-10">
                 <Link href="/" className="flex items-center gap-3 justify-center mb-8">
-                    <div className="w-64 h-24 relative flex items-center justify-center rounded-xl overflow-hidden">
+                    <div className="w-64 h-24 relative flex items-center justify-center">
                         <Image
-                            src={logo}
+                            src="/logodark.png"
                             alt="UNIAPEX Logo"
                             fill
                             className="object-contain"
@@ -101,31 +104,31 @@ function AuthContent() {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="backdrop-blur-xl border rounded-3xl p-8 shadow-2xl bg-white border-slate-200"
+                    className="glass-card rounded-3xl p-8 shadow-2xl relative overflow-hidden"
                 >
                     {/* Dual Toggle Slider */}
-                    <div className="flex p-1 rounded-xl mb-8 relative bg-slate-100">
+                    <div className="flex p-1 rounded-xl mb-8 relative bg-black/20 border border-white/5">
                         <motion.div
                             layoutId="auth-toggle"
-                            className="absolute inset-1 w-[calc(50%-4px)] rounded-lg shadow-sm bg-white"
+                            className="absolute inset-1 w-[calc(50%-4px)] rounded-lg shadow-sm bg-primary/20 border border-primary/20"
                         />
-                        <button className="flex-1 relative z-10 py-2 text-sm font-medium text-center transition-colors text-slate-900">
+                        <button className="flex-1 relative z-10 py-2 text-sm font-medium text-center transition-colors text-white">
                             Sign In
                         </button>
-                        <Link href="/register" className="flex-1 relative z-10 py-2 text-sm font-medium text-center transition-colors text-slate-500">
+                        <Link href="/register" className="flex-1 relative z-10 py-2 text-sm font-medium text-center transition-colors text-gray-400 hover:text-white">
                             Sign Up
                         </Link>
                     </div>
 
                     <div className="text-center mb-8">
-                        <h2 className="text-3xl font-bold mb-2">Welcome Back</h2>
-                        <p className="text-slate-500">Sign in with your email and password</p>
+                        <h2 className="text-3xl font-bold mb-2 text-white">Welcome Back</h2>
+                        <p className="text-gray-400">Sign in with your email and password</p>
                     </div>
 
                     <form onSubmit={handleSignIn} className="space-y-4">
                         <div>
-                            <label className="block text-sm font-medium mb-2 text-slate-900">
-                                <Mail className="w-4 h-4 inline mr-1" />
+                            <label className="block text-sm font-medium mb-2 text-gray-300">
+                                <Mail className="w-4 h-4 inline mr-1 text-primary" />
                                 Email
                             </label>
                             <input
@@ -133,14 +136,14 @@ function AuthContent() {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
-                                className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-slate-50 border border-transparent text-slate-900"
+                                className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-black/20 focus:bg-black/40 border border-white/10 text-white placeholder:text-gray-500 [&:-webkit-autofill]:bg-black/20 [&:-webkit-autofill]:[-webkit-text-fill-color:white] [&:-webkit-autofill]:transition-colors [&:-webkit-autofill]:duration-[5000s]"
                                 placeholder="you@example.com"
                             />
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium mb-2 text-slate-900">
-                                <Lock className="w-4 h-4 inline mr-1" />
+                            <label className="block text-sm font-medium mb-2 text-gray-300">
+                                <Lock className="w-4 h-4 inline mr-1 text-primary" />
                                 Password
                             </label>
                             <input
@@ -149,7 +152,7 @@ function AuthContent() {
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
                                 minLength={6}
-                                className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-slate-50 border border-transparent text-slate-900"
+                                className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-black/20 focus:bg-black/40 border border-white/10 text-white placeholder:text-gray-500 [&:-webkit-autofill]:bg-black/20 [&:-webkit-autofill]:[-webkit-text-fill-color:white] [&:-webkit-autofill]:transition-colors [&:-webkit-autofill]:duration-[5000s]"
                                 placeholder="••••••••"
                             />
                         </div>
@@ -158,7 +161,7 @@ function AuthContent() {
                             <motion.div
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="p-4 rounded-xl text-sm bg-red-50 border border-red-200 text-red-600"
+                                className="p-4 rounded-xl text-sm bg-red-500/10 border border-red-500/20 text-red-400"
                             >
                                 {message}
                             </motion.div>
@@ -167,7 +170,7 @@ function AuthContent() {
                         <button
                             type="submit"
                             disabled={formLoading}
-                            className="w-full py-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-semibold transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/25 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="w-full py-4 bg-primary hover:bg-primary/90 text-white rounded-xl font-semibold transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(59,130,246,0.5)] hover:shadow-[0_0_30px_rgba(59,130,246,0.7)] hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             {formLoading ? (
                                 <Loader2 className="w-5 h-5 animate-spin" />

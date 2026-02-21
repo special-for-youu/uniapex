@@ -98,41 +98,44 @@ export default function Profile() {
 
     if (loading) {
         return (
-            <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: 'var(--main-bg)', color: 'var(--text-color)' }}>
-                <div className="text-xl">Loading...</div>
+            <div className="min-h-screen flex items-center justify-center bg-grid-pattern">
+                <div className="text-xl text-white">Loading...</div>
             </div>
         )
     }
 
     return (
-        <div className="min-h-screen p-6 pt-20 md:p-8" style={{ backgroundColor: 'var(--main-bg)', color: 'var(--text-color)' }}>
-            <div className="max-w-2xl mx-auto">
+        <div className="min-h-screen p-6 pt-20 md:p-8 bg-grid-pattern text-foreground relative">
+            {/* Background glow for profile page */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px] pointer-events-none" />
+
+            <div className="max-w-3xl mx-auto relative z-10">
                 <div className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
                         <div className="flex items-center gap-3 mb-2">
-                            <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-blue-600 text-white">
+                            <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-primary/20 text-primary border border-primary/20 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
                                 <User className="w-6 h-6" />
                             </div>
-                            <h1 className="text-4xl font-bold">Your Profile</h1>
+                            <h1 className="text-4xl font-bold text-white">Your Profile</h1>
                         </div>
-                        <p className="text-gray-500 dark:text-gray-400">Update your information to get personalized recommendations</p>
+                        <p className="text-gray-400">Update your information to get personalized recommendations</p>
                     </div>
 
                     <div className="flex gap-3">
                         <Link
                             href="/cv-maker"
-                            className="flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-white/10 border border-gray-200 dark:border-white/10 rounded-xl font-semibold hover:bg-gray-50 dark:hover:bg-white/20 transition-all shadow-sm group"
+                            className="flex items-center gap-2 px-5 py-2.5 bg-white/5 border border-white/10 rounded-xl font-semibold hover:bg-white/10 transition-all shadow-sm group text-white"
                         >
-                            <FileText className="w-5 h-5 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform" />
+                            <FileText className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
                             <span>CV Maker</span>
                         </Link>
                     </div>
                 </div>
 
-                <div className="backdrop-blur-lg rounded-2xl p-8 border" style={{ backgroundColor: 'var(--main-container-bg)', borderColor: 'var(--item-hover)' }}>
+                <div className="glass-card rounded-2xl p-8 border border-white/10 shadow-xl">
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div>
-                            <label htmlFor="full_name" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-color)' }}>
+                            <label htmlFor="full_name" className="block text-sm font-medium mb-2 text-muted-foreground">
                                 Full Name
                             </label>
                             <input
@@ -141,8 +144,7 @@ export default function Profile() {
                                 value={formData.full_name}
                                 onChange={(e) => setFormData({ ...formData, full_name: e.target.value })}
                                 placeholder="John Doe"
-                                className="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                                style={{ backgroundColor: 'var(--main-bg)', borderColor: 'var(--item-hover)', color: 'var(--text-color)' }}
+                                className="w-full px-4 py-3 rounded-lg border border-white/10 bg-black/20 text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all placeholder:text-muted-foreground"
                             />
                         </div>
 
@@ -154,64 +156,63 @@ export default function Profile() {
                             />
                         </div>
 
-                        <div>
-                            <label htmlFor="current_gpa" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-color)' }}>
-                                Current GPA (0.0 - 4.0)
-                            </label>
-                            <input
-                                id="current_gpa"
-                                type="number"
-                                step="0.01"
-                                min="0"
-                                max="4"
-                                value={formData.current_gpa}
-                                onChange={(e) => setFormData({ ...formData, current_gpa: e.target.value })}
-                                placeholder="3.5"
-                                className="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                                style={{ backgroundColor: 'var(--main-bg)', borderColor: 'var(--item-hover)', color: 'var(--text-color)' }}
-                            />
-                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div>
+                                <label htmlFor="current_gpa" className="block text-sm font-medium mb-2 text-muted-foreground">
+                                    Current GPA (0.0 - 4.0)
+                                </label>
+                                <input
+                                    id="current_gpa"
+                                    type="number"
+                                    step="0.01"
+                                    min="0"
+                                    max="4"
+                                    value={formData.current_gpa}
+                                    onChange={(e) => setFormData({ ...formData, current_gpa: e.target.value })}
+                                    placeholder="3.5"
+                                    className="w-full px-4 py-3 rounded-lg border border-white/10 bg-black/20 text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all placeholder:text-muted-foreground"
+                                />
+                            </div>
 
-                        <div>
-                            <label htmlFor="ielts_score" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-color)' }}>
-                                IELTS Score (0.0 - 9.0)
-                            </label>
-                            <input
-                                id="ielts_score"
-                                type="number"
-                                step="0.5"
-                                min="0"
-                                max="9"
-                                value={formData.ielts_score}
-                                onChange={(e) => setFormData({ ...formData, ielts_score: e.target.value })}
-                                placeholder="6.5"
-                                className="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                                style={{ backgroundColor: 'var(--main-bg)', borderColor: 'var(--item-hover)', color: 'var(--text-color)' }}
-                            />
-                        </div>
+                            <div>
+                                <label htmlFor="ielts_score" className="block text-sm font-medium mb-2 text-muted-foreground">
+                                    IELTS Score (0.0 - 9.0)
+                                </label>
+                                <input
+                                    id="ielts_score"
+                                    type="number"
+                                    step="0.5"
+                                    min="0"
+                                    max="9"
+                                    value={formData.ielts_score}
+                                    onChange={(e) => setFormData({ ...formData, ielts_score: e.target.value })}
+                                    placeholder="6.5"
+                                    className="w-full px-4 py-3 rounded-lg border border-white/10 bg-black/20 text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all placeholder:text-muted-foreground"
+                                />
+                            </div>
 
-                        <div>
-                            <label htmlFor="sat_score" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-color)' }}>
-                                SAT Score (400 - 1600)
-                            </label>
-                            <input
-                                id="sat_score"
-                                type="number"
-                                min="400"
-                                max="1600"
-                                value={formData.sat_score}
-                                onChange={(e) => setFormData({ ...formData, sat_score: e.target.value })}
-                                placeholder="1200"
-                                className="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                                style={{ backgroundColor: 'var(--main-bg)', borderColor: 'var(--item-hover)', color: 'var(--text-color)' }}
-                            />
+                            <div>
+                                <label htmlFor="sat_score" className="block text-sm font-medium mb-2 text-muted-foreground">
+                                    SAT Score (400 - 1600)
+                                </label>
+                                <input
+                                    id="sat_score"
+                                    type="number"
+                                    min="400"
+                                    max="1600"
+                                    value={formData.sat_score}
+                                    onChange={(e) => setFormData({ ...formData, sat_score: e.target.value })}
+                                    placeholder="1200"
+                                    className="w-full px-4 py-3 rounded-lg border border-white/10 bg-black/20 text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all placeholder:text-muted-foreground"
+                                />
+                            </div>
                         </div>
 
                         {message && (
                             <div
-                                className={`flex items-center gap-3 p-4 rounded-lg ${message.type === 'success'
-                                    ? 'bg-green-100 dark:bg-green-500/20 border border-green-200 dark:border-green-500/50 text-green-700 dark:text-green-300'
-                                    : 'bg-red-100 dark:bg-red-500/20 border border-red-200 dark:border-red-500/50 text-red-700 dark:text-red-300'
+                                className={`flex items-center gap-3 p-4 rounded-lg transform transition-all ${message.type === 'success'
+                                    ? 'bg-green-500/10 border border-green-500/20 text-green-400'
+                                    : 'bg-red-500/10 border border-red-500/20 text-red-400'
                                     }`}
                             >
                                 {message.type === 'success' ? (
@@ -226,7 +227,7 @@ export default function Profile() {
                         <button
                             type="submit"
                             disabled={saving}
-                            className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2"
+                            className="w-full bg-primary text-white py-4 rounded-xl font-bold hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(59,130,246,0.3)]"
                         >
                             <Save className="w-5 h-5" />
                             {saving ? 'Saving...' : 'Save Profile'}

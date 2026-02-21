@@ -38,36 +38,34 @@ export default function CountrySelect({ value, onChange, label, placeholder = "S
     }
 
     return (
-        <div className={`relative ${className}`} ref={containerRef}>
-            <label className="block text-sm font-medium mb-2 text-inherit">
+        <div className="relative w-full" ref={containerRef}>
+            <label className="block text-sm font-medium mb-2 text-muted-foreground">
                 {label}
                 {required && <span className="text-red-500 ml-1">*</span>}
             </label>
 
             <div
                 onClick={() => setIsOpen(!isOpen)}
-                className={`w-full px-4 py-3 rounded-xl border flex items-center justify-between cursor-pointer transition-all ${isOpen ? 'ring-2 ring-primary border-transparent' : 'border-slate-200 dark:border-slate-700 bg-card'
+                className={`w-full px-4 py-3 rounded-lg border border-white/10 bg-black/20 text-foreground flex items-center justify-between cursor-pointer transition-all ${isOpen ? 'ring-2 ring-primary border-primary/50' : 'hover:border-white/20'
                     } ${error ? 'border-red-500' : ''}`}
-                style={{ backgroundColor: 'var(--main-bg)', borderColor: !isOpen ? 'var(--border-color)' : '', color: 'var(--text-color)' }}
             >
-                <span className={value ? 'text-inherit' : 'text-slate-400'}>
+                <span className={value ? 'text-foreground' : 'text-muted-foreground'}>
                     {value || placeholder}
                 </span>
                 <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
             </div>
 
             {isOpen && (
-                <div className="absolute z-50 w-full mt-2 bg-card border border-border rounded-xl shadow-xl overflow-hidden animate-in fade-in zoom-in-95" style={{ backgroundColor: 'var(--main-container-bg)', borderColor: 'var(--border-color)' }}>
-                    <div className="p-2 border-b border-border">
+                <div className="absolute z-50 w-full mt-2 bg-[#0f172a] border border-white/10 rounded-xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95">
+                    <div className="p-2 border-b border-white/10 bg-black/20">
                         <input
                             type="text"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                             placeholder="Type to search..."
-                            className="w-full px-3 py-2 rounded-lg bg-secondary/50 text-sm focus:outline-none"
+                            className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/5 text-foreground focus:outline-none focus:border-primary/50 text-sm"
                             autoFocus
                             onClick={(e) => e.stopPropagation()}
-                            style={{ color: 'var(--text-color)' }}
                         />
                     </div>
                     <div className="max-h-60 overflow-y-auto">
@@ -76,7 +74,7 @@ export default function CountrySelect({ value, onChange, label, placeholder = "S
                                 <button
                                     key={country}
                                     onClick={() => handleSelect(country)}
-                                    className={`w-full text-left px-4 py-3 hover:bg-secondary/50 transition-colors flex items-center justify-between ${value === country ? 'bg-primary/10 text-primary' : 'text-inherit'
+                                    className={`w-full text-left px-4 py-3 hover:bg-white/10 transition-colors flex items-center justify-between ${value === country ? 'bg-primary/20 text-primary font-medium' : 'text-foreground'
                                         }`}
                                 >
                                     {country}

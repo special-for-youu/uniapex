@@ -73,40 +73,60 @@ export default function DashboardPage() {
 
     if (loading) {
         return (
-            <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: 'var(--main-bg)', color: 'var(--text-color)' }}>
-                <div className="text-xl">Loading...</div>
+            <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
+                <div className="flex flex-col items-center gap-4">
+                    <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+                    <div className="text-xl font-medium tracking-wide animate-pulse">Initializing Command Center...</div>
+                </div>
             </div>
         )
     }
 
     return (
-        <div className="min-h-screen p-6 pt-20 md:p-8" style={{ backgroundColor: 'var(--main-bg)', color: 'var(--text-color)' }}>
-            <div className="max-w-7xl mx-auto">
+        <div className="min-h-screen p-6 pt-24 md:p-8 bg-grid-pattern">
+            <div className="max-w-7xl mx-auto space-y-8">
+
+                {/* Greeting Section */}
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <motion.h1
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-gray-400"
+                        >
+                            Welcome back, {profile?.full_name?.split(' ')[0] || 'Commander'}
+                        </motion.h1>
+                    </div>
+                </div>
+
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
+                    {/* Left Column: Tasks & Articles */}
                     <div className="lg:col-span-2 space-y-8">
 
+                        {/* Tasks Widget */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 }}
-                            className="p-6 rounded-2xl border backdrop-blur-xl min-h-[400px]"
-                            style={{
-                                backgroundColor: 'var(--main-container-bg)',
-                                borderColor: 'var(--border-color)',
-                                boxShadow: 'var(--container-shadow)'
-                            }}
+                            transition={{ delay: 0.4 }}
+                            className="glass-card p-6 rounded-2xl min-h-[400px]"
                         >
                             <TodoList />
                         </motion.div>
 
-
-
+                        {/* Articles Section */}
                         <section>
-                            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                                <FileText className="w-6 h-6 text-blue-500" />
-                                Latest Articles
-                            </h2>
+                            <div className="flex items-center justify-between mb-6">
+                                <h2 className="text-2xl font-bold flex items-center gap-3">
+                                    <div className="p-2 rounded-lg bg-blue-500/10 text-blue-400">
+                                        <FileText className="w-5 h-5" />
+                                    </div>
+                                    <span>Intelligence Feed</span>
+                                </h2>
+                                <Link href="/articles" className="text-sm text-primary hover:text-primary/80 transition-colors">
+                                    Articles
+                                </Link>
+                            </div>
 
                             {articles.length > 0 ? (
                                 <div className="grid md:grid-cols-2 gap-6">
@@ -122,96 +142,86 @@ export default function DashboardPage() {
                                     ))}
                                 </div>
                             ) : (
-                                <div className="p-8 rounded-2xl border border-dashed border-gray-700 text-center text-gray-500">
-                                    <p>No articles available yet.</p>
-                                    <p className="text-sm mt-2">Check back later for updates!</p>
+                                <div className="p-12 rounded-2xl border border-dashed border-white/10 text-center text-gray-500 bg-white/5">
+                                    <p>No intelligence reports available.</p>
+                                    <p className="text-sm mt-2">Awaiting data uplink...</p>
                                 </div>
                             )}
                         </section>
                     </div>
 
+                    {/* Right Column: Stats & Resources */}
                     <div className="space-y-6">
 
+                        {/* Profile Stats */}
                         <motion.div
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
-                            className="p-6 rounded-2xl border backdrop-blur-xl"
-                            style={{
-                                backgroundColor: 'var(--main-container-bg)',
-                                borderColor: 'var(--border-color)',
-                                boxShadow: 'var(--container-shadow)'
-                            }}
+                            transition={{ delay: 0.5 }}
+                            className="glass-card p-6 rounded-2xl"
                         >
-                            <h3 className="text-lg font-bold mb-6">Your Profile Snapshot</h3>
+                            <h3 className="text-lg font-bold mb-6 text-foreground uppercase tracking-wider text-sm">Performance Metrics</h3>
                             <div className="grid grid-cols-3 gap-4 text-center">
-                                <div>
-                                    <div className="text-green-500 mb-2 flex justify-center"><TrendingUp className="w-6 h-6" /></div>
-                                    <div className="text-xs text-gray-500 uppercase tracking-wider mb-1">GPA</div>
-                                    <div className="text-2xl font-bold">{profile?.current_gpa?.toFixed(2) || '-'}</div>
+                                <div className="p-3 rounded-xl bg-white/5 border border-white/5 group hover:border-green-500/30 transition-colors">
+                                    <div className="text-green-400 mb-2 flex justify-center group-hover:scale-110 transition-transform"><TrendingUp className="w-5 h-5" /></div>
+                                    <div className="text-[10px] text-muted-foreground uppercase tracking-wider mb-1">GPA</div>
+                                    <div className="text-xl font-bold text-foreground">{profile?.current_gpa?.toFixed(2) || '-'}</div>
                                 </div>
-                                <div>
-                                    <div className="text-blue-500 mb-2 flex justify-center"><BookOpen className="w-6 h-6" /></div>
-                                    <div className="text-xs text-gray-500 uppercase tracking-wider mb-1">IELTS</div>
-                                    <div className="text-2xl font-bold">{profile?.ielts_score?.toFixed(1) || '-'}</div>
+                                <div className="p-3 rounded-xl bg-white/5 border border-white/5 group hover:border-blue-500/30 transition-colors">
+                                    <div className="text-blue-400 mb-2 flex justify-center group-hover:scale-110 transition-transform"><BookOpen className="w-5 h-5" /></div>
+                                    <div className="text-[10px] text-muted-foreground uppercase tracking-wider mb-1">IELTS</div>
+                                    <div className="text-xl font-bold text-foreground">{profile?.ielts_score?.toFixed(1) || '-'}</div>
                                 </div>
-                                <div>
-                                    <div className="text-purple-500 mb-2 flex justify-center"><Award className="w-6 h-6" /></div>
-                                    <div className="text-xs text-gray-500 uppercase tracking-wider mb-1">SAT</div>
-                                    <div className="text-2xl font-bold">{profile?.sat_score || '-'}</div>
+                                <div className="p-3 rounded-xl bg-white/5 border border-white/5 group hover:border-purple-500/30 transition-colors">
+                                    <div className="text-purple-400 mb-2 flex justify-center group-hover:scale-110 transition-transform"><Award className="w-5 h-5" /></div>
+                                    <div className="text-[10px] text-muted-foreground uppercase tracking-wider mb-1">SAT</div>
+                                    <div className="text-xl font-bold text-foreground">{profile?.sat_score || '-'}</div>
                                 </div>
                             </div>
                         </motion.div>
 
+                        {/* Essential Tools */}
                         <motion.div
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.1 }}
-                            className="p-6 rounded-2xl border backdrop-blur-xl"
-                            style={{
-                                backgroundColor: 'var(--main-container-bg)',
-                                borderColor: 'var(--border-color)',
-                                boxShadow: 'var(--container-shadow)'
-                            }}
+                            transition={{ delay: 0.6 }}
+                            className="glass-card p-6 rounded-2xl"
                         >
-                            <h3 className="text-lg font-bold mb-4">Essential Resources & Tools</h3>
-                            <div className="space-y-4">
+                            <h3 className="text-lg font-bold mb-4 text-foreground uppercase tracking-wider text-sm">Command Modules</h3>
+                            <div className="space-y-3">
                                 <ResourceLink
                                     href="/ai-tutor"
                                     icon={<Sparkles className="w-5 h-5 text-green-400" />}
-                                    title="AI Tutor"
-                                    description="Get personalized study guidance"
+                                    title="AI Tutor Protocol"
+                                    description="Initialize personalized study guidance"
                                     color="green"
                                 />
                                 <ResourceLink
                                     href="/universities"
                                     icon={<School className="w-5 h-5 text-blue-400" />}
-                                    title="University Search"
-                                    description="Find competitions and opportunities"
+                                    title="University Scanner"
+                                    description="Locate target institutions"
                                     color="blue"
                                 />
                                 <ResourceLink
                                     href="/career-test"
                                     icon={<Target className="w-5 h-5 text-purple-400" />}
-                                    title="Career Test"
-                                    description="Discover your ideal profession"
+                                    title="Career Trajectory"
+                                    description="Calculate optimal profession"
                                     color="purple"
                                 />
                             </div>
                         </motion.div>
 
+                        {/* Info Sections */}
                         <div className="space-y-6">
                             <motion.section
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.2 }}
-                                className="p-6 rounded-2xl border backdrop-blur-xl"
-                                style={{
-                                    backgroundColor: 'var(--main-container-bg)',
-                                    borderColor: 'var(--border-color)',
-                                    boxShadow: 'var(--container-shadow)'
-                                }}
+                                transition={{ delay: 0.7 }}
+                                className="glass-card p-6 rounded-2xl"
                             >
-                                <h3 className="text-xl font-bold mb-4">What You Need to Know</h3>
+                                <h3 className="text-lg font-bold mb-4 text-foreground uppercase tracking-wider text-sm">Briefing Materials</h3>
                                 <ul className="space-y-3">
                                     {[
                                         "Key Application Deadlines",
@@ -220,8 +230,8 @@ export default function DashboardPage() {
                                         "Life on Campus Tips",
                                         "Student Health Insurance"
                                     ].map((item, i) => (
-                                        <li key={i} className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors cursor-pointer">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                                        <li key={i} className="flex items-center gap-3 text-muted-foreground hover:text-blue-400 transition-colors cursor-pointer group font-medium">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 group-hover:shadow-[0_0_8px_#3b82f6] transition-shadow" />
                                             {item}
                                         </li>
                                     ))}
@@ -231,15 +241,10 @@ export default function DashboardPage() {
                             <motion.section
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3 }}
-                                className="p-6 rounded-2xl border backdrop-blur-xl"
-                                style={{
-                                    backgroundColor: 'var(--main-container-bg)',
-                                    borderColor: 'var(--border-color)',
-                                    boxShadow: 'var(--container-shadow)'
-                                }}
+                                transition={{ delay: 0.8 }}
+                                className="glass-card p-6 rounded-2xl"
                             >
-                                <h3 className="text-xl font-bold mb-4">University Journey Guides</h3>
+                                <h3 className="text-lg font-bold mb-4 text-foreground uppercase tracking-wider text-sm">Journey Protocols</h3>
                                 <ul className="space-y-3">
                                     {[
                                         "Interactive guide to university journey",
@@ -248,8 +253,8 @@ export default function DashboardPage() {
                                         "Comparing university offers",
                                         "Pre-departure orientation guide"
                                     ].map((item, i) => (
-                                        <li key={i} className="flex items-center gap-2 text-gray-400 hover:text-purple-400 transition-colors cursor-pointer">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-purple-500" />
+                                        <li key={i} className="flex items-center gap-3 text-muted-foreground hover:text-purple-400 transition-colors cursor-pointer group font-medium">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-purple-500 group-hover:shadow-[0_0_8px_#a855f7] transition-shadow" />
                                             {item}
                                         </li>
                                     ))}
@@ -264,25 +269,24 @@ export default function DashboardPage() {
 }
 
 function ResourceLink({ href, icon, title, description, color }: { href: string; icon: React.ReactNode; title: string; description: string; color: string }) {
-    const bgColors: { [key: string]: string } = {
-        green: 'rgba(74, 222, 128, 0.1)',
-        blue: 'rgba(96, 165, 250, 0.1)',
-        purple: 'rgba(192, 132, 252, 0.1)'
+    const borderColors: { [key: string]: string } = {
+        green: 'hover:border-green-500/50',
+        blue: 'hover:border-blue-500/50',
+        purple: 'hover:border-purple-500/50'
     }
 
     return (
-        <Link href={href} className="flex items-center gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors group">
+        <Link href={href} className={`flex items-center gap-4 p-3 rounded-xl bg-white/5 border border-white/5 transition-all duration-300 hover:bg-white/10 group ${borderColors[color]}`}>
             <div
-                className="w-10 h-10 rounded-lg flex items-center justify-center transition-colors"
-                style={{ backgroundColor: bgColors[color] || 'rgba(255,255,255,0.1)' }}
+                className="w-10 h-10 rounded-lg flex items-center justify-center bg-black/20 border border-white/5 group-hover:scale-105 transition-transform"
             >
                 {icon}
             </div>
             <div className="flex-grow">
-                <div className="font-semibold text-sm group-hover:text-blue-400 transition-colors">{title}</div>
-                <div className="text-xs text-gray-500 line-clamp-1">{description}</div>
+                <div className="font-semibold text-sm text-foreground transition-colors">{title}</div>
+                <div className="text-xs text-muted-foreground line-clamp-1">{description}</div>
             </div>
-            <ChevronRight className="w-4 h-4 text-gray-600 group-hover:text-gray-400" />
+            <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition-all" />
         </Link>
     )
 }

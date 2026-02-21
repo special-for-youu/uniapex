@@ -334,7 +334,9 @@ export default function UniversitiesPage() {
   }
 
   return (
-    <div className="min-h-screen pb-24 md:pb-8 bg-background text-foreground">
+    <div className="min-h-screen pb-24 md:pb-8 bg-grid-pattern text-foreground relative">
+      {/* Background glow for universities page */}
+      <div className="absolute top-0 left-0 w-full h-[500px] bg-primary/5 blur-[120px] pointer-events-none" />
 
 
       {/* Mobile Header Search */}
@@ -361,17 +363,17 @@ export default function UniversitiesPage() {
         </div>
 
 
-        <div className="p-4 md:p-6 rounded-xl mb-6 md:mb-8 shadow-sm bg-card border border-border">
+        <div className="p-4 md:p-6 rounded-xl mb-6 md:mb-8 shadow-sm glass-card border border-white/5 relative z-10">
 
           <div className="mb-4 hidden md:block">
             <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search universities..."
-                className="w-full pl-12 pr-4 py-3 rounded-xl border border-border focus:outline-none focus:ring-2 focus:ring-blue-500 bg-background text-foreground"
+                className="w-full pl-12 pr-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-primary bg-black/20 text-white placeholder:text-gray-500"
               />
             </div>
           </div>
@@ -381,30 +383,30 @@ export default function UniversitiesPage() {
             <select
               value={filters.country}
               onChange={(e) => setFilters({ ...filters, country: e.target.value })}
-              className="px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-4 py-2 rounded-lg border border-white/10 bg-black/20 text-white focus:outline-none focus:ring-2 focus:ring-primary"
             >
-              <option value="">All Countries</option>
+              <option value="" className="bg-gray-900">All Countries</option>
               {popularCountries.map(country => (
-                <option key={country} value={country}>{country}</option>
+                <option key={country} value={country} className="bg-gray-900">{country}</option>
               ))}
             </select>
 
             <select
               value={filters.program}
               onChange={(e) => setFilters({ ...filters, program: e.target.value })}
-              className="px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-4 py-2 rounded-lg border border-white/10 bg-black/20 text-white focus:outline-none focus:ring-2 focus:ring-primary"
             >
-              <option value="">All Programs</option>
+              <option value="" className="bg-gray-900">All Programs</option>
               {popularPrograms.map(prog => (
-                <option key={prog} value={prog}>{prog}</option>
+                <option key={prog} value={prog} className="bg-gray-900">{prog}</option>
               ))}
             </select>
 
             <button
               onClick={() => setFilters({ ...filters, showSaved: !filters.showSaved })}
               className={`px-4 py-2 rounded-lg border flex items-center justify-center gap-2 transition-all ${filters.showSaved
-                ? 'bg-blue-600 text-white border-blue-600'
-                : 'bg-background border-border text-foreground hover:bg-muted'
+                ? 'bg-primary text-white border-primary shadow-[0_0_10px_rgba(59,130,246,0.3)]'
+                : 'bg-black/20 border-white/10 text-foreground hover:bg-white/5'
                 }`}
             >
               {filters.showSaved ? <BookmarkCheck className="w-4 h-4" /> : <BookmarkPlus className="w-4 h-4" />}
@@ -414,8 +416,8 @@ export default function UniversitiesPage() {
             <button
               onClick={() => setFilters({ ...filters, scholarships: !filters.scholarships })}
               className={`px-4 py-2 rounded-lg border flex items-center justify-center gap-2 transition-all ${filters.scholarships
-                ? 'bg-green-600 text-white border-green-600'
-                : 'bg-background border-border text-foreground hover:bg-muted'
+                ? 'bg-green-600 text-white border-green-600 shadow-[0_0_10px_rgba(22,163,74,0.3)]'
+                : 'bg-black/20 border-white/10 text-foreground hover:bg-white/5'
                 }`}
             >
               <DollarSign className="w-4 h-4" />
@@ -428,7 +430,7 @@ export default function UniversitiesPage() {
               placeholder="Min GPA"
               value={filters.minGPA}
               onChange={(e) => setFilters({ ...filters, minGPA: e.target.value })}
-              className="px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-4 py-2 rounded-lg border border-white/10 bg-black/20 text-white focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
         </div>
@@ -454,8 +456,8 @@ export default function UniversitiesPage() {
 
             {universities.length === 0 && (
               <div className="text-center py-12">
-                <Filter className="w-16 h-16 text-gray-500 mx-auto mb-4" />
-                <p className="text-xl text-gray-400">No universities match your filters</p>
+                <Filter className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
+                <p className="text-xl text-muted-foreground">No universities match your filters</p>
               </div>
             )}
 
@@ -628,7 +630,7 @@ function UniversityCard({ university, isSaved, onToggleSave, onClick }: {
     <motion.div
       whileHover={{ y: -5 }}
       onClick={onClick}
-      className="rounded-xl overflow-hidden cursor-pointer group flex md:flex-col h-full transition-all duration-300 bg-card shadow-sm hover:shadow-md border border-border"
+      className="rounded-xl overflow-hidden cursor-pointer group flex md:flex-col h-full transition-all duration-300 glass-card shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] hover:border-primary/50"
     >
 
       <div className="flex md:hidden w-full p-3 gap-4">
@@ -730,7 +732,7 @@ function UniversityCard({ university, isSaved, onToggleSave, onClick }: {
         </div>
 
         <div className="p-5 flex flex-col flex-grow">
-          <h3 className="text-lg font-semibold mb-2 line-clamp-2 text-card-foreground">
+          <h3 className="text-lg font-semibold mb-2 line-clamp-2 text-foreground group-hover:text-primary transition-colors">
             {university.name}
           </h3>
 
@@ -743,12 +745,12 @@ function UniversityCard({ university, isSaved, onToggleSave, onClick }: {
           {university.admissions?.requirements && (
             <div className="flex flex-wrap gap-2 mb-4">
               {university.admissions.requirements.min_gpa && (
-                <span className="px-2 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded text-xs font-medium">
+                <span className="px-2 py-1 bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded text-xs font-medium">
                   GPA {university.admissions.requirements.min_gpa}+
                 </span>
               )}
               {university.admissions.requirements.min_ielts && (
-                <span className="px-2 py-1 bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 rounded text-xs font-medium">
+                <span className="px-2 py-1 bg-purple-500/10 text-purple-400 border border-purple-500/20 rounded text-xs font-medium">
                   IELTS {university.admissions.requirements.min_ielts}+
                 </span>
               )}
@@ -760,12 +762,12 @@ function UniversityCard({ university, isSaved, onToggleSave, onClick }: {
             <div className="mb-4">
               <div className="flex flex-wrap gap-1.5">
                 {university.programs.slice(0, 3).map((prog, i) => (
-                  <span key={i} className="px-2 py-0.5 bg-muted text-muted-foreground rounded text-[10px] font-medium truncate max-w-[150px]">
+                  <span key={i} className="px-2 py-0.5 bg-white/5 border border-white/5 text-foreground rounded text-[10px] font-medium truncate max-w-[150px]">
                     {prog}
                   </span>
                 ))}
                 {university.programs.length > 3 && (
-                  <span className="px-2 py-0.5 bg-muted text-muted-foreground rounded text-[10px] font-medium">
+                  <span className="px-2 py-0.5 bg-white/5 border border-white/5 text-foreground rounded text-[10px] font-medium">
                     +{university.programs.length - 3}
                   </span>
                 )}
@@ -773,16 +775,16 @@ function UniversityCard({ university, isSaved, onToggleSave, onClick }: {
             </div>
           )}
 
-          <div className="mt-auto pt-4 border-t border-border flex justify-between items-center text-sm">
+          <div className="mt-auto pt-4 border-t border-white/5 flex justify-between items-center text-sm">
             {university.admissions?.tuition && (
-              <div className="flex items-center gap-1 text-green-600 dark:text-green-400 font-medium">
+              <div className="flex items-center gap-1 text-green-400 font-medium">
                 <DollarSign className="w-4 h-4" />
                 <span>{university.admissions.tuition}</span>
               </div>
             )}
             {university.admissions?.acceptance_rate && (
               <div className="text-muted-foreground">
-                Acceptance: <span className="font-medium text-card-foreground">{university.admissions.acceptance_rate}%</span>
+                Acceptance: <span className="font-medium text-foreground">{university.admissions.acceptance_rate}%</span>
               </div>
             )}
           </div>

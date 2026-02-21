@@ -112,9 +112,13 @@ export default function TestIntroPage() {
 
     if (showResults) {
         return (
-            <div className="min-h-screen flex items-center justify-center p-4 bg-background text-foreground">
-                <div className="max-w-3xl w-full backdrop-blur-lg rounded-2xl p-8 border bg-card text-card-foreground shadow-xl animate-in fade-in zoom-in duration-500">
-                    <h2 className="text-3xl font-bold mb-6 text-center">
+            <div className="min-h-screen flex items-center justify-center p-4 bg-grid-pattern relative overflow-hidden text-foreground">
+                {/* Ambient Background Glows */}
+                <div className="absolute top-[10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none z-0" />
+                <div className="absolute bottom-[0%] right-[-10%] w-[40%] h-[40%] rounded-full bg-purple-500/10 blur-[120px] pointer-events-none z-0" />
+
+                <div className="max-w-3xl w-full glass-card bg-black/20 rounded-2xl p-8 border border-white/10 shadow-2xl relative z-10 animate-in fade-in zoom-in duration-500">
+                    <h2 className="text-3xl font-bold mb-6 text-center text-foreground">
                         {loading ? 'Consulting AI...' : "Your Personalized Roadmap"}
                     </h2>
 
@@ -136,32 +140,32 @@ export default function TestIntroPage() {
                     ) : (
                         <div className="space-y-8">
                             {/* Summary */}
-                            <div className="p-6 rounded-xl bg-secondary/20 border border-secondary">
+                            <div className="p-6 rounded-xl bg-blue-500/10 border border-blue-500/20 backdrop-blur-sm">
                                 <h3 className="text-xl font-semibold text-primary mb-2 flex items-center gap-2">
                                     <Sparkles className="w-5 h-5" />
                                     AI Summary
                                 </h3>
-                                <p className="text-lg italic leading-relaxed opacity-90">"{recommendations?.summary}"</p>
+                                <p className="text-lg italic leading-relaxed opacity-90 text-foreground">"{recommendations?.summary}"</p>
                             </div>
 
                             {/* Recommendations & Career Paths */}
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div>
-                                    <h3 className="text-xl font-semibold mb-4">Top Recommendations</h3>
+                                    <h3 className="text-xl font-semibold mb-4 text-foreground">Top Recommendations</h3>
                                     <ul className="space-y-3">
                                         {recommendations?.recommendations?.map((rec: string, i: number) => (
-                                            <li key={i} className="flex items-start gap-3 p-3 rounded-lg bg-background border shadow-sm">
-                                                <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                                            <li key={i} className="flex items-start gap-3 p-3 rounded-lg bg-black/40 border border-white/5 shadow-sm text-foreground">
+                                                <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5 drop-shadow-[0_0_8px_rgba(34,197,94,0.5)]" />
                                                 <span>{rec}</span>
                                             </li>
                                         ))}
                                     </ul>
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-semibold mb-4">Potential Career Paths</h3>
+                                    <h3 className="text-xl font-semibold mb-4 text-foreground">Potential Career Paths</h3>
                                     <div className="flex flex-col gap-2">
                                         {recommendations?.careerPaths?.map((path: string, i: number) => (
-                                            <div key={i} className="p-3 rounded-lg bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 font-medium border border-blue-100 dark:border-blue-900/50">
+                                            <div key={i} className="p-3 rounded-lg bg-primary/10 text-primary font-medium border border-primary/20 shadow-sm">
                                                 {path}
                                             </div>
                                         ))}
@@ -183,17 +187,21 @@ export default function TestIntroPage() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center p-4 bg-background text-foreground">
-            <div className="max-w-2xl w-full">
+        <div className="min-h-screen flex items-center justify-center p-4 bg-grid-pattern relative overflow-hidden text-foreground">
+            {/* Ambient Background Glows */}
+            <div className="absolute top-[10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none z-0" />
+            <div className="absolute bottom-[0%] right-[-10%] w-[40%] h-[40%] rounded-full bg-purple-500/10 blur-[120px] pointer-events-none z-0" />
+
+            <div className="max-w-2xl w-full relative z-10">
                 {/* Progress Bar */}
                 <div className="mb-8">
                     <div className="flex justify-between text-sm text-muted-foreground mb-2 font-medium">
                         <span>Step {step} of 4</span>
                         <span>{Math.round((step / 4) * 100)}% Complete</span>
                     </div>
-                    <div className="h-2 bg-secondary rounded-full overflow-hidden">
+                    <div className="h-2 bg-white/5 border border-white/5 rounded-full overflow-hidden">
                         <motion.div
-                            className="h-full bg-primary"
+                            className="h-full bg-primary shadow-[0_0_10px_rgba(59,130,246,0.8)]"
                             initial={{ width: 0 }}
                             animate={{ width: `${(step / 4) * 100}%` }}
                             transition={{ duration: 0.5 }}
@@ -202,7 +210,7 @@ export default function TestIntroPage() {
                 </div>
 
                 {/* Content Card */}
-                <div className="bg-card text-card-foreground rounded-2xl p-6 md:p-8 border shadow-xl min-h-[500px] flex flex-col">
+                <div className="glass-card bg-black/20 rounded-2xl p-6 md:p-8 border border-white/10 shadow-2xl min-h-[500px] flex flex-col">
                     <div className="flex-1">
                         <AnimatePresence mode="wait">
                             {step === 1 && (
@@ -229,12 +237,12 @@ export default function TestIntroPage() {
                     </div>
 
                     {/* Navigation */}
-                    <div className="flex justify-between mt-8 pt-6 border-t">
+                    <div className="flex justify-between mt-8 pt-6 border-t border-white/5">
                         <button
                             onClick={prevStep}
                             className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-colors ${step === 1
                                 ? 'invisible'
-                                : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                : 'text-slate-400 hover:bg-white/10 hover:text-white'
                                 }`}
                         >
                             <ArrowLeft className="w-5 h-5" /> Back
