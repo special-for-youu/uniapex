@@ -214,7 +214,7 @@ export default function AITutorPage() {
     ]
 
     return (
-        <div className="flex h-[calc(100vh-80px)] overflow-hidden" style={{ backgroundColor: 'var(--main-bg)', color: 'var(--text-color)' }}>
+        <div className="flex h-[calc(100vh-80px)] overflow-hidden bg-[#020617] text-slate-100 selection:bg-primary/30 font-sans">
 
             {/* Mobile Overlay */}
             <AnimatePresence>
@@ -224,103 +224,125 @@ export default function AITutorPage() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={() => setIsSidebarOpen(false)}
-                        className="md:hidden fixed inset-0 bg-black/50 z-40 backdrop-blur-sm"
+                        className="lg:hidden fixed inset-0 bg-black/60 z-40 backdrop-blur-sm"
                     />
                 )}
             </AnimatePresence>
 
             {/* Sidebar */}
             <AnimatePresence mode='wait'>
-                {(isSidebarOpen || (typeof window !== 'undefined' && window.innerWidth >= 768)) && (
-                    <motion.div
-                        initial={{ x: '100%', opacity: 0 }}
+                {(isSidebarOpen || (typeof window !== 'undefined' && window.innerWidth >= 1024)) && (
+                    <motion.aside
+                        initial={{ x: '-100%', opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
-                        exit={{ x: '100%', opacity: 0 }}
+                        exit={{ x: '-100%', opacity: 0 }}
                         transition={{ type: "spring", bounce: 0, duration: 0.3 }}
-                        className={`fixed right-0 md:relative z-50 w-72 h-full md:border-r border-l md:border-l-0 flex flex-col transition-colors duration-300 bg-background
-                            ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full md:translate-x-0'}
+                        className={`fixed left-0 lg:relative z-50 w-80 h-full flex flex-col border-r border-slate-800 bg-[#0f172a] shadow-2xl lg:shadow-none
+                            ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
                         `}
-                        style={{ backgroundColor: 'var(--main-container-bg)', borderColor: 'var(--item-hover)' }}
                     >
-                        <div className="p-4 border-b" style={{ borderColor: 'var(--item-hover)' }}>
-                            <div className="flex items-center justify-between mb-4 md:hidden">
-                                <span className="font-bold text-lg">Chats</span>
+                        <div className="p-6">
+                            <div className="flex items-center justify-between mb-8 lg:hidden">
+                                <span className="font-bold text-lg text-white">Chats</span>
                                 <button
                                     onClick={() => setIsSidebarOpen(false)}
-                                    className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-lg transition-colors"
+                                    className="p-2 hover:bg-white/10 rounded-lg transition-colors text-slate-400"
                                 >
                                     <X className="w-5 h-5" />
                                 </button>
                             </div>
+
                             <button
                                 onClick={createNewSession}
-                                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-all shadow-sm hover:shadow-md"
+                                className="w-full flex items-center justify-center gap-2 bg-primary hover:bg-blue-600 text-white py-3.5 px-4 rounded-xl font-semibold transition-all shadow-lg shadow-blue-500/20 mb-8"
                             >
                                 <Plus className="w-5 h-5" />
-                                New Chat
+                                New Session
                             </button>
-                        </div>
 
-                        <div className="flex-1 overflow-y-auto p-3 space-y-2">
-                            {sessions.length === 0 && (
-                                <div className="text-center text-gray-500 mt-10 text-sm">
-                                    No saved chats yet.
-                                </div>
-                            )}
-                            {sessions.map(session => (
-                                <div
-                                    key={session.id}
-                                    onClick={() => loadSession(session.id)}
-                                    className={`group flex items-center justify-between p-3 rounded-lg cursor-pointer transition-all ${currentSessionId === session.id
-                                        ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400'
-                                        : 'hover:bg-gray-100 dark:hover:bg-white/5 text-gray-600 dark:text-white'
-                                        }`}
-                                >
-                                    <div className="flex items-center gap-3 overflow-hidden">
-                                        <MessageSquare className="w-4 h-4 flex-shrink-0" />
-                                        <span className="truncate text-sm font-medium">{session.title || 'Untitled Chat'}</span>
+                            <nav className="space-y-1">
+                                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-[0.1em] mb-4 px-3">Recent Counseling</p>
+
+                                {sessions.length === 0 && (
+                                    <div className="text-center text-slate-500 mt-4 text-sm px-3">
+                                        No saved chats yet.
                                     </div>
-                                    <button
-                                        onClick={(e) => deleteSession(e, session.id)}
-                                        className="opacity-0 group-hover:opacity-100 p-1.5 hover:bg-red-100 dark:hover:bg-red-900/30 text-red-500 rounded-md transition-all"
+                                )}
+
+                                {sessions.map(session => (
+                                    <div
+                                        key={session.id}
+                                        onClick={() => loadSession(session.id)}
+                                        className={`group flex items-center justify-between p-3.5 rounded-xl cursor-pointer transition-all border ${currentSessionId === session.id
+                                            ? 'bg-slate-800/50 border-slate-700/50 text-primary font-medium'
+                                            : 'hover:bg-slate-800/50 border-transparent hover:border-slate-700/50 text-slate-400'
+                                            }`}
                                     >
-                                        <Trash2 className="w-4 h-4" />
-                                    </button>
-                                </div>
-                            ))}
+                                        <div className="flex items-center gap-3 overflow-hidden">
+                                            <MessageSquare className="w-5 h-5 flex-shrink-0" />
+                                            <span className="truncate text-sm">{session.title || 'Untitled Chat'}</span>
+                                        </div>
+                                        <button
+                                            onClick={(e) => deleteSession(e, session.id)}
+                                            className="opacity-0 group-hover:opacity-100 p-1.5 hover:bg-red-500/20 text-red-400 rounded-md transition-all"
+                                        >
+                                            <Trash2 className="w-4 h-4" />
+                                        </button>
+                                    </div>
+                                ))}
+                            </nav>
                         </div>
-                    </motion.div>
+                    </motion.aside>
                 )}
             </AnimatePresence>
 
             {/* Main Chat Area */}
-            <div className="flex-1 flex flex-col h-full relative">
-
+            <main className="flex-1 flex flex-col h-full bg-[#020617] relative">
                 {/* Header */}
-                <div className="h-16 border-b flex items-center justify-between px-6 md:px-8" style={{ backgroundColor: 'var(--main-container-bg)', borderColor: 'var(--item-hover)' }}>
-                    <div className="flex items-center gap-3 ml-16 md:ml-0">
-                        <Sparkles className="w-6 h-6 text-blue-500" />
-                        <h1 className="font-bold text-lg hidden sm:block">AI Tutor</h1>
-                    </div>
+                <header className="h-16 flex items-center justify-between px-6 bg-[#0f172a]/80 backdrop-blur-xl border-b border-slate-800 sticky top-0 z-20">
+                    <div className="flex items-center gap-4">
+                        <button
+                            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                            className="lg:hidden p-2 rounded-lg hover:bg-slate-800 transition-colors text-slate-400 -ml-2"
+                        >
+                            <Menu className="w-5 h-5" />
+                        </button>
 
-                    {/* Mobile Sidebar Toggle (Moved here) */}
-                    <button
-                        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                        className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
-                    >
-                        {isSidebarOpen ? <X className="w-5 h-5" /> : <FileText className="w-5 h-5" />}
-                    </button>
-                </div>
+                        <div className="w-9 h-9 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20">
+                            <Sparkles className="text-primary w-5 h-5" />
+                        </div>
+                        <div>
+                            <h2 className="font-bold text-sm tracking-tight text-white">UniApex AI Advisor</h2>
+                            <div className="flex items-center gap-1.5">
+                                <span className="relative flex h-2 w-2">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                </span>
+                                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Active Counseling</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        {/* placeholder for future icons */}
+                    </div>
+                </header>
 
                 {/* Messages */}
-                <div className="flex-1 overflow-y-auto p-4 md:p-8 space-y-6 scroll-smooth">
+                <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-10 scroll-smooth custom-scrollbar">
+
+                    {messages.length > 0 && (
+                        <div className="flex justify-center my-4">
+                            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] bg-slate-800/40 px-4 py-1.5 rounded-full border border-slate-700/30">Session Started</span>
+                        </div>
+                    )}
+
                     {messages.length === 0 && !loading && (
                         <div className="flex flex-col items-center justify-center h-full text-center p-4">
-                            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-6 shadow-lg shadow-blue-500/20">
-                                <Sparkles className="w-8 h-8 text-white" />
+                            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-primary flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(59,130,246,0.4)]">
+                                <Sparkles className="w-10 h-10 text-white" />
                             </div>
-                            <h3 className="text-2xl font-bold mb-2">How can I help you today?</h3>
-                            <p className="max-w-md text-muted-foreground mb-8">
+                            <h3 className="text-2xl font-bold mb-3 text-white">How can I help you today?</h3>
+                            <p className="max-w-md text-slate-400 mb-8">
                                 Ask me anything about universities, applications, or exams.
                             </p>
 
@@ -329,7 +351,7 @@ export default function AITutorPage() {
                                     <button
                                         key={idx}
                                         onClick={() => sendMessage(suggestion)}
-                                        className="p-4 rounded-xl border border-pink-200 dark:border-pink-900/50 bg-pink-50/50 dark:bg-pink-900/10 hover:bg-pink-100 dark:hover:bg-pink-900/20 text-pink-700 dark:text-pink-300 transition-all text-sm font-medium text-left hover:scale-[1.01] active:scale-[0.99]"
+                                        className="p-4 rounded-xl border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.06] hover:border-primary/30 text-slate-300 transition-all text-sm font-medium text-left hover:scale-[1.01] active:scale-[0.99]"
                                     >
                                         {suggestion}
                                     </button>
@@ -339,64 +361,88 @@ export default function AITutorPage() {
                     )}
 
                     {messages.map((msg, idx) => (
-                        <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            key={idx}
-                            className={`flex items-start gap-4 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}
-                        >
-                            <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${msg.role === 'user' ? 'bg-blue-600' : 'bg-purple-600'}`}>
-                                {msg.role === 'user' ? <User className="w-5 h-5 text-white" /> : <Bot className="w-5 h-5 text-white" />}
-                            </div>
-
-                            <div className={`max-w-[85%] md:max-w-[75%] rounded-2xl p-4 shadow-sm ${msg.role === 'user'
-                                ? 'bg-blue-600 text-white'
-                                : 'bg-white dark:bg-slate-900 border border-gray-100 dark:border-white/10'
-                                }`}>
-                                <div className={`prose prose-sm max-w-none ${msg.role === 'user' ? 'prose-invert' : 'dark:prose-invert'}`}>
-                                    <ReactMarkdown>{msg.content}</ReactMarkdown>
+                        <AnimatePresence key={idx}>
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className={`flex gap-4 max-w-4xl mx-auto group ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}
+                            >
+                                <div className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center self-start mt-1 ${msg.role === 'user' ? 'bg-slate-800 border border-slate-700' : 'bg-primary/20 border border-primary/30'}`}>
+                                    {msg.role === 'user' ? <User className="w-5 h-5 text-slate-300" /> : <Bot className="w-5 h-5 text-primary" />}
                                 </div>
-                            </div>
-                        </motion.div>
+
+                                <div className={`space-y-2 flex-1 ${msg.role === 'user' ? 'text-right' : ''}`}>
+                                    <div className={`inline-block p-5 text-left ${msg.role === 'user'
+                                        ? 'bg-primary text-white rounded-2xl rounded-tr-none shadow-lg max-w-lg'
+                                        : 'bg-slate-900 border border-slate-800 rounded-2xl rounded-tl-none shadow-sm text-slate-300'
+                                        }`}>
+                                        <div className={`prose prose-sm max-w-none leading-relaxed ${msg.role === 'user' ? 'prose-invert font-medium' : 'prose-invert'}`}>
+                                            <ReactMarkdown>{msg.content}</ReactMarkdown>
+                                        </div>
+                                    </div>
+                                    <div className={`flex gap-2 mr-2 ${msg.role === 'user' ? 'justify-end' : 'ml-2'}`}>
+                                        <span className="text-[10px] font-medium text-slate-600">
+                                            {msg.role === 'user' ? 'Seen' : ''} {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                        </span>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
                     ))}
 
                     {loading && (
-                        <div className="flex items-start gap-4">
-                            <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0">
-                                <Bot className="w-5 h-5 text-white" />
+                        <div className="flex gap-4 max-w-4xl mx-auto group">
+                            <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/30 self-start mt-1">
+                                <Bot className="w-5 h-5 text-primary" />
                             </div>
-                            <div className="bg-white dark:bg-slate-900 border border-gray-100 dark:border-white/10 rounded-2xl p-4 shadow-sm">
-                                <Loader2 className="w-5 h-5 animate-spin text-gray-500 dark:text-gray-400" />
+                            <div className="space-y-2 flex-1">
+                                <div className="inline-block bg-slate-900 border border-slate-800 p-5 rounded-2xl rounded-tl-none shadow-sm text-slate-300">
+                                    <div className="flex gap-1.5 items-center h-5">
+                                        <div className="w-2 h-2 bg-primary/60 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                                        <div className="w-2 h-2 bg-primary/60 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                                        <div className="w-2 h-2 bg-primary/60 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     )}
                     <div ref={messagesEndRef} />
                 </div>
 
-                {/* Input */}
-                <div className="p-4 md:p-6 border-t" style={{ backgroundColor: 'var(--main-container-bg)', borderColor: 'var(--item-hover)' }}>
-                    <form onSubmit={handleSubmit} className="relative max-w-4xl mx-auto">
-                        <input
-                            type="text"
-                            value={input}
-                            onChange={(e) => setInput(e.target.value)}
-                            placeholder="Ask anything..."
-                            className="w-full pl-6 pr-14 py-4 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm transition-all"
-                            style={{ backgroundColor: 'var(--main-bg)', borderColor: 'var(--item-hover)', color: 'var(--text-color)' }}
-                        />
-                        <button
-                            type="submit"
-                            disabled={loading || !input.trim()}
-                            className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-xl transition-all"
-                        >
-                            <Send className="w-5 h-5" />
-                        </button>
-                    </form>
-                    <p className="text-center text-xs text-gray-400 mt-3">
-                        AI can make mistakes. Verify important information.
-                    </p>
-                </div>
-            </div>
+                {/* Footer Input Area */}
+                <footer className="p-4 md:p-6 pt-2 bg-[#020617]/80 backdrop-blur-md sticky bottom-0 z-20">
+
+
+                    <div className="max-w-4xl mx-auto relative">
+                        <form onSubmit={handleSubmit} className="bg-slate-900 border border-slate-800 rounded-2xl flex items-end p-2.5 pr-4 transition-colors focus-within:border-primary/50 shadow-2xl">
+                            <button type="button" className="p-2.5 text-slate-500 hover:text-primary transition-colors flex-shrink-0">
+                                <Plus className="w-5 h-5" />
+                            </button>
+
+                            <input
+                                type="text"
+                                value={input}
+                                onChange={(e) => setInput(e.target.value)}
+                                placeholder="Type your message here..."
+                                className="flex-1 w-full border-none focus:ring-0 bg-transparent text-slate-100 py-3 px-3 text-sm focus:outline-none placeholder:text-slate-600"
+                            />
+
+                            <div className="flex items-center gap-2 mb-0.5 flex-shrink-0 pl-2">
+                                <button
+                                    type="submit"
+                                    disabled={loading || !input.trim()}
+                                    className="bg-primary text-white p-2.5 rounded-xl hover:bg-blue-600 transition-all flex items-center justify-center shadow-lg shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                                >
+                                    <Send className="w-5 h-5 ml-1" />
+                                </button>
+                            </div>
+                        </form>
+                        <p className="text-center text-[10px] text-slate-600 mt-4 uppercase tracking-[0.1em] font-medium mb-1">
+                            UniApex AI may provide inaccurate info. Always verify official deadlines.
+                        </p>
+                    </div>
+                </footer>
+            </main>
         </div>
     )
 }

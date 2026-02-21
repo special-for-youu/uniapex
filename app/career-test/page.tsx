@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { CheckCircle, ArrowRight, ArrowLeft, Sparkles, BarChart2 } from 'lucide-react'
 import questions from '@/app/data/questions.json'
@@ -29,8 +29,20 @@ interface Result {
 
 export default function CareerTestPage() {
     const router = useRouter()
-    const [currentQuestion, setCurrentQuestion] = useState(0)
-    const [answers, setAnswers] = useState<string[]>([])
+    const [currentQuestion, setCurrentQuestion] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const saved = localStorage.getItem('career-current-index')
+            return saved ? parseInt(saved, 10) : 0
+        }
+        return 0
+    })
+    const [answers, setAnswers] = useState<string[]>(() => {
+        if (typeof window !== 'undefined') {
+            const saved = localStorage.getItem('career-answers')
+            return saved ? JSON.parse(saved) : []
+        }
+        return []
+    })
     const [showResults, setShowResults] = useState(false)
     const [aiResults, setAiResults] = useState<any>(null)
     const [loading, setLoading] = useState(false)
@@ -38,6 +50,14 @@ export default function CareerTestPage() {
 
     const typedQuestions = questions as Question[]
     const typedTypes = types as Type[]
+
+    // Save to localStorage
+    useEffect(() => {
+        if (typeof window !== 'undefined' && !showResults) {
+            localStorage.setItem('career-current-index', currentQuestion.toString())
+            localStorage.setItem('career-answers', JSON.stringify(answers))
+        }
+    }, [currentQuestion, answers, showResults])
 
     const handleAnswer = (domain: string) => {
         const newAnswers = [...answers, domain]
@@ -76,6 +96,12 @@ export default function CareerTestPage() {
 
         setResults(calculatedResults)
 
+        // Clear progress upon successful completion
+        if (typeof window !== 'undefined') {
+            localStorage.removeItem('career-current-index')
+            localStorage.removeItem('career-answers')
+        }
+
         // AI Analysis
         try {
             const response = await fetch('/api/career-analysis', {
@@ -104,6 +130,10 @@ export default function CareerTestPage() {
         setShowResults(false)
         setResults([])
         setAiResults(null)
+        if (typeof window !== 'undefined') {
+            localStorage.removeItem('career-current-index')
+            localStorage.removeItem('career-answers')
+        }
     }
 
     const progress = ((currentQuestion + 1) / typedQuestions.length) * 100

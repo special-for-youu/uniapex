@@ -115,19 +115,19 @@ function AuthContent() {
                         <button className="flex-1 relative z-10 py-2 text-sm font-medium text-center transition-colors text-white">
                             Sign In
                         </button>
-                        <Link href="/register" className="flex-1 relative z-10 py-2 text-sm font-medium text-center transition-colors text-gray-400 hover:text-white">
+                        <Link href="/register" className="flex-1 relative z-10 py-2 text-sm font-medium text-center transition-colors text-[#9ca3af] hover:text-white">
                             Sign Up
                         </Link>
                     </div>
 
                     <div className="text-center mb-8">
                         <h2 className="text-3xl font-bold mb-2 text-white">Welcome Back</h2>
-                        <p className="text-gray-400">Sign in with your email and password</p>
+                        <p className="text-[#9ca3af]">Sign in with your email and password</p>
                     </div>
 
                     <form onSubmit={handleSignIn} className="space-y-4">
                         <div>
-                            <label className="block text-sm font-medium mb-2 text-gray-300">
+                            <label className="block text-sm font-medium mb-2 text-[#d1d5db]">
                                 <Mail className="w-4 h-4 inline mr-1 text-primary" />
                                 Email
                             </label>
@@ -136,13 +136,13 @@ function AuthContent() {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
-                                className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-black/20 focus:bg-black/40 border border-white/10 text-white placeholder:text-gray-500 [&:-webkit-autofill]:bg-black/20 [&:-webkit-autofill]:[-webkit-text-fill-color:white] [&:-webkit-autofill]:transition-colors [&:-webkit-autofill]:duration-[5000s]"
+                                className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-black/20 focus:bg-black/40 border border-white/10 text-white placeholder:text-[#6b7280] [&:-webkit-autofill]:bg-black/20 [&:-webkit-autofill]:[-webkit-text-fill-color:white] [&:-webkit-autofill]:transition-colors [&:-webkit-autofill]:duration-[5000s]"
                                 placeholder="you@example.com"
                             />
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium mb-2 text-gray-300">
+                            <label className="block text-sm font-medium mb-2 text-[#d1d5db]">
                                 <Lock className="w-4 h-4 inline mr-1 text-primary" />
                                 Password
                             </label>
@@ -152,7 +152,7 @@ function AuthContent() {
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
                                 minLength={6}
-                                className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-black/20 focus:bg-black/40 border border-white/10 text-white placeholder:text-gray-500 [&:-webkit-autofill]:bg-black/20 [&:-webkit-autofill]:[-webkit-text-fill-color:white] [&:-webkit-autofill]:transition-colors [&:-webkit-autofill]:duration-[5000s]"
+                                className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-black/20 focus:bg-black/40 border border-white/10 text-white placeholder:text-[#6b7280] [&:-webkit-autofill]:bg-black/20 [&:-webkit-autofill]:[-webkit-text-fill-color:white] [&:-webkit-autofill]:transition-colors [&:-webkit-autofill]:duration-[5000s]"
                                 placeholder="••••••••"
                             />
                         </div>
@@ -161,7 +161,7 @@ function AuthContent() {
                             <motion.div
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="p-4 rounded-xl text-sm bg-red-500/10 border border-red-500/20 text-red-400"
+                                className="p-4 rounded-xl text-sm bg-red-500/10 border border-red-500/20 text-[#f87171]"
                             >
                                 {message}
                             </motion.div>

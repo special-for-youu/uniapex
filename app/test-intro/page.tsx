@@ -50,8 +50,10 @@ export default function TestIntroPage() {
 
     // Save to LocalStorage
     useEffect(() => {
-        localStorage.setItem('test-intro-wizard', JSON.stringify(data))
-    }, [data])
+        if (!showResults) {
+            localStorage.setItem('test-intro-wizard', JSON.stringify(data))
+        }
+    }, [data, showResults])
 
     const updateData = (newData: Partial<WizardState>) => {
         setData(prev => ({ ...prev, ...newData }))
@@ -86,6 +88,9 @@ export default function TestIntroPage() {
                 }
                 throw new Error(result.error || 'Failed to fetch recommendations')
             }
+
+            // Clear progress upon successful completion
+            localStorage.removeItem('test-intro-wizard')
 
             // Redirect to the specific report page if ID is available, otherwise to analyse list
             if (result.id) {

@@ -33,11 +33,11 @@ export default function MBTITestPage() {
 
     // Save to localStorage whenever state changes
     useEffect(() => {
-        if (typeof window !== 'undefined') {
+        if (typeof window !== 'undefined' && !result) {
             localStorage.setItem('mbti-current-index', currentQIndex.toString())
             localStorage.setItem('mbti-answers', JSON.stringify(answers))
         }
-    }, [currentQIndex, answers])
+    }, [currentQIndex, answers, result])
 
     useEffect(() => {
         fetchQuestions()
@@ -101,6 +101,12 @@ export default function MBTITestPage() {
             if (!res.ok) throw new Error('Failed to calculate results')
             const data = await res.json()
             setResult(data)
+
+            // Clear progress upon successful completion
+            if (typeof window !== 'undefined') {
+                localStorage.removeItem('mbti-current-index')
+                localStorage.removeItem('mbti-answers')
+            }
         } catch (err) {
             setError('Failed to generate results.')
         } finally {

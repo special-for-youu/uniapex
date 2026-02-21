@@ -106,7 +106,7 @@ export default function RegisterPage() {
                             layoutId="auth-toggle"
                             className="absolute inset-1 left-[50%] w-[calc(50%-4px)] rounded-lg shadow-sm bg-primary/20 border border-primary/20"
                         />
-                        <Link href="/auth" className="flex-1 relative z-10 py-2 text-sm font-medium text-center transition-colors text-gray-400 hover:text-white">
+                        <Link href="/auth" className="flex-1 relative z-10 py-2 text-sm font-medium text-center transition-colors text-[#9ca3af] hover:text-white">
                             Sign In
                         </Link>
                         <button className="flex-1 relative z-10 py-2 text-sm font-medium text-center transition-colors text-white">
@@ -116,7 +116,7 @@ export default function RegisterPage() {
 
                     <div className="text-center mb-8">
                         <h2 className="text-3xl font-bold mb-2 text-white">Create Account</h2>
-                        <p className="text-gray-400">Start your university journey today</p>
+                        <p className="text-[#9ca3af]">Start your university journey today</p>
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-4">
@@ -129,7 +129,7 @@ export default function RegisterPage() {
                             >
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
-                                        <label className="block text-sm font-medium mb-2 text-gray-300">
+                                        <label className="block text-sm font-medium mb-2 text-[#d1d5db]">
                                             <User className="w-4 h-4 inline mr-1 text-primary" />
                                             First Name
                                         </label>
@@ -139,26 +139,26 @@ export default function RegisterPage() {
                                             required
                                             value={formData.firstName}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-white/5 border border-white/10 text-white placeholder:text-gray-500"
+                                            className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-black/20 focus:bg-black/40 border border-white/10 text-white placeholder:text-[#6b7280]"
                                             placeholder="John"
                                         />
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium mb-2 text-gray-300">Last Name</label>
+                                        <label className="block text-sm font-medium mb-2 text-[#d1d5db]">Last Name</label>
                                         <input
                                             type="text"
                                             name="lastName"
                                             required
                                             value={formData.lastName}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-white/5 border border-white/10 text-white placeholder:text-gray-500"
+                                            className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-black/20 focus:bg-black/40 border border-white/10 text-white placeholder:text-[#6b7280]"
                                             placeholder="Doe"
                                         />
                                     </div>
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium mb-2 text-gray-300">
+                                    <label className="block text-sm font-medium mb-2 text-[#d1d5db]">
                                         <Mail className="w-4 h-4 inline mr-1 text-primary" />
                                         Email
                                     </label>
@@ -168,13 +168,13 @@ export default function RegisterPage() {
                                         required
                                         value={formData.email}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-white/5 border border-white/10 text-white placeholder:text-gray-500"
+                                        className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-black/20 focus:bg-black/40 border border-white/10 text-white placeholder:text-[#6b7280]"
                                         placeholder="john@example.com"
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium mb-2 text-gray-300">
+                                    <label className="block text-sm font-medium mb-2 text-[#d1d5db]">
                                         <Lock className="w-4 h-4 inline mr-1 text-primary" />
                                         Password
                                     </label>
@@ -184,7 +184,7 @@ export default function RegisterPage() {
                                         required
                                         value={formData.password}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-white/5 border border-white/10 text-white placeholder:text-gray-500"
+                                        className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-black/20 focus:bg-black/40 border border-white/10 text-white placeholder:text-[#6b7280]"
                                         placeholder="••••••••"
                                     />
                                 </div>
@@ -207,7 +207,7 @@ export default function RegisterPage() {
                             >
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
-                                        <label className="block text-sm font-medium mb-2 text-gray-300">
+                                        <label className="block text-sm font-medium mb-2 text-[#d1d5db]">
                                             <Calendar className="w-4 h-4 inline mr-1 text-primary" />
                                             Age
                                         </label>
@@ -217,19 +217,19 @@ export default function RegisterPage() {
                                             required
                                             value={formData.age}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-white/5 border border-white/10 text-white placeholder:text-gray-500"
+                                            className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-black/20 focus:bg-black/40 border border-white/10 text-white placeholder:text-[#6b7280]"
                                             placeholder="17"
                                         />
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium mb-2 text-gray-300">Grade</label>
+                                        <label className="block text-sm font-medium mb-2 text-[#d1d5db]">Grade</label>
                                         <input
                                             type="text"
                                             name="grade"
                                             required
                                             value={formData.grade}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-white/5 border border-white/10 text-white placeholder:text-gray-500"
+                                            className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all bg-black/20 focus:bg-black/40 border border-white/10 text-white placeholder:text-[#6b7280]"
                                             placeholder="11th Grade"
                                         />
                                     </div>
@@ -246,7 +246,7 @@ export default function RegisterPage() {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium mb-2 text-gray-300">
+                                    <label className="block text-sm font-medium mb-2 text-[#d1d5db]">
                                         <FileText className="w-4 h-4 inline mr-1 text-primary" />
                                         Bio & Interests
                                     </label>
@@ -255,7 +255,7 @@ export default function RegisterPage() {
                                         rows={3}
                                         value={formData.bio}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none bg-white/5 border border-white/10 text-white placeholder:text-gray-500"
+                                        className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none bg-black/20 focus:bg-black/40 border border-white/10 text-white placeholder:text-[#6b7280]"
                                         placeholder="Tell us about yourself..."
                                     />
                                 </div>
@@ -264,7 +264,7 @@ export default function RegisterPage() {
                                     <button
                                         type="button"
                                         onClick={() => setStep(1)}
-                                        className="w-1/3 py-4 border border-white/10 rounded-xl font-semibold transition-all hover:bg-white/5 text-gray-300"
+                                        className="w-1/3 py-4 border border-white/10 rounded-xl font-semibold transition-all hover:bg-white/5 text-[#d1d5db]"
                                     >
                                         Back
                                     </button>
