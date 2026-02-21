@@ -18,6 +18,9 @@ interface Article {
     category?: string
     tags?: string[]
     difficulty?: string
+    content?: string
+    published_at?: string
+    created_at?: string
 }
 
 export default function ArticlesPage() {
@@ -207,11 +210,11 @@ export default function ArticlesPage() {
                                             <div className="flex items-center gap-4">
                                                 <div className="flex items-center gap-1">
                                                     <Calendar className="w-3 h-3" />
-                                                    <span>{article.date || new Date().toLocaleDateString()}</span>
+                                                    <span>{article.published_at || article.created_at ? new Date(article.published_at || article.created_at!).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Recent'}</span>
                                                 </div>
                                                 <div className="flex items-center gap-1">
                                                     <Clock className="w-3 h-3" />
-                                                    <span>{article.read_time || '5 min read'}</span>
+                                                    <span>{article.read_time || `${Math.max(1, Math.ceil(((article.content || article.description || '').trim().split(/\\s+/).length) / 200))} min read`}</span>
                                                 </div>
                                             </div>
                                         </div>

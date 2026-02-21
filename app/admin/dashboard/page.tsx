@@ -33,7 +33,7 @@ export default function AdminDashboard() {
     const [articles, setArticles] = useState<Article[]>([])
     const [loading, setLoading] = useState(true)
     const [submitting, setSubmitting] = useState(false)
-    const supabase = createClient()
+    const [supabase] = useState(() => createClient())
 
     // Form State
     const [title, setTitle] = useState('')
@@ -60,12 +60,6 @@ export default function AdminDashboard() {
     }
 
     useEffect(() => {
-        // Simple auth check
-        const isAdmin = localStorage.getItem('admin_session')
-        if (!isAdmin) {
-            router.push('/admin')
-            return
-        }
         fetchArticles()
     }, [])
 
@@ -85,8 +79,8 @@ export default function AdminDashboard() {
         }
     }
 
-    const handleLogout = () => {
-        localStorage.removeItem('admin_session')
+    const handleLogout = async () => {
+        await fetch('/api/admin/logout', { method: 'POST' })
         router.push('/admin')
     }
 

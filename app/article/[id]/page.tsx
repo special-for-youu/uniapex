@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { createClient } from '@/utils/supabase/client'
-import { ArrowLeft, Clock, Calendar, User } from 'lucide-react'
+import { ArrowLeft, Clock, Calendar, User, LogOut } from 'lucide-react'
 import Link from 'next/link'
 
 interface Article {
@@ -65,10 +65,10 @@ export default function ArticlePage() {
     if (!article) return null
 
     return (
-        <div className="min-h-screen pb-20" style={{ backgroundColor: 'var(--main-bg)', color: 'var(--text-color)' }}>
+        <div className="min-h-screen pb-20 flex flex-col" style={{ backgroundColor: 'var(--main-bg)', color: 'var(--text-color)' }}>
 
             {/* Hero Section - Flyer Style */}
-            <div className="relative w-full min-h-[85vh] flex flex-col justify-center items-center p-6 bg-grid-pattern text-white">
+            <div className="relative w-full min-h-[70vh] flex flex-col justify-center items-center p-6 pt-16 md:pt-20 pb-16 bg-grid-pattern text-white">
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 z-0">
                     <img
@@ -80,52 +80,52 @@ export default function ArticlePage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[var(--main-bg)] via-transparent to-black/60" />
                 </div>
 
-                {/* Back Button - Top Left */}
-                <div className="absolute top-8 left-8 z-20">
+                <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-start gap-6">
+                    {/* Flow Layout Back Button */}
                     <Link
                         href="/dashboard"
-                        className="flex items-center gap-2 text-white/90 hover:text-white hover:scale-105 transition-all bg-black/30 backdrop-blur-md border border-white/10 px-5 py-2.5 rounded-full shadow-lg group"
+                        className="flex items-center gap-2 text-white/90 hover:text-white hover:scale-105 transition-all bg-black/40 backdrop-blur-md border border-white/10 px-5 py-2.5 rounded-full shadow-lg group w-max"
                     >
                         <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                         <span className="font-medium">Back to Dashboard</span>
                     </Link>
-                </div>
 
-                {/* Flyer Content Card */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ duration: 0.5 }}
-                    className="relative z-10 max-w-4xl w-full mx-auto"
-                >
-                    <div className="glass-card p-10 md:p-14 rounded-3xl border border-white/20 shadow-[0_0_40px_rgba(0,0,0,0.5)] text-center backdrop-blur-xl bg-black/40">
-                        {/* Metadata Badges */}
-                        <div className="flex flex-wrap justify-center items-center gap-4 mb-8 text-white/90">
-                            <span className="flex items-center gap-2 bg-white/10 px-4 py-1.5 rounded-full border border-white/10 text-sm font-medium backdrop-blur-md">
-                                <Calendar className="w-4 h-4" />
-                                {new Date(article.published_at || article.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-                            </span>
-                            <span className="flex items-center gap-2 bg-white/10 px-4 py-1.5 rounded-full border border-white/10 text-sm font-medium backdrop-blur-md">
-                                <Clock className="w-4 h-4" />
-                                {Math.ceil((article.content?.length || 0) / 1000)} min read
-                            </span>
-                            {article.author && (
+                    {/* Flyer Content Card */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        transition={{ duration: 0.5 }}
+                        className="w-full"
+                    >
+                        <div className="glass-card p-8 md:p-10 rounded-2xl border border-white/20 shadow-[0_0_40px_rgba(0,0,0,0.6)] text-center backdrop-blur-xl bg-black/50">
+                            {/* Metadata Badges */}
+                            <div className="flex flex-wrap justify-center items-center gap-4 mb-8 text-white/90">
                                 <span className="flex items-center gap-2 bg-white/10 px-4 py-1.5 rounded-full border border-white/10 text-sm font-medium backdrop-blur-md">
-                                    <User className="w-4 h-4" />
-                                    {article.author}
+                                    <Calendar className="w-4 h-4" />
+                                    {new Date(article.published_at || article.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                                 </span>
-                            )}
+                                <span className="flex items-center gap-2 bg-white/10 px-4 py-1.5 rounded-full border border-white/10 text-sm font-medium backdrop-blur-md">
+                                    <Clock className="w-4 h-4" />
+                                    {Math.max(1, Math.ceil(((article.content || article.description || '').trim().split(/\\s+/).length) / 200))} min read
+                                </span>
+                                {article.author && (
+                                    <span className="flex items-center gap-2 bg-white/10 px-4 py-1.5 rounded-full border border-white/10 text-sm font-medium backdrop-blur-md">
+                                        <User className="w-4 h-4" />
+                                        {article.author}
+                                    </span>
+                                )}
+                            </div>
+
+                            {/* Title */}
+                            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl md:leading-tight font-black text-white mb-6 tracking-tight drop-shadow-lg">
+                                {article.title}
+                            </h1>
+
+                            {/* Subtle Divider */}
+                            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent mx-auto rounded-full mb-8 opacity-80" />
                         </div>
-
-                        {/* Title */}
-                        <h1 className="text-4xl md:text-6xl md:leading-tight font-black text-white mb-6 tracking-tight drop-shadow-lg">
-                            {article.title}
-                        </h1>
-
-                        {/* Subtle Divider */}
-                        <div className="w-24 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent mx-auto rounded-full mb-8 opacity-80" />
-                    </div>
-                </motion.div>
+                    </motion.div>
+                </div>
             </div>
 
             {/* Content */}
